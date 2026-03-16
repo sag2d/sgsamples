@@ -35,7 +35,7 @@ I designed this project to help train junior developers in learning PHP.
 III. Running the Vehicles OOP Demo
 -------------------------------
 
-See the demo in action by running the primary PHP CLI script as described below.
+See the demo in action by running the primary PHP CLI script as described below with any modern version of PHP.
 From a command-line interface, navigate to the "vehicles_oop_demo" directory, and run the PHP script as follows:
 php vehicles_run.php
 
