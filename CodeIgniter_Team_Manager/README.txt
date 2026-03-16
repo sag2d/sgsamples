@@ -44,7 +44,7 @@ Administrative screens are available to view a list of these groups and manage t
 III. Installing CodeIgniter
 -------------------------------
 
-The Team Manager assumes proper installation of the CodeIgniter MVC framework, which
+The Team Manager assumes proper installation of PHP 5.1 and the CodeIgniter MVC framework 2.0.2, which
 is available at no cost from the CodeIgniter website:
 http://codeigniter.com/
 
