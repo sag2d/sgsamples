@@ -8,7 +8,7 @@ require_once 'class.Vehicle.php';
  * 
  * The Car class extends the Vehicle class and defines the extra features of a Car object.
  */
-class Car extends Vehicle{
+class Car extends Vehicle {
 	
 	public $convertible = false;
 	
@@ -17,15 +17,15 @@ class Car extends Vehicle{
 	/**
 	 * Car::__construct()
 	 *
-	 * Constructor for Car class.
+	 * Extended constructor for Car class to check for convertible.
 	 *
 	 * @access public
 	 * @param string $name
 	 * @param bool $convertible
 	 */
 	public function __construct($name, $convertible=false) {
-		// set the name of the current vehicle
-		$this->name = $name;
+		// call the parent constructor
+		parent::__construct($name);
 		
 		// if convertible was specified
 		if(!empty($convertible)) {

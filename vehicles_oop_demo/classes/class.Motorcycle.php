@@ -8,7 +8,7 @@ require_once 'class.Vehicle.php';
  * 
  * The Motorcycle class extends the Vehicle class and defines the different features of a Motorcycle object.
  */
-class Motorcycle extends Vehicle{
+class Motorcycle extends Vehicle {
 
 	public $num_wheels = 2;
 	
