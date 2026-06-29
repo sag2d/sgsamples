@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once 'class.Vehicle.php';
 
 /**
@@ -10,21 +12,34 @@ require_once 'class.Vehicle.php';
  */
 class Motorcycle extends Vehicle {
 
-	public $num_wheels = 2;
+	public int $num_wheels = 2 {
+		set {
+			if($value < 0) {
+				throw new InvalidArgumentException('A motorcycle cannot have a negative number of wheels.');
+			}
+
+			$this->num_wheels = $value;
+		}
+	}
 	
-	protected $windshield = false;
-	protected $roof = false;
+	protected bool $windshield = false {
+		set => $value;
+	}
+
+	protected bool $roof = false {
+		set => $value;
+	}
 	
 	/**
 	 * Motorcycle::wheelie()
 	 *
 	 * Pop a wheelie!
 	 *
-	 * @access protected
+	 * @access public
 	 * 
 	 * @return bool
 	 */
-	public function wheelie() {
+	public function wheelie(): bool {
 		return true;
 	}
 

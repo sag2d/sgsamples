@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @author Scott Greenhagen
  * @copyright 2026
@@ -8,13 +10,31 @@
  */
 class Vehicle {
 	
-	public $name = '';
-	public $num_wheels = 4;
+	public string $name = '' {
+		set => trim($value);
+	}
+
+	public int $num_wheels = 4 {
+		set {
+			if($value < 0) {
+				throw new InvalidArgumentException('A vehicle cannot have a negative number of wheels.');
+			}
+
+			$this->num_wheels = $value;
+		}
+	}
 	
-	protected $windshield = true;
-	protected $roof = true;
+	protected bool $windshield = true {
+		set => $value;
+	}
+
+	protected bool $roof = true {
+		set => $value;
+	}
 	
-	private $engine_running = false;
+	private bool $engine_running = false {
+		set => $value;
+	}
 	
 	/**
 	 * Vehicle::__construct()
@@ -24,7 +44,7 @@ class Vehicle {
 	 * @access public
 	 * @param string $name
 	 */
-	public function __construct($name) {
+	public function __construct(string $name) {
 		// set the name of the current vehicle
 		$this->name = $name;
 	}
@@ -38,7 +58,7 @@ class Vehicle {
 	 * 
 	 * @return array $features
 	 */
-	public function get_features() {
+	public function get_features(): array {
 		// set the features of the current vehicle in a human-readable format
 		$features = [
 			'type' => get_class($this),
@@ -60,7 +80,7 @@ class Vehicle {
 	 * 
 	 * @return bool $success
 	 */
-	public function start_engine() {
+	public function start_engine(): bool {
 		$this->engine_running = true;
 		
 		return true;
@@ -75,7 +95,7 @@ class Vehicle {
 	 * 
 	 * @return bool $engine_running
 	 */
-	public function is_running() {
+	public function is_running(): bool {
 		return $this->engine_running;
 	}
 	
@@ -88,7 +108,7 @@ class Vehicle {
 	 * 
 	 * @return bool $success
 	 */
-	public function stop_engine() {
+	public function stop_engine(): bool {
 		$this->engine_running = false;
 		
 		return true;

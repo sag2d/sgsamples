@@ -1,6 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 require_once 'class.Vehicle.php';
+
+/**
+ * The RoofPosition enum defines valid convertible roof positions for Car objects.
+ */
+enum RoofPosition: string {
+	case Up = 'up';
+	case Down = 'down';
+}
 
 /**
  * @author Scott Greenhagen
@@ -10,9 +20,13 @@ require_once 'class.Vehicle.php';
  */
 class Car extends Vehicle {
 	
-	public $convertible = false;
+	public bool $convertible = false {
+		set => $value;
+	}
 	
-	protected $roof_position = 'up';
+	protected RoofPosition $roof_position = RoofPosition::Up {
+		set => $value;
+	}
 	
 	/**
 	 * Car::__construct()
@@ -23,14 +37,11 @@ class Car extends Vehicle {
 	 * @param string $name
 	 * @param bool $convertible
 	 */
-	public function __construct($name, $convertible=false) {
+	public function __construct(string $name, bool $convertible=false) {
 		// call the parent constructor
 		parent::__construct($name);
 		
-		// if convertible was specified
-		if(!empty($convertible)) {
-			$this->convertible = $convertible;
-		}
+		$this->convertible = $convertible;
 	}
 
 	/**
@@ -42,14 +53,14 @@ class Car extends Vehicle {
 	 * 
 	 * @return bool
 	 */
-	public function roof_lower() {
+	public function roof_lower(): bool {
 		// make sure this car is a convertible before attempting to modify the roof!
 		if(!$this->convertible) {
 			return false;
 		}
 		
 		// lower the convertible's roof
-		$this->roof_position = 'down';
+		$this->roof_position = RoofPosition::Down;
 		
 		return true;
 	}
@@ -63,14 +74,14 @@ class Car extends Vehicle {
 	 * 
 	 * @return bool
 	 */
-	public function roof_raise() {
+	public function roof_raise(): bool {
 		// make sure this car is a convertible before attempting to modify the roof!
 		if(!$this->convertible) {
 			return false;
 		}
 		
 		// raise the roof!
-		$this->roof_position = 'up';
+		$this->roof_position = RoofPosition::Up;
 		
 		return true;
 	}

@@ -1,10 +1,12 @@
 <?php
 
-require_once 'includes/functions.inc.php';
+declare(strict_types=1);
+
 require_once 'classes/class.Vehicle.php';
 require_once 'classes/class.Car.php';
 require_once 'classes/class.Motorcycle.php';
 require_once 'classes/class.AutoShop.php';
+require_once 'includes/functions.inc.php';
 
 /**
  * @author Scott Greenhagen
@@ -45,7 +47,7 @@ vehicle_off($car);
 echo "\n-----\n\n";
 
 // instantiate the Motorcycle object
-$motorcycle = new Motorcycle('Motorcycle', true);
+$motorcycle = new Motorcycle('Motorcycle');
 
 // run the Motorcycle's standard functions
 vehicle_run($motorcycle);

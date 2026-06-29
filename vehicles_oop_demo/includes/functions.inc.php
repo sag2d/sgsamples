@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * @author Scott Greenhagen
  * @copyright 2026
@@ -13,16 +15,9 @@
  * List features and run the provided vehicle's standard functions.
  *
  * @access public
- * @param object $vehicle
- * 
  * @return bool
  */
-function vehicle_run($vehicle) {
-	// make sure we have a vehicle, and the vehicle is a valid object
-	if(empty($vehicle) || !is_object($vehicle)) {
-		return false;
-	}
-	
+function vehicle_run(Vehicle $vehicle): bool {
 	// get the vehicle's features
 	$vehicle_features = $vehicle->get_features();
 
@@ -55,16 +50,9 @@ function vehicle_run($vehicle) {
  * Turn the provided vehicle off.
  *
  * @access public
- * @param object $vehicle
- * 
  * @return bool
  */
-function vehicle_off($vehicle) {
-	// make sure we have a vehicle, and the vehicle is a valid object
-	if(empty($vehicle) || !is_object($vehicle)) {
-		return false;
-	}
-	
+function vehicle_off(Vehicle $vehicle): bool {
 	// stop the engine
 	$stopped = $vehicle->stop_engine();
 
