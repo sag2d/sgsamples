@@ -4,6 +4,7 @@ require_once 'includes/functions.inc.php';
 require_once 'classes/class.Vehicle.php';
 require_once 'classes/class.Car.php';
 require_once 'classes/class.Motorcycle.php';
+require_once 'classes/class.AutoShop.php';
 
 /**
  * @author Scott Greenhagen
@@ -56,5 +57,16 @@ if($motorcycle->wheelie()) {
 
 // turn the Motorcycle off
 vehicle_off($motorcycle);
+
+// check to see if tires need air on the Motorcycle after wheelie
+if(AutoShop::check_tires($motorcycle)) {
+	if(AutoShop::fill_tires($motorcycle)) {
+		echo "\n$motorcycle->name tires filled with air.\n";
+	}
+
+	if(AutoShop::change_oil($motorcycle)) {
+		echo "\n$motorcycle->name oil changed.\n";
+	}
+}
 
 echo "\nDemo ran to completion successfully.\n";
