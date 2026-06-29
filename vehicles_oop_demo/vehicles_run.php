@@ -57,4 +57,4 @@ if($motorcycle->wheelie()) {
 // turn the Motorcycle off
 vehicle_off($motorcycle);
 
-echo "\nEnd of demo.\n";
+echo "\nDemo ran to completion successfully.\n";
