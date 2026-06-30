@@ -99,6 +99,9 @@ On the administrative management pages, the following options are available:
 
 The database ID is also provided on the group listing for administrators.
 
+(Note: Administrative management screens are openly available for demonstration purposes only. 
+       These capabilities would normally require a login.)
+
 -------------------------------
 VI. Copyright Information
 -------------------------------

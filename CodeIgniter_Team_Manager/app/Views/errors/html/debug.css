@@ -1,0 +1,11 @@
+/* Debug error CSS */
+body{font-family:sans-serif;background:#f9f9f9;color:#333;margin:0;padding:0}
+.header{background:#222;color:#fff;padding:1rem}
+.container{padding:1rem;margin:0 auto;max-width:1100px}
+.tabs{list-style:none;margin:0;padding:0;display:flex;gap:.5rem}
+.tabs li{margin:0}
+.tabs a{text-decoration:none;color:#007bff}
+.content{display:none}
+.content.active{display:block}
+.trace{padding-left:1rem}
+pre{background:#fff;padding:1rem;border:1px solid #ddd;overflow:auto}

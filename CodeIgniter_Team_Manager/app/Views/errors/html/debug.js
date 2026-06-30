@@ -1,0 +1,2 @@
+function init(){var tabs=document.querySelectorAll('.tabs a'), contents=document.querySelectorAll('.content');if(tabs.length){tabs[0].click();for(var i=0;i<tabs.length;i++){tabs[i].addEventListener('click',function(e){e.preventDefault();var target=this.getAttribute('href'),content=document.querySelector(target);contents.forEach(function(c){c.classList.remove('active');});if(content){content.classList.add('active');}})}}}
+function toggle(id){var el=document.getElementById(id);if(!el)return!1;el.style.display='block'===el.style.display?'none':'block';return!1;}
