@@ -7,17 +7,17 @@
 	echo form_hidden('id', !empty($team)?$team->id:'');
 ?>
 
-<?= view('admin/errors', ['errors' => $errors ?? []]) ?>
+<span class="error"><?php echo validation_errors(); ?></span>
 
 <dl>
 	<dt>Name<span class="note required"> *</span></dt>
-	<dd><?php echo form_input('name', !empty($team) ? $team->name : ''); ?></dd>
+	<dd><?php echo form_input('name', !empty($team)?$team->name:''); ?></dd>
 	
 	<dt>League<span class="note required"> *</span></dt>
-	<dd><?php echo form_dropdown('league_id', $leagues, !empty($team) ? $team->league_id : ''); ?></dd>
+	<dd><?php echo form_dropdown('league_id', $leagues, !empty($team)?$team->league_id:''); ?></dd>
 	
 	<dt>Mascot</dt>
-	<dd><?php echo form_input('mascot', !empty($team) ? $team->mascot : ''); ?></dd>
+	<dd><?php echo form_input('mascot', !empty($team)?$team->mascot:''); ?></dd>
 </dl>
 
 <?php 

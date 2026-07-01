@@ -6,6 +6,13 @@ use App\Controllers\BaseController;
 use App\Models\PlayerModel;
 use App\Models\TeamModel;
 
+/**
+ * Player Controller for the admin section of the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 2.0
+ * @package Team Manager
+ */
 class Player extends BaseController
 {
     private PlayerModel $player;
@@ -28,6 +35,7 @@ class Player extends BaseController
      * This method loads the view to display the player management listing.
      *
      * @access public
+     * @return string
      */
     public function index(): string
     {
@@ -44,6 +52,7 @@ class Player extends BaseController
      *
      * @access public
      * @param int|null $id
+     * @return string
      */
     public function edit(?int $id = null): string
     {
@@ -63,17 +72,18 @@ class Player extends BaseController
      * If the player does already exists, the existing player is updated.
      *
      * @access public
+     * @return \CodeIgniter\HTTP\RedirectResponse
      */
     public function save()
     {
         $rules = [
-            'first_name' => 'required',
-            'last_name' => 'required',
-            'team_id' => 'required',
-            'email' => 'permit_empty|valid_email',
+            'first_name' => ['label' => 'First Name', 'rules' => 'required'],
+            'last_name' => ['label' => 'Last Name', 'rules' => 'required'],
+            'team_id' => ['label' => 'Team', 'rules' => 'required'],
+            'email' => ['label' => 'Email', 'rules' => 'required|valid_email'],
         ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return $this->render('admin/player/edit', [
                 'player' => (object) $this->request->getPost(),
                 'states' => get_states(),
@@ -83,17 +93,13 @@ class Player extends BaseController
         }
 
         $id = $this->request->getPost('id');
-        $data = [
-            'first_name' => $this->request->getPost('first_name'),
-            'last_name' => $this->request->getPost('last_name'),
-            'team_id' => $this->request->getPost('team_id'),
-            'address' => $this->request->getPost('address'),
-            'city' => $this->request->getPost('city'),
-            'state_id' => $this->request->getPost('state_id'),
-            'zip' => $this->request->getPost('zip'),
-            'email' => $this->request->getPost('email'),
-            'phone' => $this->request->getPost('phone'),
-        ];
+        $fields = array('first_name', 'last_name', 'team_id', 'address', 'city', 'state_id', 'zip', 'email', 'phone');
+        $data = [];
+
+        foreach ($fields as $field) {
+            $data[$field] = $this->request->getPost($field);
+        }
+       
         $result = $id ? $this->player->update($id, $data) : $this->player->insert($data);
 
         if ($result !== false) {
@@ -112,6 +118,7 @@ class Player extends BaseController
      *
      * @access public
      * @param int|null $id
+     * @return \CodeIgniter\HTTP\RedirectResponse
      */
     public function delete(?int $id = null)
     {

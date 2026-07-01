@@ -44,7 +44,7 @@ Administrative screens are available to view a list of these groups and manage t
 III. Installing CodeIgniter
 -------------------------------
 
-The Team Manager assumes proper installation of PHP 5.1 and the CodeIgniter MVC framework 2.0.2, which
+The Team Manager assumes proper installation of PHP 8.3 and the CodeIgniter MVC framework 4.7, which
 is available at no cost from the CodeIgniter website:
 http://codeigniter.com/
 
@@ -56,20 +56,16 @@ http://codeigniter.com/user_guide/
 IV. Configuration and Setup
 -------------------------------
 
+Docker files are available in the root directory to assist with a runtime environment.
+Composer is used as the dependency manager.
+
 The Team Manager utilizes a relational MySQL database to store the records.
-The connection login parameters will need to be changed to work with your 
-database. The following file is where you set this:
-"Team_Manager/config/database.php"
+A ".env.example" file is provided to set environment variables, which can be renamed to ".env".
+Set your database connection parameters here:
+"CodeIgniter_Team_Manager/.env"
 
-A SQL file has been provided for easy setup of the database. Simply run the SQL file to
+A "team_mgr.sql" SQL file has been provided for easy setup of the database. Simply run the SQL file to
 create the necessary database tables and import sample data.
-
-If you use anything other than the default directory structure, you will need
-to modify the system and application folder names, located in the main index file.
-
-If you wish to run the application on a web server, rather than locally,
-you will need to change the "base_url" variable in this file to match your domain:
-"Team_Manager/config/config.php"
 
 -------------------------------
 V. Using the Team Manager
@@ -93,11 +89,9 @@ The details of each group can be viewed by clicking on the name of the group.
 
 On the administrative management pages, the following options are available:
 
-1. Add New Group
-2. Edit Group
-3. Delete Group
-
-The database ID is also provided on the group listing for administrators.
+1. Add New Item
+2. Edit Item
+3. Delete Item
 
 (Note: Administrative management screens are openly available for demonstration purposes only. 
        These capabilities would normally require a login.)
@@ -106,5 +100,6 @@ The database ID is also provided on the group listing for administrators.
 VI. Copyright Information
 -------------------------------
 
-Copyright 2011
+Copyright 2011 (version 1 build with CodeIgniter 2)
+Updated 2026 (version 2 build with CodeIgniter 4)
 Scott Greenhagen

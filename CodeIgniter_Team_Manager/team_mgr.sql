@@ -1,10 +1,10 @@
 /*
 SQLyog Community v13.3.0 (64 bit)
-MySQL - 8.0 : Database - team_mgr
+MySQL - 8.0.46 : Database - team_mgr
 *********************************************************************
 */
 
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 /*!40101 SET SQL_MODE=''*/;
 
@@ -12,7 +12,7 @@ MySQL - 8.0 : Database - team_mgr
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`team_mgr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`team_mgr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `team_mgr`;
 
@@ -21,10 +21,10 @@ USE `team_mgr`;
 DROP TABLE IF EXISTS `leagues`;
 
 CREATE TABLE `leagues` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `leagues` */
 
@@ -38,16 +38,16 @@ insert  into `leagues`(`id`,`name`) values
 DROP TABLE IF EXISTS `players`;
 
 CREATE TABLE `players` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `team_id` int(10) unsigned NOT NULL,
-  `first_name` varchar(64) NOT NULL,
-  `last_name` varchar(64) NOT NULL,
-  `address` varchar(128) DEFAULT NULL,
-  `city` varchar(64) DEFAULT NULL,
-  `state_id` tinyint(3) unsigned DEFAULT NULL,
-  `zip` varchar(32) DEFAULT NULL,
-  `email` varchar(128) DEFAULT NULL,
-  `phone` varchar(32) DEFAULT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `team_id` int unsigned NOT NULL,
+  `first_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state_id` tinyint unsigned DEFAULT NULL,
+  `zip` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `team_id` (`team_id`),
   KEY `state_id` (`state_id`)
@@ -56,14 +56,14 @@ CREATE TABLE `players` (
 /*Data for the table `players` */
 
 insert  into `players`(`id`,`team_id`,`first_name`,`last_name`,`address`,`city`,`state_id`,`zip`,`email`,`phone`) values 
-(1,1,'Billy','Bob','','',0,'','',''),
-(2,2,'Tom','Foolery','123 Street','Big City',33,'12345','',''),
-(3,3,'Shifty','Steve','Back Alley','Chicago',14,'54321','shifty.steve@scams.com','(123) 456-7890'),
-(4,4,'Lefty','Jones','Long Road','West Side',11,'','',''),
-(5,4,'Sammy','Slider','','',0,'','',''),
-(6,3,'Dan','Diver','','',0,'','',''),
-(7,1,'Pete','Popper','','',0,'','',''),
-(8,1,'Robby','Runner','','',0,'','',''),
+(1,1,'Billy','Bob','123 Street','Nashville',43,'12345','billy.bob@example.com','123-456-7890'),
+(2,2,'Tom','Foolery','123 Street','Big City',33,'12345','tom.foolery@example.com',''),
+(3,3,'Shifty','Steve','Back Alley','Chicago',14,'54321','shifty.steve@example.com','(123) 456-7890'),
+(4,4,'Lefty','Jones','Long Road','West Side',11,'','lefty.jones@example.com',''),
+(5,4,'Sammy','Slider','','',0,'','sammy.slider@example.com',''),
+(6,3,'Dan','Diver','','',0,'','dan.diver@example.com',''),
+(7,1,'Pete','Popper','','',0,'','pete.popper@example.com',''),
+(8,1,'Robby','Runner','','',0,'','robby.runner@example.com',''),
 (9,4,'Horace','Homer','426 Elm Street','New York',33,'23422','horace.homer@superstrikers.com','(234) 234-2343 ext. 43');
 
 /*Table structure for table `states` */
@@ -71,9 +71,9 @@ insert  into `players`(`id`,`team_id`,`first_name`,`last_name`,`address`,`city`,
 DROP TABLE IF EXISTS `states`;
 
 CREATE TABLE `states` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) NOT NULL,
-  `abbr` varchar(16) NOT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abbr` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -137,10 +137,10 @@ insert  into `states`(`id`,`name`,`abbr`) values
 DROP TABLE IF EXISTS `teams`;
 
 CREATE TABLE `teams` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `league_id` int(10) unsigned NOT NULL,
-  `name` varchar(32) NOT NULL,
-  `mascot` varchar(32) DEFAULT NULL,
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `league_id` int unsigned NOT NULL,
+  `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mascot` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `league_id` (`league_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

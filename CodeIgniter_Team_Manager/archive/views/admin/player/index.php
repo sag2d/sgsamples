@@ -1,10 +1,10 @@
 <h2>Manage Players</h2>
 
-<p class="<?php echo session()->getFlashdata('error') ? 'error' : 'message'; ?>"><?php echo session()->getFlashdata('error') ?: session()->getFlashdata('message'); ?></p>
+<p class="<?php echo $this->session->flashdata('error')?'error':'message';?>"><?php echo $this->session->flashdata('error')?$this->session->flashdata('error'):$this->session->flashdata('message'); ?></p>
 
 <table border="1">
 <tr>	
-	<!--th>ID</th-->
+	<th>ID</th>
 	<th>Player Name</th>
 	<th>Team</th>
 	<th>&nbsp;</th>
@@ -14,7 +14,7 @@
 <?php if(!empty($players)) { ?>
 	<?php foreach($players as $player) { ?>
 	<tr>		
-		<!--td><?php echo $player->id; ?></td-->
+		<td><?php echo $player->id; ?></td>
 		<td><?php echo $player->first_name . " " . $player->last_name; ?></td>
 		<td><?php echo $teams[$player->team_id]; ?></td>
 		<td><a href="/admin/player/edit/<?php echo $player->id; ?>">Edit</a></td>

@@ -4,6 +4,13 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
+/**
+ * Team Model for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 2.0
+ * @package Team Manager
+ */
 class TeamModel extends Model
 {
     protected $table = 'teams';
@@ -39,11 +46,21 @@ class TeamModel extends Model
 	 */
     public function getTeams(): array|false
     {
-        $rows = $this->orderBy('league_id', 'ASC')->findAll();
+        $rows = $this->orderBy('name', 'ASC')->findAll();
 
         return $rows ?: false;
     }
 
+    /**
+     * Get Team Options
+     * 
+     * This method gets teams from the database and returns them in an array 
+     * suitable for use in a dropdown menu.
+     *
+     * @access public
+     * @param bool $includePrompt
+     * @return array
+     */
     public function getTeamOptions(bool $includePrompt = true): array
     {
         $options = $includePrompt ? ['' => 'Please Select One'] : [];

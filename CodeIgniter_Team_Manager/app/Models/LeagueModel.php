@@ -5,10 +5,10 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 /**
- * League Model
+ * League Model for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
+ * @version 2.0
  * @package Team Manager
  */
 class LeagueModel extends Model
@@ -51,6 +51,16 @@ class LeagueModel extends Model
         return $rows ?: false;
     }
 
+    /**
+     * Get League Options
+     * 
+     * This method gets leagues from the database and returns them in an array 
+     * suitable for use in a dropdown menu.
+     *
+     * @access public
+     * @param bool $includePrompt (Whether to include a prompt option at the top of the list.)
+     * @return array
+     */
     public function getLeagueOptions(bool $includePrompt = true): array
     {
         $options = $includePrompt ? ['' => 'Please Select One'] : [];

@@ -9,6 +9,14 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Base Controller as an abstract class with common functionality that is extended 
+ * by other controllers.
+ * 
+ * @author Scott Greenhagen
+ * @version 2.0
+ * @package Team Manager
+ */
 abstract class BaseController extends Controller
 {
     protected $request;
@@ -20,6 +28,10 @@ abstract class BaseController extends Controller
      * This method initializes shared services used by Team Manager controllers.
      *
      * @access public
+     * @param RequestInterface $request
+     * @param ResponseInterface $response
+     * @param LoggerInterface $logger
+     * @return void
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger): void
     {

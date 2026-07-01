@@ -5,6 +5,13 @@ namespace App\Controllers;
 use App\Models\LeagueModel;
 use App\Models\TeamModel;
 
+/**
+ * Teams Controller for the frontend of the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 2.0
+ * @package Team Manager
+ */
 class Teams extends BaseController
 {
     private LeagueModel $league;
@@ -27,6 +34,7 @@ class Teams extends BaseController
      * This method loads the view to display team listing.
      *
      * @access public
+     * @return string
      */
     public function index(): string
     {
@@ -43,6 +51,7 @@ class Teams extends BaseController
      *
      * @access public
      * @param int|null $id
+     * @return string
      */
     public function view(?int $id = null): string
     {

@@ -16,9 +16,7 @@
 	<ul>
 		<li><a href="/leagues/">View Leagues</a> | </li>
 		<li><a href="/teams/">View Teams</a> | </li>
-		<li><a href="/players/">View Players</a></li>
-	</ul>
-	<ul>
+		<li><a href="/players/">View Players</a> | </li>
 		<li><a href="/admin/league/">Manage Leagues</a> | </li>
 		<li><a href="/admin/team/">Manage Teams</a> | </li>
 		<li><a href="/admin/player/">Manage Players</a></li>

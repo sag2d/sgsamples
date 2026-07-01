@@ -5,10 +5,10 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 /**
- * Player Model
+ * Player Model for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
+ * @version 2.0
  * @package Team Manager
  */
 class PlayerModel extends Model
@@ -56,7 +56,7 @@ class PlayerModel extends Model
 	 */
     public function getPlayers(): array|false
     {
-        $rows = $this->orderBy('team_id', 'ASC')->findAll();
+        $rows = $this->orderBy('first_name', 'ASC')->findAll();
 
         return $rows ?: false;
     }

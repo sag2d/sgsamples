@@ -5,6 +5,13 @@ namespace App\Controllers;
 use App\Models\PlayerModel;
 use App\Models\TeamModel;
 
+/**
+ * Players Controller for the frontend of the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 2.0
+ * @package Team Manager
+ */
 class Players extends BaseController
 {
     private PlayerModel $player;
@@ -27,6 +34,7 @@ class Players extends BaseController
      * This method loads the view to display player listing.
      *
      * @access public
+     * @return string
      */
     public function index(): string
     {
@@ -43,6 +51,7 @@ class Players extends BaseController
      *
      * @access public
      * @param int|null $id
+     * @return string
      */
     public function view(?int $id = null): string
     {

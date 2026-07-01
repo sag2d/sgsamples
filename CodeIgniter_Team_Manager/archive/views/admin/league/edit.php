@@ -7,11 +7,11 @@
 	echo form_hidden('id', !empty($league)?$league->id:'');
 ?>
 
-<?= view('admin/errors', ['errors' => $errors ?? []]) ?>
+<span class="error"><?php echo validation_errors(); ?></span>
 
 <dl>
 	<dt>Name<span class="note required"> *</span></dt>
-	<dd><?php echo form_input('name', !empty($league) ? $league->name : ''); ?></dd>
+	<dd><?php echo form_input('name', !empty($league)?$league->name:''); ?></dd>
 </dl>
 
 <?php 

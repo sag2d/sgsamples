@@ -5,6 +5,13 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\LeagueModel;
 
+/**
+ * League Controller for the admin section of the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 2.0
+ * @package Team Manager
+ */
 class League extends BaseController
 {
     private LeagueModel $league;
@@ -25,6 +32,7 @@ class League extends BaseController
      * This method loads the view to display the league management listing.
      *
      * @access public
+     * @return string
      */
     public function index(): string
     {
@@ -40,6 +48,7 @@ class League extends BaseController
      *
      * @access public
      * @param int|null $id
+     * @return string
      */
     public function edit(?int $id = null): string
     {
@@ -57,12 +66,15 @@ class League extends BaseController
      * If the league does already exists, the existing league is updated.
      *
      * @access public
+     * @return \CodeIgniter\HTTP\RedirectResponse
      */
     public function save()
     {
-        $rules = ['name' => 'required'];
+        $rules = [
+            'name' => ['label' => 'Name', 'rules' => 'required']
+        ];
 
-        if (! $this->validate($rules)) {
+        if (!$this->validate($rules)) {
             return $this->render('admin/league/edit', [
                 'league' => (object) $this->request->getPost(),
                 'errors' => $this->validator->getErrors(),
@@ -70,7 +82,14 @@ class League extends BaseController
         }
 
         $id = $this->request->getPost('id');
-        $data = ['name' => $this->request->getPost('name')];
+        
+        $fields = array('name');
+        $data = [];
+
+        foreach ($fields as $field) {
+            $data[$field] = $this->request->getPost($field);
+        }
+        
         $result = $id ? $this->league->update($id, $data) : $this->league->insert($data);
 
         if ($result !== false) {
@@ -89,6 +108,7 @@ class League extends BaseController
      *
      * @access public
      * @param int|null $id
+     * @return \CodeIgniter\HTTP\RedirectResponse
      */
     public function delete(?int $id = null)
     {

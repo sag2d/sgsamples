@@ -22,6 +22,8 @@ services:
       - MYSQL_PASSWORD=${DB_PASSWORD}
     volumes:
       - db-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     expose:
       - 3306
     healthcheck:

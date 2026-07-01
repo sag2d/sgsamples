@@ -9,7 +9,7 @@ use Config\Database;
  * State results are primarily for building dropdowns, but could have a variety of uses.
  * 
  * @author Scott Greenhagen
- * @version 1.0
+ * @version 2.0
  */
 
 

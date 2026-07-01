@@ -1,6 +1,6 @@
 {
   "name": "sgsamples/codeigniter-team-manager",
-  "description": "Team Manager upgraded to CodeIgniter 4.7.0.",
+  "description": "Team Manager with CodeIgniter 4.7.0 framework.",
   "type": "project",
   "license": "MIT",
   "require": {

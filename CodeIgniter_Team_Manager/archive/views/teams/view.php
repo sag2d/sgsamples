@@ -7,10 +7,8 @@
 	<dt>League:</dt>
 	<dd><?php echo $league->name; ?></dd>
 	
-	<?php if (!empty($team->mascot)) { ?>
-		<dt>Mascot:</dt>
-		<dd><?php echo $team->mascot; ?></dd>
-	<?php } ?>
+	<dt>Mascot:</dt>
+	<dd><?php echo $team->mascot; ?></dd>	
 </dl>
 
-<a href="/teams/">&laquo; Back to Team Index</a>
+<a href="/teams/">Back to Team Index</a>

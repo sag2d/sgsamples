@@ -1,8 +1,10 @@
 <?php
 
-// Application environment:
-// Set via $_SERVER['CI_ENVIRONMENT'] or default to development.
-define('ENVIRONMENT', $_SERVER['CI_ENVIRONMENT'] ?? 'development');
+// Load Application environment variables from .env file:
+$env = getenv();
+
+// Set via $env['CI_ENVIRONMENT'], or default to development.
+define('ENVIRONMENT', $env['CI_ENVIRONMENT'] ?? 'development');
 
 define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
 
