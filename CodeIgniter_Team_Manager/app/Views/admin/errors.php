@@ -1,7 +1,7 @@
 <?php if (! empty($errors)): ?>
-    <span class="error">
+    <div class="error error-list">
         <?php foreach ($errors as $error): ?>
-            <?= esc($error) ?><br>
+            <div class="error-item"><?= esc($error) ?></div>
         <?php endforeach; ?>
-    </span>
+    </div>
 <?php endif; ?>
