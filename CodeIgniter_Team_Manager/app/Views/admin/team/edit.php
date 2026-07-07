@@ -4,7 +4,7 @@
 
 <?php 
 	echo form_open('/admin/team/save'); 
-	echo form_hidden('id', !empty($team)?$team->id:'');
+	echo form_hidden('id', !empty($team) ? $team->id : '');
 ?>
 
 <?= view('admin/errors', ['errors' => $errors ?? []]) ?>

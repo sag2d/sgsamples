@@ -66,7 +66,7 @@ class TeamModel extends Model
         $options = $includePrompt ? ['' => 'Please Select One'] : [];
         $teams = $this->getTeams();
 
-        if ($teams) {
+        if (!empty($teams)) {
             foreach ($teams as $team) {
                 $options[$team->id] = $team->name;
             }

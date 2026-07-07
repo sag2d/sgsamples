@@ -4,7 +4,7 @@
 
 <?php 
 	echo form_open('/admin/player/save'); 
-	echo form_hidden('id', !empty($player)?$player->id:'');
+	echo form_hidden('id', !empty($player) ? $player->id : '');
 ?>
 
 <?= view('admin/errors', ['errors' => $errors ?? []]) ?>

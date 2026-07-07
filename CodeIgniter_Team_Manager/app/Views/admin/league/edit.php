@@ -4,7 +4,7 @@
 
 <?php 
 	echo form_open('/admin/league/save'); 
-	echo form_hidden('id', !empty($league)?$league->id:'');
+	echo form_hidden('id', !empty($league) ? $league->id : '');
 ?>
 
 <?= view('admin/errors', ['errors' => $errors ?? []]) ?>

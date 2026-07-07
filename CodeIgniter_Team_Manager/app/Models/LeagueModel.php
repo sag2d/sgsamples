@@ -66,7 +66,7 @@ class LeagueModel extends Model
         $options = $includePrompt ? ['' => 'Please Select One'] : [];
         $leagues = $this->getLeagues();
 
-        if ($leagues) {
+        if (!empty($leagues)) {
             foreach ($leagues as $league) {
                 $options[$league->id] = $league->name;
             }
