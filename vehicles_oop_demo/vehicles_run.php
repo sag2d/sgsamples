@@ -34,7 +34,7 @@ $car = new Car('Convertible', true);
 // run the Car's standard functions
 vehicle_run($car);
 
-if($car->convertible) {
+if($car?->convertible) {
 	// lower the convertible's roof
 	if($car->roof_lower()) {
 		echo "\n$car->name roof lowered.\n";
