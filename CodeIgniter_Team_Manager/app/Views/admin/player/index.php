@@ -20,7 +20,7 @@
 		<td><?php echo $player->first_name . " " . $player->last_name; ?></td>
 		<td><?php echo $teams[$player->team_id]; ?></td>
 		<td class="table-actions"><a class="edit" href="/admin/player/edit/<?php echo $player->id; ?>">Edit</a></td>
-		<td class="table-actions"><a class="delete" href="#" onClick="confirm_delete(<?php echo $player->id; ?>);">Delete</a></td>
+<td class="table-actions"><a class="delete" href="#" data-id="<?php echo $player->id; ?>" data-delete-url="/admin/player/delete/">Delete</a></td>
 	</tr>
 	<?php }
 	}
@@ -32,23 +32,6 @@
 
 <br>
 
-<input type="button" name="add" value="Add New Player" onClick="document.location='/admin/player/edit'">
+<input type="button" name="add" value="Add New Player" data-url="/admin/player/edit">
 
-<script language="JavaScript">
-
-	function confirm_delete(id)
-	{
-		var d = confirm("Are you sure you wish to permanently delete this record?");
-
-		// if user confirms, delete record.
-		if(d)
-		{					
-			document.location = "/admin/player/delete/" + id;
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-</script>
+<script src="/resources/js/admin-index-actions.js"></script>
