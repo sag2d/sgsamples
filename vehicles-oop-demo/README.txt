@@ -36,7 +36,7 @@ III. Running the Vehicles OOP Demo
 -------------------------------
 
 See the demo in action by running the primary PHP CLI script as described below with any modern version of PHP.
-From a command-line interface, navigate to the "vehicles_oop_demo" directory, and run the PHP script as follows:
+From a command-line interface, navigate to the "vehicles-oop-demo" directory, and run the PHP script as follows:
 php vehicles_run.php
 
 Alternatively, Docker configuration files are provided to run within the specified PHP 8.5 environment.
