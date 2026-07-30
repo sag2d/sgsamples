@@ -25,7 +25,7 @@ WORKDIR /app
 RUN --mount=type=bind,source=composer.json,target=composer.json \
     --mount=type=bind,source=composer.lock,target=composer.lock \
     --mount=type=cache,target=/tmp/cache \
-    composer install --no-dev --no-interaction
+    composer install --no-dev --no-interaction --no-scripts
 
 ################################################################################
 
@@ -35,11 +35,21 @@ RUN --mount=type=bind,source=composer.json,target=composer.json \
 # from the install stage.
 #
 # The example below uses the PHP Apache image as the foundation for running the app.
-# By specifying the "8.3-apache" tag, it will also use whatever happens to be the
+# By specifying the "8.4-apache" tag, it will also use whatever happens to be the
 # most recent version of that tag when you build your Dockerfile.
 # If reproducibility is important, consider using a specific digest SHA, like
 # php@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
-FROM php:8.3-apache as final
+FROM php:8.4-apache as final
+
+# Install required PHP extensions for Laravel
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libzip-dev \
+    && docker-php-ext-install pdo pdo_mysql zip \
+    && a2enmod rewrite \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configure Apache to serve Laravel's public directory
+RUN sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf
 
 # Your PHP application may require additional PHP extensions to be installed
 # manually. For detailed instructions for installing extensions can be found, see
@@ -74,6 +84,10 @@ RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 COPY --from=deps app/vendor/ /var/www/html/vendor
 # Copy the app files from the app directory.
 COPY . /var/www/html
+
+# Set up Laravel writable directories
+RUN mkdir -p /var/www/html/storage/logs \
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Switch to a non-privileged user (defined in the base image) that the app will run under.
 # See https://docs.docker.com/go/dockerfile-user-best-practices/
