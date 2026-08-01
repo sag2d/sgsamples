@@ -44,7 +44,9 @@ FROM php:8.4-apache as final
 # Install required PHP extensions for Laravel
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql zip \
+    libicu-dev \
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_mysql zip intl \
     && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
 

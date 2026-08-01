@@ -5,6 +5,7 @@ namespace App\Concerns;
 use App\Models\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Email;
 
 trait ProfileValidationRules
 {
@@ -43,6 +44,7 @@ trait ProfileValidationRules
             'string',
             'email',
             'max:255',
+            Email::default()->strict()->preventSpoofing(), // combines strict RFC checking with spoof detection
             $userId === null
                 ? Rule::unique(User::class)
                 : Rule::unique(User::class)->ignore($userId),
