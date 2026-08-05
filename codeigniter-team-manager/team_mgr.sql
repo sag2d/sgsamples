@@ -22,9 +22,9 @@ DROP TABLE IF EXISTS `leagues`;
 
 CREATE TABLE `leagues` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `leagues` */
 
@@ -40,18 +40,20 @@ DROP TABLE IF EXISTS `players`;
 CREATE TABLE `players` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `team_id` int unsigned NOT NULL,
-  `first_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `last_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state_id` tinyint unsigned DEFAULT NULL,
-  `zip` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state_id` int unsigned NOT NULL,
+  `zip` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `team_id` (`team_id`),
-  KEY `state_id` (`state_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  KEY `players_team_id_index` (`team_id`),
+  KEY `players_state_id_index` (`state_id`),
+  CONSTRAINT `players_state_id_foreign` FOREIGN KEY (`state_id`) REFERENCES `states` (`id`),
+  CONSTRAINT `players_team_id_foreign` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `players` */
 
@@ -60,10 +62,10 @@ insert  into `players`(`id`,`team_id`,`first_name`,`last_name`,`address`,`city`,
 (2,2,'Tom','Foolery','123 Street','Big City',33,'12345','tom.foolery@example.com',''),
 (3,3,'Shifty','Steve','Back Alley','Chicago',14,'54321','shifty.steve@example.com','(123) 456-7890'),
 (4,4,'Lefty','Jones','Long Road','West Side',11,'','lefty.jones@example.com',''),
-(5,4,'Sammy','Slider','','',0,'','sammy.slider@example.com',''),
-(6,3,'Dan','Diver','','',0,'','dan.diver@example.com',''),
-(7,1,'Pete','Popper','','',0,'','pete.popper@example.com',''),
-(8,1,'Robby','Runner','','',0,'','robby.runner@example.com',''),
+(5,4,'Sammy','Slider','','',1,'','sammy.slider@example.com',''),
+(6,3,'Dan','Diver','','',2,'','dan.diver@example.com',''),
+(7,1,'Pete','Popper','','',3,'','pete.popper@example.com',''),
+(8,1,'Robby','Runner','','',4,'','robby.runner@example.com',''),
 (9,4,'Horace','Homer','426 Elm Street','New York',33,'23422','horace.homer@superstrikers.com','(234) 234-2343 ext. 43');
 
 /*Table structure for table `states` */
@@ -72,8 +74,8 @@ DROP TABLE IF EXISTS `states`;
 
 CREATE TABLE `states` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abbr` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abbr` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -139,10 +141,11 @@ DROP TABLE IF EXISTS `teams`;
 CREATE TABLE `teams` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `league_id` int unsigned NOT NULL,
-  `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mascot` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mascot` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `league_id` (`league_id`)
+  KEY `teams_league_id_index` (`league_id`),
+  CONSTRAINT `teams_league_id_foreign` FOREIGN KEY (`league_id`) REFERENCES `leagues` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `teams` */

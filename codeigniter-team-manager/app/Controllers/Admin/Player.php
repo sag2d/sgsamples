@@ -80,6 +80,7 @@ class Player extends BaseController
             'first_name' => ['label' => 'First Name', 'rules' => 'required'],
             'last_name' => ['label' => 'Last Name', 'rules' => 'required'],
             'team_id' => ['label' => 'Team', 'rules' => 'required'],
+            'state_id' => ['label' => 'State', 'rules' => 'required'],
             'email' => ['label' => 'Email', 'rules' => 'required|valid_email'],
         ];
 

@@ -31,7 +31,7 @@
 	<dt>City</dt>
 	<dd><?php echo form_input('city', !empty($player) ? $player->city : ''); ?></dd>
 	
-	<dt>State</dt>
+	<dt>State<span class="note required"> *</span></dt>
 	<dd><?php echo form_dropdown('state_id', $states, !empty($player) ? $player->state_id : ''); ?></dd>
 	
 	<dt>Zip Code</dt>
