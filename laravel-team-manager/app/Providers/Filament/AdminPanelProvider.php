@@ -28,6 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->authGuard('admin') // use the separate 'admin' guard defined in config/auth.php for Filament admin panel access
             ->colors([
                 'primary' => Color::Amber,
             ])
