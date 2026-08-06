@@ -26,3 +26,4 @@ yarn-error.log
 .claude/
 .agents/
 .github/skills/
+laravel_team_manager.sql
