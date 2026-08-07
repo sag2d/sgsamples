@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Player;
+use App\Models\Team;
+use App\Models\State;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +20,15 @@ class PlayerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'team_id' => Team::factory(),
+            'first_name' => fake()->firstName(),
+            'last_name' => fake()->lastName(),
+            'address' => fake()->streetAddress(),
+            'city' => fake()->city(),
+            'state_id' => State::factory(),
+            'zip' => fake()->postcode(),
+            'email' => fake()->unique()->safeEmail(),
+            'phone' => fake()->phoneNumber(),
         ];
     }
 }

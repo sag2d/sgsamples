@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('teams', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
+            $table->foreignId('league_id')->index()->constrained();
+            $table->string('name');
+            $table->string('mascot')->nullable();
             $table->timestamps();
         });
     }

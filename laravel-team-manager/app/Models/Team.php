@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Database\Factories\TeamFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-#[Fillable(['league_id', 'name', 'mascot'])]
+#[Fillable(['Team_id', 'name', 'mascot'])]
 class Team extends Model
 {
-    //
+    /** @use HasFactory<TeamFactory> */
+    use HasFactory;
 }

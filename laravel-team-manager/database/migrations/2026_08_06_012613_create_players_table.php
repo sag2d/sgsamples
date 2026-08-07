@@ -11,8 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('states', function (Blueprint $table) {
+            $table->id()->primary();
+            $table->string('name');
+            $table->string('abbr');
+            $table->timestamps();
+        });
+
         Schema::create('players', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
+            $table->foreignId('team_id')->index()->constrained();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->foreignId('state_id')->index()->constrained();
+            $table->string('zip')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
         });
     }
@@ -23,5 +39,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('players');
+        Schema::dropIfExists('states');
     }
 };

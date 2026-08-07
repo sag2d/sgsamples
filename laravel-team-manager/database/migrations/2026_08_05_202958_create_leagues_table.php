@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('leagues', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary();
+            $table->string('name');
             $table->timestamps();
         });
     }
