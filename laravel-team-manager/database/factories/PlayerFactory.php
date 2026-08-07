@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Player;
-use App\Models\Team;
 use App\Models\State;
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -29,6 +29,7 @@ class PlayerFactory extends Factory
             'zip' => fake()->postcode(),
             'email' => fake()->unique()->safeEmail(),
             'phone' => fake()->phoneNumber(),
+            'status' => 'Active', // fake()->randomElement(['Active', 'Inactive']),
         ];
     }
 }

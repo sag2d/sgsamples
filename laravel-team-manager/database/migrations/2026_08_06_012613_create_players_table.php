@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('zip')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->enum('status', ['Active', 'Inactive']);
             $table->timestamps();
         });
     }
