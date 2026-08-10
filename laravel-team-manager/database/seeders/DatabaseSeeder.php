@@ -28,10 +28,11 @@ class DatabaseSeeder extends Seeder
 
         $states = State::factory()->allStates()->create();
 
-        $leagues = League::factory()->count(3)->sequence(
+        $leagues = League::factory()->count(4)->sequence(
             ['name' => 'Little League'],
             ['name' => 'Big Boys'],
             ['name' => 'Peanut League'],
+            ['name' => 'Junior League'],
         )->create();
 
         $teams = Team::factory()->count(5)->recycle($leagues)->sequence(
@@ -42,6 +43,6 @@ class DatabaseSeeder extends Seeder
             ['league_id' => League::factory(), 'name' => 'Eagles', 'mascot' => 'Eagle'],
         )->create();
 
-        Player::factory()->count(10)->recycle($teams)->recycle($states)->create();
+        Player::factory()->count(14)->recycle($teams)->recycle($states)->create();
     }
 }
