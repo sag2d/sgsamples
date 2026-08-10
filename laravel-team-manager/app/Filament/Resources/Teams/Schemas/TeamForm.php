@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Teams\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
 
 class TeamForm
 {
@@ -11,9 +12,11 @@ class TeamForm
     {
         return $schema
             ->components([
-                TextInput::make('league_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('league_id')
+                    ->relationship('league', 'name') 
+                    ->searchable()
+                    ->preload()
+                    ->required(),
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('mascot'),

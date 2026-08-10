@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Players\Schemas;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
 
 class PlayerForm
 {
@@ -11,18 +12,22 @@ class PlayerForm
     {
         return $schema
             ->components([
-                TextInput::make('team_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('team_id')
+                    ->relationship('team', 'name') 
+                    ->searchable()
+                    ->preload()
+                    ->required(),
                 TextInput::make('first_name')
                     ->required(),
                 TextInput::make('last_name')
                     ->required(),
                 TextInput::make('address'),
                 TextInput::make('city'),
-                TextInput::make('state_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('state_id')
+                    ->relationship('state', 'abbr') 
+                    ->searchable()
+                    ->preload()
+                    ->required(),
                 TextInput::make('zip'),
                 TextInput::make('email')
                     ->label('Email address')

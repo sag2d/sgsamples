@@ -15,8 +15,9 @@ class PlayersTable
     {
         return $table
             ->columns([
-                TextColumn::make('team_id')
-                    ->numeric()
+                TextColumn::make('team.name')
+                    ->label('Team')
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('first_name')
                     ->searchable(),
@@ -26,8 +27,9 @@ class PlayersTable
                     ->searchable(),
                 TextColumn::make('city')
                     ->searchable(),
-                TextColumn::make('state_id')
-                    ->numeric()
+                TextColumn::make('state.abbr')
+                    ->label('State')
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('zip')
                     ->searchable(),

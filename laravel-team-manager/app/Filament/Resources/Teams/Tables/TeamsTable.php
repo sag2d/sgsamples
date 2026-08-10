@@ -15,8 +15,9 @@ class TeamsTable
     {
         return $table
             ->columns([
-                TextColumn::make('league_id')
-                    ->numeric()
+                TextColumn::make('league.name')
+                    ->label('League')
+                    ->searchable()
                     ->sortable(),
                 TextColumn::make('name')
                     ->searchable(),

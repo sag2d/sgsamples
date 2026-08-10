@@ -11,8 +11,8 @@ class TeamInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('league_id')
-                    ->numeric(),
+                TextEntry::make('league.name')
+                ->label('League'),
                 TextEntry::make('name'),
                 TextEntry::make('mascot')
                     ->placeholder('-'),

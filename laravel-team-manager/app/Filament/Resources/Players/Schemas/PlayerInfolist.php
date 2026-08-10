@@ -11,16 +11,16 @@ class PlayerInfolist
     {
         return $schema
             ->components([
-                TextEntry::make('team_id')
-                    ->numeric(),
+                TextEntry::make('team.name')
+                    ->label('Team'),
                 TextEntry::make('first_name'),
                 TextEntry::make('last_name'),
                 TextEntry::make('address')
                     ->placeholder('-'),
                 TextEntry::make('city')
                     ->placeholder('-'),
-                TextEntry::make('state_id')
-                    ->numeric(),
+                TextEntry::make('state.abbr')
+                ->label('State'),
                 TextEntry::make('zip')
                     ->placeholder('-'),
                 TextEntry::make('email')
