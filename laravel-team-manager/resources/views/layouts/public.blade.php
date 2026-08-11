@@ -21,7 +21,7 @@
                     {{ __('Players') }}
                 </flux:navbar.item>
             </flux:navbar>
-            <nav class="flex items-center justify-end gap-4">
+            <nav class="flex w-full items-center justify-end gap-4">
                 <a
                     href="/admin/login"
                     target="_blank"
@@ -37,8 +37,9 @@
         </main>
 
         @fluxScripts
+
+        <footer class="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 py-8 sm:px-6 lg:px-8">
+            @include('partials.footer')
+        </footer>
     </body>
-    <footer>
-        @include('partials.footer')
-    </footer>
 </html>

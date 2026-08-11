@@ -21,6 +21,7 @@ class LeagueResource extends Resource
     protected static ?string $model = League::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?int $navigationSort = 1;
 
     public static function form(Schema $schema): Schema
     {
@@ -49,7 +50,7 @@ class LeagueResource extends Resource
         return [
             'index' => ListLeagues::route('/'),
             'create' => CreateLeague::route('/create'),
-            'view' => ViewLeague::route('/{record}'),
+            //'view' => ViewLeague::route('/{record}'),
             'edit' => EditLeague::route('/{record}/edit'),
         ];
     }

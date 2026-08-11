@@ -21,6 +21,7 @@ class TeamResource extends Resource
     protected static ?string $model = Team::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?int $navigationSort = 2;
 
     public static function form(Schema $schema): Schema
     {
@@ -49,7 +50,7 @@ class TeamResource extends Resource
         return [
             'index' => ListTeams::route('/'),
             'create' => CreateTeam::route('/create'),
-            'view' => ViewTeam::route('/{record}'),
+            //'view' => ViewTeam::route('/{record}'),
             'edit' => EditTeam::route('/{record}/edit'),
         ];
     }

@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @version 1.0
  * @package Team Manager
  */
-#[Fillable(['Team_id', 'name', 'mascot'])]
+#[Fillable(['league_id', 'name', 'mascot'])]
 class Team extends Model
 {
     /** @use HasFactory<TeamFactory> */

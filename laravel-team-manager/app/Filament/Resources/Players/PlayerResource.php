@@ -21,6 +21,7 @@ class PlayerResource extends Resource
     protected static ?string $model = Player::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Schema $schema): Schema
     {
@@ -49,7 +50,7 @@ class PlayerResource extends Resource
         return [
             'index' => ListPlayers::route('/'),
             'create' => CreatePlayer::route('/create'),
-            'view' => ViewPlayer::route('/{record}'),
+            //'view' => ViewPlayer::route('/{record}'),
             'edit' => EditPlayer::route('/{record}/edit'),
         ];
     }
