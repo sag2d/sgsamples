@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Player;
 use Illuminate\Contracts\View\View;
 
+/**
+ * Player Controller for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class PlayerController extends Controller
 {
     /**

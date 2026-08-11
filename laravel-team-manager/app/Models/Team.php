@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * Team Model for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 #[Fillable(['Team_id', 'name', 'mascot'])]
 class Team extends Model
 {

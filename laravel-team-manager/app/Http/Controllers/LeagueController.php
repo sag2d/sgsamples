@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\League;
 use Illuminate\Contracts\View\View;
 
+/**
+ * League Controller for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class LeagueController extends Controller
 {
     /**

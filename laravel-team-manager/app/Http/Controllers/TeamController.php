@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 
+/**
+ * Team Controller for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class TeamController extends Controller
 {
     /**

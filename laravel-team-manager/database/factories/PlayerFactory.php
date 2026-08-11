@@ -8,6 +8,11 @@ use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
+ * Player Factory for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
  * @extends Factory<Player>
  */
 class PlayerFactory extends Factory
