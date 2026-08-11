@@ -45,5 +45,4 @@ Alternatively, Docker configuration files are provided to run within the specifi
 IV. Copyright Information
 -------------------------------
 
-Copyright 2026
-Scott Greenhagen
+Copyright Scott Greenhagen

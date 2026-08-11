@@ -14,7 +14,8 @@ enum RoofPosition: string {
 
 /**
  * @author Scott Greenhagen
- * @copyright 2026
+ * @version 1.0
+ * @package Vehicles OOP Demo
  * 
  * The Car class extends the Vehicle class and defines the extra features of a Car object.
  */

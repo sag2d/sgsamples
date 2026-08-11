@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 /**
  * @author Scott Greenhagen
- * @copyright 2026
+ * @version 1.0
+ * @package Vehicles OOP Demo
  * 
  * The base parent Vehicle class defines the common features of most vehicles in this project.
  */

@@ -6,7 +6,8 @@ require_once 'class.Vehicle.php';
 
 /**
  * @author Scott Greenhagen
- * @copyright 2026
+ * @version 1.0
+ * @package Vehicles OOP Demo
  * 
  * The AutoShop static class provides utility functions to maintain Vehicle objects.
  */

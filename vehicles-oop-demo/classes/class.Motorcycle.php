@@ -6,7 +6,8 @@ require_once 'class.Vehicle.php';
 
 /**
  * @author Scott Greenhagen
- * @copyright 2026
+ * @version 1.0
+ * @package Vehicles OOP Demo
  * 
  * The Motorcycle class extends the Vehicle class and defines the different features of a Motorcycle object.
  */

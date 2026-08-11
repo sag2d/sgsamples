@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 /**
  * @author Scott Greenhagen
- * @copyright 2026
+ * @version 1.0
+ * @package Vehicles OOP Demo
  * 
  * Utility functions for Vehicles OOP Demo.
  */

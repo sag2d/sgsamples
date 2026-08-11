@@ -10,7 +10,8 @@ require_once 'includes/functions.inc.php';
 
 /**
  * @author Scott Greenhagen
- * @copyright 2026
+ * @version 1.0
+ * @package Vehicles OOP Demo
  *
  * This command-line script utilizes the Vehicle class and extending classes as a demonstration of PHP OOP concepts.
  */
