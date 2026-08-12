@@ -31,7 +31,8 @@ class PlayerForm
                 TextInput::make('zip'),
                 TextInput::make('email')
                     ->label('Email address')
-                    ->email(),
+                    ->email()
+                    ->rules(['email:strict,spoof']), // combines strict RFC checking with spoof detection
                 TextInput::make('phone')
                     ->tel(),
             ]);

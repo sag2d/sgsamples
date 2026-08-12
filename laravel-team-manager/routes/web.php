@@ -16,8 +16,10 @@ Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show')
 Route::get('/players', [PlayerController::class, 'index'])->name('players.index');
 Route::get('/players/{player}', [PlayerController::class, 'show'])->name('players.show');
 
+/*
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 });
+*/
 
 require __DIR__.'/settings.php';
