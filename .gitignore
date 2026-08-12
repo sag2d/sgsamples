@@ -1,2 +1,6 @@
+/.phpunit.cache
+/vendor
+/build
+
 # Ignore all files ending with .log (log files)
 *.log

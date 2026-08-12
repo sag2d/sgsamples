@@ -21,15 +21,16 @@ IV. Copyright Information
 I. Introduction
 -------------------------------
 
-This README file contains a description of the Vehicles OOP Demo project.
+This README file contains a description of the Vehicles OOP Demo project, and instructions to run it.
+I designed this project to help train junior developers in learning PHP.
 
 -------------------------------
 II. Description
 -------------------------------
 
 The Vehicles OOP Demo project is a set of classes and a command-line interface (CLI) script intended to 
-demonstrate PHP object-oriented concepts. I designed this project to help train junior developers 
-in learning PHP. The various types of vehicles inherit properties and functions from parent classes. 
+demonstrate PHP object-oriented concepts. The various types of vehicles (child classes) inherit properties 
+and functions from the parent classes they extend. 
 
 It demonstrates the object-oriented concepts of encapsulation, inheritance, abstraction, and polymorphism.
 Contains the following PHP class types and structures: 
@@ -44,6 +45,8 @@ From a command-line interface, navigate to the "vehicles-oop-demo" directory, an
 php vehicles_run.php
 
 Alternatively, Docker configuration files are provided to run within the specified PHP 8.5 environment.
+Run the PHP script from within a Docker environment by adding your server name in the following command:
+docker exec -it [SERVER_NAME] php vehicles_run.php
 
 -------------------------------
 IV. Copyright Information

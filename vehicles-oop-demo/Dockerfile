@@ -44,6 +44,9 @@ FROM php:8.5-apache
 # https://github.com/docker-library/docs/tree/master/php#configuration
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
+# Install and enable the PCOV extension for PHPUnit code coverage
+RUN pecl install pcov && docker-php-ext-enable pcov
+
 # Copy app files from the app directory.
 COPY . /var/www/html
 
