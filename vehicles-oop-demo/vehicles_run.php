@@ -6,7 +6,7 @@ require_once 'classes/class.Vehicle.php';
 require_once 'classes/class.Car.php';
 require_once 'classes/class.Motorcycle.php';
 require_once 'classes/class.AutoShop.php';
-require_once 'includes/functions.inc.php';
+require_once 'classes/class.VehicleRunner.php';
 
 /**
  * @author Scott Greenhagen
@@ -18,14 +18,16 @@ require_once 'includes/functions.inc.php';
 
 echo "Running Vehicles OOP Demo...\n\n";
 
+$runner = new VehicleRunner();
+
 // instantiate the Vehicle object as a generic vehicle
 $vehicle = new Vehicle('Generic Vehicle');
 
 // run the generic Vehicle's standard functions
-vehicle_run($vehicle);
+$runner->run($vehicle);
 
 // turn the Vehicle off
-vehicle_off($vehicle);
+$runner->off($vehicle);
 
 echo "\n-----\n\n";
 
@@ -33,7 +35,7 @@ echo "\n-----\n\n";
 $car = new Car('Convertible', true);
 
 // run the Car's standard functions
-vehicle_run($car);
+$runner->run($car);
 
 if($car?->convertible) {
 	// lower the convertible's roof
@@ -43,7 +45,7 @@ if($car?->convertible) {
 }
 
 // turn the Car off
-vehicle_off($car);
+$runner->off($car);
 
 echo "\n-----\n\n";
 
@@ -51,7 +53,7 @@ echo "\n-----\n\n";
 $motorcycle = new Motorcycle('Motorcycle');
 
 // run the Motorcycle's standard functions
-vehicle_run($motorcycle);
+$runner->run($motorcycle);
 
 // pop a wheelie on the Motorcycle!
 if($motorcycle->wheelie()) {
@@ -59,7 +61,7 @@ if($motorcycle->wheelie()) {
 }
 
 // turn the Motorcycle off
-vehicle_off($motorcycle);
+$runner->off($motorcycle);
 
 // check to see if tires need air on the Motorcycle after wheelie
 if(AutoShop::check_tires($motorcycle)) {
