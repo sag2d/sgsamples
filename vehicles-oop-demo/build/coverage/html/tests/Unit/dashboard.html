@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard for /var/www/html/tests/Unit</title>
+  <link rel="stylesheet" href="../../_css/style.css?v=14.3.0">
+  <link rel="stylesheet" href="../../_css/custom.css">
+ </head>
+ <body>
+  <header class="masthead">
+   <nav aria-label="Breadcrumb">
+    <ol class="breadcrumbs">
+     <li><a href="../../index.html">/var/www/html</a></li>
+     <li><a href="../index.html">tests</a></li>
+     <li><a href="index.html">Unit</a></li>
+     <li class="current">Dashboard</li>
+    </ol>
+   </nav>
+   <ul class="tabs">
+    <li><a href="../../index.html" aria-current="page">Files</a></li>
+    <li><a href="../../_classes/dashboard.html">Classes</a></li>
+   </ul>
+  </header>
+  <main class="dashboard">
+   <section>
+    <h2>Classes</h2>
+    <div class="panel">
+     <div class="chart">
+      <p class="hint">Line coverage against cyclomatic complexity. Bubble size is the number of executable lines; hover for details, click to navigate.</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+ <style>
+  .bubble-success { fill: var(--coverage-success-bar); opacity: 0.7; }
+  .bubble-warning { fill: var(--coverage-warning-bar); opacity: 0.7; }
+  .bubble-danger { fill: var(--coverage-danger-bar); opacity: 0.7; }
+  .bubble-success:hover, .bubble-warning:hover, .bubble-danger:hover { opacity: 1; stroke: var(--text); stroke-width: 1.5; }
+  .chart-grid { stroke: var(--border); stroke-width: 0.5; stroke-dasharray: 4,4; opacity: 0.5; }
+  .chart-axis { stroke: var(--border); stroke-width: 1; }
+  .chart-label { fill: var(--text); font-size: 11px; font-family: var(--font-sans); }
+  .chart-title { fill: var(--text); font-size: 12px; font-family: var(--font-sans); }
+ </style>
+ <line x1="60.0" y1="20" x2="60.0" y2="350" class="chart-grid"/>
+ <text x="60.0" y="368" text-anchor="middle" class="chart-label">0%</text>
+ <line x1="204.0" y1="20" x2="204.0" y2="350" class="chart-grid"/>
+ <text x="204.0" y="368" text-anchor="middle" class="chart-label">20%</text>
+ <line x1="348.0" y1="20" x2="348.0" y2="350" class="chart-grid"/>
+ <text x="348.0" y="368" text-anchor="middle" class="chart-label">40%</text>
+ <line x1="492.0" y1="20" x2="492.0" y2="350" class="chart-grid"/>
+ <text x="492.0" y="368" text-anchor="middle" class="chart-label">60%</text>
+ <line x1="636.0" y1="20" x2="636.0" y2="350" class="chart-grid"/>
+ <text x="636.0" y="368" text-anchor="middle" class="chart-label">80%</text>
+ <line x1="780.0" y1="20" x2="780.0" y2="350" class="chart-grid"/>
+ <text x="780.0" y="368" text-anchor="middle" class="chart-label">100%</text>
+ <line x1="60" y1="350.0" x2="780" y2="350.0" class="chart-grid"/>
+ <text x="52" y="350.0" text-anchor="end" dominant-baseline="middle" class="chart-label">0</text>
+ <line x1="60" y1="267.5" x2="780" y2="267.5" class="chart-grid"/>
+ <text x="52" y="267.5" text-anchor="end" dominant-baseline="middle" class="chart-label">2</text>
+ <line x1="60" y1="185.0" x2="780" y2="185.0" class="chart-grid"/>
+ <text x="52" y="185.0" text-anchor="end" dominant-baseline="middle" class="chart-label">4</text>
+ <line x1="60" y1="102.5" x2="780" y2="102.5" class="chart-grid"/>
+ <text x="52" y="102.5" text-anchor="end" dominant-baseline="middle" class="chart-label">6</text>
+ <line x1="60" y1="20.0" x2="780" y2="20.0" class="chart-grid"/>
+ <text x="52" y="20.0" text-anchor="end" dominant-baseline="middle" class="chart-label">8</text>
+ <line x1="60" y1="20" x2="60" y2="350" class="chart-axis"/>
+ <line x1="60" y1="350" x2="780" y2="350" class="chart-axis"/>
+ <text x="420.0" y="395" text-anchor="middle" class="chart-title">Line Coverage (%)</text>
+ <text x="15" y="185.0" text-anchor="middle" transform="rotate(-90, 15, 185.0)" class="chart-title">Cyclomatic Complexity</text>
+ <a href="VehicleTest.php.html#9"><circle cx="60.0" cy="143.8" r="20.0" class="bubble-danger"><title>VehicleTest — Coverage: 0.0% | Lines: 24 | Complexity: 5</title></circle></a>
+ <a href="MotorcycleTest.php.html#9"><circle cx="60.0" cy="143.8" r="19.6" class="bubble-danger"><title>MotorcycleTest — Coverage: 0.0% | Lines: 23 | Complexity: 5</title></circle></a>
+ <a href="VehicleRunnerTest.php.html#9"><circle cx="60.0" cy="226.2" r="16.8" class="bubble-danger"><title>VehicleRunnerTest — Coverage: 0.0% | Lines: 17 | Complexity: 3</title></circle></a>
+ <a href="CarTest.php.html#10"><circle cx="60.0" cy="102.5" r="15.3" class="bubble-danger"><title>CarTest — Coverage: 0.0% | Lines: 14 | Complexity: 6</title></circle></a>
+ <a href="AbstractStatusTest.php.html#9"><circle cx="60.0" cy="267.5" r="11.5" class="bubble-danger"><title>AbstractStatusTest — Coverage: 0.0% | Lines: 8 | Complexity: 2</title></circle></a>
+ <a href="AutoShopTest.php.html#9"><circle cx="60.0" cy="226.2" r="10.8" class="bubble-danger"><title>AutoShopTest — Coverage: 0.0% | Lines: 7 | Complexity: 3</title></circle></a>
+</svg>
+     </div>
+     <div>
+      <p class="hint">Sorted by descending <abbr title="Change Risk Anti-Patterns">CRAP</abbr> index.</p>
+      <div class="scrollbox">
+     <table class="crap">
+      <thead>
+       <tr>
+        <th scope="col">Class</th>
+        <th scope="col" class="number"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        <th scope="col" class="number">Coverage</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr><td><a href="CarTest.php.html#10">CarTest</a></td><td class="number">42</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="MotorcycleTest.php.html#9">MotorcycleTest</a></td><td class="number">30</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleTest.php.html#9">VehicleTest</a></td><td class="number">30</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="AutoShopTest.php.html#9">AutoShopTest</a></td><td class="number">12</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleRunnerTest.php.html#9">VehicleRunnerTest</a></td><td class="number">12</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="AbstractStatusTest.php.html#9">AbstractStatusTest</a></td><td class="number">6</td><td class="number">0.0%</td></tr>
+      </tbody>
+     </table>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section>
+    <h2>Methods</h2>
+    <div class="panel">
+     <div class="chart">
+      <p class="hint">Line coverage against cyclomatic complexity. Bubble size is the number of executable lines; hover for details, click to navigate.</p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+ <style>
+  .bubble-success { fill: var(--coverage-success-bar); opacity: 0.7; }
+  .bubble-warning { fill: var(--coverage-warning-bar); opacity: 0.7; }
+  .bubble-danger { fill: var(--coverage-danger-bar); opacity: 0.7; }
+  .bubble-success:hover, .bubble-warning:hover, .bubble-danger:hover { opacity: 1; stroke: var(--text); stroke-width: 1.5; }
+  .chart-grid { stroke: var(--border); stroke-width: 0.5; stroke-dasharray: 4,4; opacity: 0.5; }
+  .chart-axis { stroke: var(--border); stroke-width: 1; }
+  .chart-label { fill: var(--text); font-size: 11px; font-family: var(--font-sans); }
+  .chart-title { fill: var(--text); font-size: 12px; font-family: var(--font-sans); }
+ </style>
+ <line x1="60.0" y1="20" x2="60.0" y2="350" class="chart-grid"/>
+ <text x="60.0" y="368" text-anchor="middle" class="chart-label">0%</text>
+ <line x1="204.0" y1="20" x2="204.0" y2="350" class="chart-grid"/>
+ <text x="204.0" y="368" text-anchor="middle" class="chart-label">20%</text>
+ <line x1="348.0" y1="20" x2="348.0" y2="350" class="chart-grid"/>
+ <text x="348.0" y="368" text-anchor="middle" class="chart-label">40%</text>
+ <line x1="492.0" y1="20" x2="492.0" y2="350" class="chart-grid"/>
+ <text x="492.0" y="368" text-anchor="middle" class="chart-label">60%</text>
+ <line x1="636.0" y1="20" x2="636.0" y2="350" class="chart-grid"/>
+ <text x="636.0" y="368" text-anchor="middle" class="chart-label">80%</text>
+ <line x1="780.0" y1="20" x2="780.0" y2="350" class="chart-grid"/>
+ <text x="780.0" y="368" text-anchor="middle" class="chart-label">100%</text>
+ <line x1="60" y1="350.0" x2="780" y2="350.0" class="chart-grid"/>
+ <text x="52" y="350.0" text-anchor="end" dominant-baseline="middle" class="chart-label">0</text>
+ <line x1="60" y1="185.0" x2="780" y2="185.0" class="chart-grid"/>
+ <text x="52" y="185.0" text-anchor="end" dominant-baseline="middle" class="chart-label">1</text>
+ <line x1="60" y1="20.0" x2="780" y2="20.0" class="chart-grid"/>
+ <text x="52" y="20.0" text-anchor="end" dominant-baseline="middle" class="chart-label">2</text>
+ <line x1="60" y1="20" x2="60" y2="350" class="chart-axis"/>
+ <line x1="60" y1="350" x2="780" y2="350" class="chart-axis"/>
+ <text x="420.0" y="395" text-anchor="middle" class="chart-title">Line Coverage (%)</text>
+ <text x="15" y="185.0" text-anchor="middle" transform="rotate(-90, 15, 185.0)" class="chart-title">Cyclomatic Complexity</text>
+ <a href="MotorcycleTest.php.html#11"><circle cx="60.0" cy="185.0" r="20.0" class="bubble-danger"><title>MotorcycleTest::testGetFeaturesReflectMotorcycleDefaults — Coverage: 0.0% | Lines: 8 | Complexity: 1</title></circle></a>
+ <a href="VehicleRunnerTest.php.html#29"><circle cx="60.0" cy="185.0" r="20.0" class="bubble-danger"><title>VehicleRunnerTest::testOffPrintsStatusAndStopsEngine — Coverage: 0.0% | Lines: 8 | Complexity: 1</title></circle></a>
+ <a href="VehicleTest.php.html#17"><circle cx="60.0" cy="185.0" r="20.0" class="bubble-danger"><title>VehicleTest::testGetFeaturesReturnsExpectedValues — Coverage: 0.0% | Lines: 8 | Complexity: 1</title></circle></a>
+ <a href="VehicleRunnerTest.php.html#17"><circle cx="60.0" cy="185.0" r="18.7" class="bubble-danger"><title>VehicleRunnerTest::testRunPrintsFeaturesAndStartsEngine — Coverage: 0.0% | Lines: 7 | Complexity: 1</title></circle></a>
+ <a href="MotorcycleTest.php.html#44"><circle cx="60.0" cy="185.0" r="17.3" class="bubble-danger"><title>MotorcycleTest::testStartEngineThrowsWhenRoofIsPresent — Coverage: 0.0% | Lines: 6 | Complexity: 1</title></circle></a>
+ <a href="VehicleTest.php.html#29"><circle cx="60.0" cy="185.0" r="17.3" class="bubble-danger"><title>VehicleTest::testEngineLifecycle — Coverage: 0.0% | Lines: 6 | Complexity: 1</title></circle></a>
+ <a href="AbstractStatusTest.php.html#11"><circle cx="60.0" cy="185.0" r="15.8" class="bubble-danger"><title>AbstractStatusTest::testGetFormattedTimeMatchesExpectedPattern — Coverage: 0.0% | Lines: 5 | Complexity: 1</title></circle></a>
+ <a href="MotorcycleTest.php.html#36"><circle cx="60.0" cy="185.0" r="14.1" class="bubble-danger"><title>MotorcycleTest::testNegativeWheelCountThrowsException — Coverage: 0.0% | Lines: 4 | Complexity: 1</title></circle></a>
+ <a href="VehicleTest.php.html#39"><circle cx="60.0" cy="185.0" r="14.1" class="bubble-danger"><title>VehicleTest::testNegativeWheelCountThrowsException — Coverage: 0.0% | Lines: 4 | Complexity: 1</title></circle></a>
+ <a href="VehicleTest.php.html#47"><circle cx="60.0" cy="185.0" r="14.1" class="bubble-danger"><title>VehicleTest::testDestructorStopsEngine — Coverage: 0.0% | Lines: 4 | Complexity: 1</title></circle></a>
+ <a href="AbstractStatusTest.php.html#20"><circle cx="60.0" cy="185.0" r="12.2" class="bubble-danger"><title>AbstractStatusTest::testPrintStatusOutputsTimestamp — Coverage: 0.0% | Lines: 3 | Complexity: 1</title></circle></a>
+ <a href="AutoShopTest.php.html#17"><circle cx="60.0" cy="185.0" r="12.2" class="bubble-danger"><title>AutoShopTest::testFillTiresReturnsTrue — Coverage: 0.0% | Lines: 3 | Complexity: 1</title></circle></a>
+ <a href="CarTest.php.html#12"><circle cx="60.0" cy="185.0" r="12.2" class="bubble-danger"><title>CarTest::testConstructorSetsConvertibleFlag — Coverage: 0.0% | Lines: 3 | Complexity: 1</title></circle></a>
+ <a href="CarTest.php.html#31"><circle cx="60.0" cy="185.0" r="12.2" class="bubble-danger"><title>CarTest::testRoofRaiseReturnsTrueForConvertible — Coverage: 0.0% | Lines: 3 | Complexity: 1</title></circle></a>
+ <a href="MotorcycleTest.php.html#23"><circle cx="60.0" cy="185.0" r="12.2" class="bubble-danger"><title>MotorcycleTest::testStartEngineStartsSuccessfully — Coverage: 0.0% | Lines: 3 | Complexity: 1</title></circle></a>
+ <a href="AutoShopTest.php.html#11"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>AutoShopTest::testCheckTiresReturnsTrue — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="AutoShopTest.php.html#24"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>AutoShopTest::testChangeOilReturnsTrue — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="CarTest.php.html#19"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>CarTest::testRoofLowerReturnsTrueForConvertible — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="CarTest.php.html#25"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>CarTest::testRoofLowerReturnsFalseForNonConvertible — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="CarTest.php.html#38"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>CarTest::testRoofRaiseReturnsFalseForNonConvertible — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="CarTest.php.html#44"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>CarTest::testRoofPositionEnumValues — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="MotorcycleTest.php.html#30"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>MotorcycleTest::testWheelieReturnsTrue — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="VehicleRunnerTest.php.html#11"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>VehicleRunnerTest::testImplementsRunnerInterface — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+ <a href="VehicleTest.php.html#11"><circle cx="60.0" cy="185.0" r="10.0" class="bubble-danger"><title>VehicleTest::testConstructorSetsTrimmedName — Coverage: 0.0% | Lines: 2 | Complexity: 1</title></circle></a>
+</svg>
+     </div>
+     <div>
+      <p class="hint">Sorted by descending <abbr title="Change Risk Anti-Patterns">CRAP</abbr> index.</p>
+      <div class="scrollbox">
+     <table class="crap">
+      <thead>
+       <tr>
+        <th scope="col">Method</th>
+        <th scope="col" class="number"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        <th scope="col" class="number">Coverage</th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr><td><a href="AbstractStatusTest.php.html#11">AbstractStatusTest::testGetFormattedTimeMatchesExpectedPattern</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="AbstractStatusTest.php.html#20">AbstractStatusTest::testPrintStatusOutputsTimestamp</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="AutoShopTest.php.html#11">AutoShopTest::testCheckTiresReturnsTrue</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="AutoShopTest.php.html#17">AutoShopTest::testFillTiresReturnsTrue</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="AutoShopTest.php.html#24">AutoShopTest::testChangeOilReturnsTrue</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="CarTest.php.html#12">CarTest::testConstructorSetsConvertibleFlag</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="CarTest.php.html#19">CarTest::testRoofLowerReturnsTrueForConvertible</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="CarTest.php.html#25">CarTest::testRoofLowerReturnsFalseForNonConvertible</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="CarTest.php.html#31">CarTest::testRoofRaiseReturnsTrueForConvertible</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="CarTest.php.html#38">CarTest::testRoofRaiseReturnsFalseForNonConvertible</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="CarTest.php.html#44">CarTest::testRoofPositionEnumValues</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="MotorcycleTest.php.html#11">MotorcycleTest::testGetFeaturesReflectMotorcycleDefaults</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="MotorcycleTest.php.html#23">MotorcycleTest::testStartEngineStartsSuccessfully</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="MotorcycleTest.php.html#30">MotorcycleTest::testWheelieReturnsTrue</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="MotorcycleTest.php.html#36">MotorcycleTest::testNegativeWheelCountThrowsException</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="MotorcycleTest.php.html#44">MotorcycleTest::testStartEngineThrowsWhenRoofIsPresent</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleRunnerTest.php.html#11">VehicleRunnerTest::testImplementsRunnerInterface</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleRunnerTest.php.html#17">VehicleRunnerTest::testRunPrintsFeaturesAndStartsEngine</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleRunnerTest.php.html#29">VehicleRunnerTest::testOffPrintsStatusAndStopsEngine</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleTest.php.html#11">VehicleTest::testConstructorSetsTrimmedName</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleTest.php.html#17">VehicleTest::testGetFeaturesReturnsExpectedValues</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleTest.php.html#29">VehicleTest::testEngineLifecycle</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleTest.php.html#39">VehicleTest::testNegativeWheelCountThrowsException</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+       <tr><td><a href="VehicleTest.php.html#47">VehicleTest::testDestructorStopsEngine</a></td><td class="number">2</td><td class="number">0.0%</td></tr>
+      </tbody>
+     </table>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <p class="credits">Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 14.3.0</a> using <a href="https://www.php.net/" target="_top">PHP 8.5.9</a> and <a href="https://phpunit.de/">PHPUnit 13.3.0</a> at Wed Aug 12 18:54:07 UTC 2026.</p>
+  </footer>
+ </body>
+</html>

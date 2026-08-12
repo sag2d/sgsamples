@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code Coverage for /var/www/html/tests/Unit/AbstractStatusTest.php</title>
+  <link rel="stylesheet" href="../../_css/style.css?v=14.3.0">
+  <link rel="stylesheet" href="../../_css/custom.css">
+ </head>
+ <body>
+  <header class="masthead">
+   <nav aria-label="Breadcrumb">
+    <ol class="breadcrumbs">
+     <li><a href="../../index.html">/var/www/html</a></li>
+     <li><a href="../index.html">tests</a></li>
+     <li><a href="index.html">Unit</a></li>
+     <li class="current">AbstractStatusTest.php</li>
+    </ol>
+   </nav>
+   <ul class="tabs">
+    <li><a href="../../index.html" aria-current="page">Files</a></li>
+    <li><a href="../../_classes/AbstractStatusTest.html">Classes</a></li>
+   </ul>
+  </header>
+  <main>
+   <div class="summary" data-coverage="{&quot;linesTotal&quot;:8,&quot;linesAll&quot;:0,&quot;methodsTotal&quot;:2,&quot;methodsAll&quot;:0,&quot;classesTotal&quot;:1,&quot;classesAll&quot;:0,&quot;linesSmall&quot;:0,&quot;methodsSmall&quot;:0,&quot;classesSmall&quot;:0,&quot;linesMedium&quot;:0,&quot;methodsMedium&quot;:0,&quot;classesMedium&quot;:0,&quot;linesLarge&quot;:0,&quot;methodsLarge&quot;:0,&quot;classesLarge&quot;:0,&quot;linesSM&quot;:0,&quot;methodsSM&quot;:0,&quot;classesSM&quot;:0,&quot;linesSL&quot;:0,&quot;methodsSL&quot;:0,&quot;classesSL&quot;:0,&quot;linesML&quot;:0,&quot;methodsML&quot;:0,&quot;classesML&quot;:0,&quot;linesSML&quot;:0,&quot;methodsSML&quot;:0,&quot;classesSML&quot;:0}">
+    <div class="metric" data-metric="lines-card" data-level="danger">
+     <span class="metric-name">Lines</span>
+     <span class="metric-percentage" data-metric="lines-percent" data-level="danger">0.00%</span>
+     <span class="metric-bar" data-metric="lines-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></span>
+     <span class="metric-count" data-metric="lines-number" data-level="danger">0 / 8</span>
+    </div>
+    <div class="metric" data-metric="methods-card" data-level="danger">
+     <span class="metric-name">Functions and Methods</span>
+     <span class="metric-percentage" data-metric="methods-percent" data-level="danger">0.00%</span>
+     <span class="metric-bar" data-metric="methods-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></span>
+     <span class="metric-count" data-metric="methods-number" data-level="danger">0 / 2</span>
+    </div>
+    <div class="metric" data-metric="classes-card" data-level="danger">
+     <span class="metric-name">Classes and Traits</span>
+     <span class="metric-percentage" data-metric="classes-percent" data-level="danger">0.00%</span>
+     <span class="metric-bar" data-metric="classes-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></span>
+     <span class="metric-count" data-metric="classes-number" data-level="danger">0 / 1</span>
+    </div>
+   </div>
+   <div class="toolbar">
+    <div class="test-size-filter" role="group" aria-label="Show coverage by test size" data-low-upper-bound="50" data-high-lower-bound="90">
+     <span class="control-label">Covered by tests of size</span>
+     <input type="checkbox" id="filter-size-small" data-test-size-filter="small" autocomplete="off"><label for="filter-size-small">Small</label>
+     <input type="checkbox" id="filter-size-medium" data-test-size-filter="medium" autocomplete="off"><label for="filter-size-medium">Medium</label>
+     <input type="checkbox" id="filter-size-large" data-test-size-filter="large" autocomplete="off"><label for="filter-size-large">Large</label>
+     <button type="button" data-test-size-filter-all aria-pressed="true">Any</button>
+    </div>
+   </div>
+   <div class="table-scroll">
+    <table class="coverage">
+     <thead>
+      <tr>
+       <th scope="col" class="name">Name</th>
+       <th scope="colgroup" colspan="3">Lines</th>
+       <th scope="colgroup" colspan="3">Functions and Methods</th>
+       <th scope="col" class="crap"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+       <th scope="colgroup" colspan="3">Classes and Traits</th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr data-coverage="{&quot;linesTotal&quot;:8,&quot;linesAll&quot;:0,&quot;methodsTotal&quot;:2,&quot;methodsAll&quot;:0,&quot;classesTotal&quot;:1,&quot;classesAll&quot;:0,&quot;linesSmall&quot;:0,&quot;methodsSmall&quot;:0,&quot;classesSmall&quot;:0,&quot;linesMedium&quot;:0,&quot;methodsMedium&quot;:0,&quot;classesMedium&quot;:0,&quot;linesLarge&quot;:0,&quot;methodsLarge&quot;:0,&quot;classesLarge&quot;:0,&quot;linesSM&quot;:0,&quot;methodsSM&quot;:0,&quot;classesSM&quot;:0,&quot;linesSL&quot;:0,&quot;methodsSL&quot;:0,&quot;classesSL&quot;:0,&quot;linesML&quot;:0,&quot;methodsML&quot;:0,&quot;classesML&quot;:0,&quot;linesSML&quot;:0,&quot;methodsSML&quot;:0,&quot;classesSML&quot;:0}">
+       <th scope="row" class="name" data-metric="lines-name" data-level="danger">AbstractStatusTest</th>
+       <td class="bar-cell" data-metric="lines-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="lines-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="lines-number" data-level="danger">0 / 8</td>
+       <td class="bar-cell" data-metric="methods-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="methods-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="methods-number" data-level="danger">0 / 2</td>
+       <td class="crap" data-level="danger">6</td>
+       <td class="bar-cell" data-metric="classes-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="classes-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="classes-number" data-level="danger">0 / 1</td>
+      </tr>
+      <tr data-coverage="{&quot;linesTotal&quot;:5,&quot;linesAll&quot;:0,&quot;methodsTotal&quot;:1,&quot;methodsAll&quot;:0,&quot;linesSmall&quot;:0,&quot;methodsSmall&quot;:0,&quot;linesMedium&quot;:0,&quot;methodsMedium&quot;:0,&quot;linesLarge&quot;:0,&quot;methodsLarge&quot;:0,&quot;linesSM&quot;:0,&quot;methodsSM&quot;:0,&quot;linesSL&quot;:0,&quot;methodsSL&quot;:0,&quot;linesML&quot;:0,&quot;methodsML&quot;:0,&quot;linesSML&quot;:0,&quot;methodsSML&quot;:0}">
+       <th scope="row" class="name" data-metric="lines-name" data-level="danger">&nbsp;<a href="#11"><abbr title="testGetFormattedTimeMatchesExpectedPattern(): void">testGetFormattedTimeMatchesExpectedPattern</abbr></a></th>
+       <td class="bar-cell" data-metric="lines-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="lines-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="lines-number" data-level="danger">0 / 5</td>
+       <td class="bar-cell" data-metric="methods-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="methods-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="methods-number" data-level="danger">0 / 1</td>
+       <td class="crap" data-level="danger">2</td>
+       <td colspan="3" data-level="danger"></td>
+      </tr>
+      <tr data-coverage="{&quot;linesTotal&quot;:3,&quot;linesAll&quot;:0,&quot;methodsTotal&quot;:1,&quot;methodsAll&quot;:0,&quot;linesSmall&quot;:0,&quot;methodsSmall&quot;:0,&quot;linesMedium&quot;:0,&quot;methodsMedium&quot;:0,&quot;linesLarge&quot;:0,&quot;methodsLarge&quot;:0,&quot;linesSM&quot;:0,&quot;methodsSM&quot;:0,&quot;linesSL&quot;:0,&quot;methodsSL&quot;:0,&quot;linesML&quot;:0,&quot;methodsML&quot;:0,&quot;linesSML&quot;:0,&quot;methodsSML&quot;:0}">
+       <th scope="row" class="name" data-metric="lines-name" data-level="danger">&nbsp;<a href="#20"><abbr title="testPrintStatusOutputsTimestamp(): void">testPrintStatusOutputsTimestamp</abbr></a></th>
+       <td class="bar-cell" data-metric="lines-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="lines-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="lines-number" data-level="danger">0 / 3</td>
+       <td class="bar-cell" data-metric="methods-bar" data-level="danger"><span class="bar" aria-hidden="true"><span style="width: 0.00%"></span></span></td>
+       <td class="percentage" data-metric="methods-percent" data-level="danger">0.00%</td>
+       <td class="count" data-metric="methods-number" data-level="danger">0 / 1</td>
+       <td class="crap" data-level="danger">2</td>
+       <td colspan="3" data-level="danger"></td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <table class="source">
+    <tbody>
+     <tr><td class="line-number"><a id="1" href="#1">1</a></td><td class="hit-count"></td><td class="code"><span class="default">&lt;?php</span></td></tr>
+     <tr><td class="line-number"><a id="2" href="#2">2</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr><td class="line-number"><a id="3" href="#3">3</a></td><td class="hit-count"></td><td class="code"><span class="keyword">declare</span><span class="keyword">(</span><span class="default">strict_types</span><span class="keyword">=</span><span class="default">1</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="4" href="#4">4</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr><td class="line-number"><a id="5" href="#5">5</a></td><td class="hit-count"></td><td class="code"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">PHPUnit\Framework\Attributes\CoversClass</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="6" href="#6">6</a></td><td class="hit-count"></td><td class="code"><span class="keyword">use</span><span class="default">&nbsp;</span><span class="default">PHPUnit\Framework\TestCase</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="7" href="#7">7</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr><td class="line-number"><a id="8" href="#8">8</a></td><td class="hit-count"></td><td class="code"><span class="default">#[</span><span class="default">CoversClass</span><span class="keyword">(</span><span class="default">AbstractStatus</span><span class="default">::</span><span class="default">class</span><span class="keyword">)</span><span class="keyword">]</span></td></tr>
+     <tr><td class="line-number"><a id="9" href="#9">9</a></td><td class="hit-count"></td><td class="code"><span class="keyword">final</span><span class="default">&nbsp;</span><span class="keyword">class</span><span class="default">&nbsp;</span><span class="default">AbstractStatusTest</span><span class="default">&nbsp;</span><span class="keyword">extends</span><span class="default">&nbsp;</span><span class="default">TestCase</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr><td class="line-number"><a id="10" href="#10">10</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr><td class="line-number"><a id="11" href="#11">11</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">testGetFormattedTimeMatchesExpectedPattern</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">:</span><span class="default">&nbsp;</span><span class="default">void</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="danger"><td class="line-number"><a id="12" href="#12">12</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$status</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="keyword">class</span><span class="default">&nbsp;</span><span class="keyword">extends</span><span class="default">&nbsp;</span><span class="default">AbstractStatus</span><span class="default">&nbsp;</span><span class="keyword">{</span><span class="keyword">}</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="13" href="#13">13</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr class="danger"><td class="line-number"><a id="14" href="#14">14</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">assertMatchesRegularExpression</span><span class="keyword">(</span></td></tr>
+     <tr class="danger"><td class="line-number"><a id="15" href="#15">15</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">'/^\d{4}-\d{2}-\d{2}&nbsp;\d{2}:\d{2}:\d{2}$/'</span><span class="keyword">,</span></td></tr>
+     <tr class="danger"><td class="line-number"><a id="16" href="#16">16</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$status</span><span class="default">-&gt;</span><span class="default">getFormattedTime</span><span class="keyword">(</span><span class="keyword">)</span></td></tr>
+     <tr class="danger"><td class="line-number"><a id="17" href="#17">17</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="18" href="#18">18</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td class="line-number"><a id="19" href="#19">19</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr><td class="line-number"><a id="20" href="#20">20</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">public</span><span class="default">&nbsp;</span><span class="keyword">function</span><span class="default">&nbsp;</span><span class="default">testPrintStatusOutputsTimestamp</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">:</span><span class="default">&nbsp;</span><span class="default">void</span><span class="default">&nbsp;</span><span class="keyword">{</span></td></tr>
+     <tr class="danger"><td class="line-number"><a id="21" href="#21">21</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$status</span><span class="default">&nbsp;</span><span class="keyword">=</span><span class="default">&nbsp;</span><span class="keyword">new</span><span class="default">&nbsp;</span><span class="keyword">class</span><span class="default">&nbsp;</span><span class="keyword">extends</span><span class="default">&nbsp;</span><span class="default">AbstractStatus</span><span class="default">&nbsp;</span><span class="keyword">{</span><span class="keyword">}</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="22" href="#22">22</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr class="danger"><td class="line-number"><a id="23" href="#23">23</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$this</span><span class="default">-&gt;</span><span class="default">expectOutputRegex</span><span class="keyword">(</span><span class="default">'/Service&nbsp;ran&nbsp;at:&nbsp;\d{4}-\d{2}-\d{2}&nbsp;\d{2}:\d{2}:\d{2}\./'</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="24" href="#24">24</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr class="danger"><td class="line-number"><a id="25" href="#25">25</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="default">$status</span><span class="default">-&gt;</span><span class="default">printStatus</span><span class="keyword">(</span><span class="keyword">)</span><span class="keyword">;</span></td></tr>
+     <tr><td class="line-number"><a id="26" href="#26">26</a></td><td class="hit-count"></td><td class="code"><span class="default">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="keyword">}</span></td></tr>
+     <tr><td class="line-number"><a id="27" href="#27">27</a></td><td class="hit-count"></td><td class="code"></td></tr>
+     <tr><td class="line-number"><a id="28" href="#28">28</a></td><td class="hit-count"></td><td class="code"><span class="keyword">}</span></td></tr>
+    </tbody>
+   </table>
+  </main>
+  <a class="to-top" href="#" title="Back to the top" hidden>
+   <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M8 3.5 14 11H2z"/></svg>
+   <span class="visually-hidden">Back to the top</span>
+  </a>
+  <footer>
+   <ul class="legend">
+    <li class="covered-by-small-tests">Covered by small (and larger) tests</li>
+    <li class="covered-by-medium-tests">Covered by medium (and large) tests</li>
+    <li class="covered-by-large-tests">Covered by large tests (and tests of unknown size)</li>
+    <li class="not-covered">Not covered</li>
+    <li class="not-coverable">Not coverable</li>
+   </ul>
+   <p class="credits">Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 14.3.0</a> using <a href="https://www.php.net/" target="_top">PHP 8.5.9</a> and <a href="https://phpunit.de/">PHPUnit 13.3.0</a> at Wed Aug 12 18:54:07 UTC 2026.</p>
+  </footer>
+  <script src="../../_js/coverage-table.js?v=14.3.0" defer></script>
+  <script src="../../_js/source-view.js?v=14.3.0" defer></script>
+ </body>
+</html>
