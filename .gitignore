@@ -1,6 +1,2 @@
-/vehicles-oop-demo/.phpunit.cache/
-/vehicles-oop-demo/build/
-/vehicles-oop-demo/vendor/
-
 # Ignore all files ending with .log (log files)
 *.log
