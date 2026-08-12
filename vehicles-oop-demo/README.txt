@@ -27,9 +27,13 @@ This README file contains a description of the Vehicles OOP Demo project.
 II. Description
 -------------------------------
 
-The Vehicles OOP Demo project is a set of classes and a command-line interface (CLI) script intended to demonstrate 
-PHP object-oriented concepts. The various types of vehicles inherit properties and functions from parent classes.
-I designed this project to help train junior developers in learning PHP.
+The Vehicles OOP Demo project is a set of classes and a command-line interface (CLI) script intended to 
+demonstrate PHP object-oriented concepts. I designed this project to help train junior developers 
+in learning PHP. The various types of vehicles inherit properties and functions from parent classes. 
+
+It demonstrates the object-oriented concepts of encapsulation, inheritance, abstraction, and polymorphism.
+Contains the following PHP class types and structures: 
+standard concrete classes, an abstract class, an interface, a trait, an enum, and a static class.
 
 -------------------------------
 III. Running the Vehicles OOP Demo

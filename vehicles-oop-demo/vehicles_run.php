@@ -19,6 +19,8 @@ require_once 'classes/class.VehicleRunner.php';
 echo "Running Vehicles OOP Demo...\n\n";
 
 $runner = new VehicleRunner();
+$runner->printStatus();
+echo "\n";
 
 // instantiate the Vehicle object as a generic vehicle
 $vehicle = new Vehicle('Generic Vehicle');

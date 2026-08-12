@@ -2,7 +2,8 @@
 
 declare(strict_types=1);
 
-require_once 'class.Vehicle.php';
+require_once 'class.AbstractStatus.php';
+require_once __DIR__ . '/../includes/interface.Runner.php';
 
 /**
  * @author Scott Greenhagen
@@ -10,8 +11,10 @@ require_once 'class.Vehicle.php';
  * @package Vehicles OOP Demo
  *
  * Runs standard vehicle operations for the Vehicles OOP Demo.
+ * Implements the Runner interface to require functionality for running and stopping vehicles.
+ * Extends the AbstractStatus class to provide timestamp for reporting service status.
  */
-class VehicleRunner {
+class VehicleRunner extends AbstractStatus implements Runner {
 
 	/**
 	 * VehicleRunner::run()

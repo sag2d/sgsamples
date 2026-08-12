@@ -30,6 +30,25 @@ class Motorcycle extends Vehicle {
 	protected bool $roof = false {
 		set => $value;
 	}
+
+	/**
+	 * Motorcycle::start_engine()
+	 *
+	 * Extended, overriding start engine method to check for no roof.
+	 *
+	 * @access public
+	 * 
+	 * @return bool $success
+	 */
+	public function start_engine(): bool {
+		// extra check to make sure the motorcycle has no roof
+		if($this->roof) {
+			throw new RuntimeException('A motorcycle cannot have a roof.');
+		}
+
+		// call the parent method and return
+		return parent::start_engine();
+	}
 	
 	/**
 	 * Motorcycle::wheelie()
