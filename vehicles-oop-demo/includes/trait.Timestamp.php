@@ -20,7 +20,7 @@ trait Timestamp {
 	 * @return string
 	 */
 	public function getFormattedTime(): string {
-		return date('Y-m-d H:i:s');
+		return date('F j, Y, g:i a');
 	}
 
 }

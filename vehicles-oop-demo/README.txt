@@ -13,7 +13,9 @@ II. Description
 
 III. Running the Vehicles OOP Demo
 
-IV. Copyright Information
+IV. Running PHPUnit Test Suites
+
+V. Copyright Information
 
 ===============================
 
@@ -49,7 +51,22 @@ Run the PHP script from within a Docker environment by adding your server name i
 docker exec -it [SERVER_NAME] php vehicles_run.php
 
 -------------------------------
-IV. Copyright Information
+IV. Running PHPUnit Test Suites
+-------------------------------
+
+To run the included PHPUnit test suites in the "tests" directory from a command-line interface, 
+navigate to the "vehicles-oop-demo" directory, and enter the following command:
+./vendor/phpunit --configuration phpunit.xml tests
+
+Alternatively, run PHPUnit from within a Docker environment:
+docker compose exec server ./vendor/phpunit --configuration phpunit.xml tests
+
+The provided Docker configuration files also includes the PCOV code coverage client. 
+Display PCOV code coverage report and run all tests as follows:
+docker compose exec server ./vendor/phpunit --configuration phpunit.xml --coverage-text tests
+
+-------------------------------
+V. Copyright Information
 -------------------------------
 
 Copyright Scott Greenhagen

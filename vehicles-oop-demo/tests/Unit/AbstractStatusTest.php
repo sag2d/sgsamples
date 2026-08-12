@@ -12,7 +12,7 @@ final class AbstractStatusTest extends TestCase {
 		$status = new class extends AbstractStatus {};
 
 		$this->assertMatchesRegularExpression(
-			'/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/',
+			'/^[A-Za-z]+ \d{1,2}, \d{4}, \d{1,2}:\d{2} (am|pm)$/',
 			$status->getFormattedTime()
 		);
 	}
@@ -20,7 +20,7 @@ final class AbstractStatusTest extends TestCase {
 	public function testPrintStatusOutputsTimestamp(): void {
 		$status = new class extends AbstractStatus {};
 
-		$this->expectOutputRegex('/Service ran at: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\./');
+		$this->expectOutputRegex('/Service ran at: [A-Za-z]+ \d{1,2}, \d{4}, \d{1,2}:\d{2} (am|pm)\./');
 
 		$status->printStatus();
 	}
