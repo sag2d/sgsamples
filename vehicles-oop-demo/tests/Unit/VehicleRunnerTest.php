@@ -6,6 +6,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(VehicleRunner::class)]
+#[CoversClass(Vehicle::class)]
 final class VehicleRunnerTest extends TestCase {
 
 	public function testImplementsRunnerInterface(): void {

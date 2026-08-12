@@ -6,6 +6,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 #[CoversClass(AutoShop::class)]
+#[CoversClass(Vehicle::class)]
 final class AutoShopTest extends TestCase {
 
 	public function testCheckTiresReturnsTrue(): void {
