@@ -35,7 +35,7 @@ final class MotorcycleTest extends TestCase {
 
 	public function testNegativeWheelCountThrowsException(): void {
 		$this->expectException(InvalidArgumentException::class);
-		$this->expectExceptionMessage('A motorcycle cannot have a negative number of wheels.');
+		$this->expectExceptionMessageIs('A motorcycle cannot have a negative number of wheels.');
 
 		$motorcycle = new Motorcycle('Invalid');
 		$motorcycle->num_wheels = -1;
@@ -47,7 +47,7 @@ final class MotorcycleTest extends TestCase {
 		$roof->setValue($motorcycle, true);
 
 		$this->expectException(RuntimeException::class);
-		$this->expectExceptionMessage('A motorcycle cannot have a roof.');
+		$this->expectExceptionMessageIs('A motorcycle cannot have a roof.');
 
 		$motorcycle->start_engine();
 	}

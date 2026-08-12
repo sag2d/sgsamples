@@ -38,7 +38,7 @@ final class VehicleTest extends TestCase {
 
 	public function testNegativeWheelCountThrowsException(): void {
 		$this->expectException(InvalidArgumentException::class);
-		$this->expectExceptionMessage('A vehicle cannot have a negative number of wheels.');
+		$this->expectExceptionMessageIs('A vehicle cannot have a negative number of wheels.');
 
 		$vehicle = new Vehicle('Invalid');
 		$vehicle->num_wheels = -1;
