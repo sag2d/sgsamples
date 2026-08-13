@@ -6,6 +6,13 @@ use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 
+/*
+ * TeamForm Filament admin panel configuration settings for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class TeamForm
 {
     public static function configure(Schema $schema): Schema

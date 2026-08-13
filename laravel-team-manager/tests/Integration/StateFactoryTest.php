@@ -1,9 +1,6 @@
 <?php
 
 use App\Models\State;
-use Tests\TestCase;
-
-uses(TestCase::class);
 
 test('it generates all fifty states', function () {
     $states = State::factory()->allStates()->make();

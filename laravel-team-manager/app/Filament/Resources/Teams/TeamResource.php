@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Teams;
 use App\Filament\Resources\Teams\Pages\CreateTeam;
 use App\Filament\Resources\Teams\Pages\EditTeam;
 use App\Filament\Resources\Teams\Pages\ListTeams;
-use App\Filament\Resources\Teams\Pages\ViewTeam;
+//use App\Filament\Resources\Teams\Pages\ViewTeam;
 use App\Filament\Resources\Teams\Schemas\TeamForm;
 use App\Filament\Resources\Teams\Schemas\TeamInfolist;
 use App\Filament\Resources\Teams\Tables\TeamsTable;
@@ -16,6 +16,13 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+/*
+ * TeamResource Filament admin panel class for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class TeamResource extends Resource
 {
     protected static ?string $model = Team::class;

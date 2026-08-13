@@ -38,7 +38,7 @@
                 </li>
             @empty
                 <li class="text-center py-8 text-sm text-neutral-600 dark:text-neutral-400">
-                    No leagues are available yet.
+                    No leagues are available. Try adjusting your search.
                 </li>
             @endforelse
         </ul>

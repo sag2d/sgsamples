@@ -16,10 +16,9 @@ Route::get('/teams/{team}', [TeamController::class, 'show'])->name('teams.show')
 Route::get('/players', [PlayerController::class, 'index'])->name('players.index');
 Route::get('/players/{player}', [PlayerController::class, 'show'])->name('players.show');
 
-/*
+// Note: Frontend public login hidden for now to keep the focus on the Filament admin panel login for management.
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('dashboard', 'dashboard')->name('dashboard');
 });
-*/
 
 require __DIR__.'/settings.php';

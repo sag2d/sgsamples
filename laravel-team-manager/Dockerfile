@@ -9,14 +9,23 @@
 ################################################################################
 
 # Create a stage for installing app dependencies defined in Composer.
-FROM composer:lts as deps
+#FROM composer:lts as deps
+FROM php:8.4-cli as deps
 
 WORKDIR /app
+
+# Install git and unzip for Composer
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
 
 # If your composer.json file defines scripts that run during dependency installation and
 # reference your application source files, uncomment the line below to copy all the files
 # into this layer.
 # COPY . .
+# Copy Composer from official image
+COPY --from=composer:lts /usr/bin/composer /usr/bin/composer
 
 # Download dependencies as a separate step to take advantage of Docker's caching.
 # Leverage a bind mounts to composer.json and composer.lock to avoid having to copy them
@@ -25,8 +34,8 @@ WORKDIR /app
 RUN --mount=type=bind,source=composer.json,target=composer.json \
     --mount=type=bind,source=composer.lock,target=composer.lock \
     --mount=type=cache,target=/tmp/cache \
-    composer install --no-dev --no-interaction --no-scripts
-
+    composer install --no-dev --no-interaction --no-scripts --ignore-platform-req=ext-intl --ignore-platform-req=ext-zip
+    
 ################################################################################
 
 # Create a new stage for running the application that contains the minimal

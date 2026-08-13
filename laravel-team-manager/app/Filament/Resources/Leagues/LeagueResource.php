@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Leagues;
 use App\Filament\Resources\Leagues\Pages\CreateLeague;
 use App\Filament\Resources\Leagues\Pages\EditLeague;
 use App\Filament\Resources\Leagues\Pages\ListLeagues;
-use App\Filament\Resources\Leagues\Pages\ViewLeague;
+//use App\Filament\Resources\Leagues\Pages\ViewLeague;
 use App\Filament\Resources\Leagues\Schemas\LeagueForm;
 use App\Filament\Resources\Leagues\Schemas\LeagueInfolist;
 use App\Filament\Resources\Leagues\Tables\LeaguesTable;
@@ -16,6 +16,13 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
+/*
+ * LeagueResource Filament admin panel class for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class LeagueResource extends Resource
 {
     protected static ?string $model = League::class;

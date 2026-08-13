@@ -3,12 +3,11 @@
 use App\Models\League;
 use App\Models\Team;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Tests\TestCase;
-
-uses(TestCase::class);
 
 test('it has many teams', function () {
-    $relation = (new League)->teams();
+    $league = League::factory()->create();
+    
+    $relation = $league->teams();
 
     expect($relation)
         ->toBeInstanceOf(HasMany::class)

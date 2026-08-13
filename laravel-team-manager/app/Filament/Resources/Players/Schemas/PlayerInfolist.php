@@ -5,6 +5,13 @@ namespace App\Filament\Resources\Players\Schemas;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
 
+/*
+ * PlayerInfoList Filament admin panel configuration settings for the Team Manager application.
+ * 
+ * @author Scott Greenhagen
+ * @version 1.0
+ * @package Team Manager
+ */
 class PlayerInfolist
 {
     public static function configure(Schema $schema): Schema

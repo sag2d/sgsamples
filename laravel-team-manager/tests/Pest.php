@@ -5,46 +5,41 @@ use Tests\TestCase;
 
 /*
 |--------------------------------------------------------------------------
-| Test Case
+| Base Test Case Configuration
 |--------------------------------------------------------------------------
-|
-| The closure you provide to your test functions is always bound to a specific PHPUnit test
-| case class. By default, that class is "PHPUnit\Framework\TestCase". Of course, you may
-| need to change it using the "pest()" function to bind different classes or traits.
-|
 */
 
+// All test types extend Laravel's base TestCase
 pest()->extend(TestCase::class)
-    ->use(RefreshDatabase::class)
+    ->in('Feature', 'Integration', 'Unit');
+
+/*
+|--------------------------------------------------------------------------
+| Database & Seeding
+|--------------------------------------------------------------------------
+*/
+
+// Refresh database and run migrations for Integration tests
+pest()->use(RefreshDatabase::class)
+    ->in('Integration');
+
+// Refresh database, run migrations, and seed the database for Feature tests
+pest()->use(RefreshDatabase::class)
+    ->beforeEach(function () {
+        $this->seeding(); 
+    })
     ->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
-| Expectations
+| Custom Global Helper Functions
 |--------------------------------------------------------------------------
-|
-| When you're writing tests, you often need to check that values meet certain conditions. The
-| "expect()" function gives you access to a set of "expectations" methods that you can use
-| to assert different things. Of course, you may extend the Expectation API at any time.
-|
 */
 
-expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
-});
-
-/*
-|--------------------------------------------------------------------------
-| Functions
-|--------------------------------------------------------------------------
-|
-| While Pest is very powerful out-of-the-box, you may have some testing code specific to your
-| project that you don't want to repeat in every file. Here you can also expose helpers as
-| global functions to help you to reduce the number of lines of code in your test files.
-|
-*/
-
-function something()
+/**
+ * Clear the application cache before specific test scenarios.
+ */
+function clearCache(): void
 {
-    // ..
+    Illuminate\Support\Facades\Artisan::call('cache:clear');
 }
