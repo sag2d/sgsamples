@@ -38,6 +38,8 @@ It demonstrates the object-oriented concepts of encapsulation, inheritance, abst
 Contains the following PHP class types and structures: 
 standard concrete classes, an abstract class, an interface, a trait, an enum, and a static class.
 
+Tech stack: PHP (vanilla -- no framework), Docker for local dev environment, and PHPUnit for automated tests.
+
 -------------------------------
 III. Running the Vehicles OOP Demo
 -------------------------------
