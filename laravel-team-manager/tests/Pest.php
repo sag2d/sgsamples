@@ -26,7 +26,7 @@ pest()->use(RefreshDatabase::class)
 // Refresh database, run migrations, and seed the database for Feature tests
 pest()->use(RefreshDatabase::class)
     ->beforeEach(function () {
-        $this->seeding(); 
+        $this->seeding();
     })
     ->in('Feature');
 

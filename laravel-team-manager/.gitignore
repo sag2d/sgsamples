@@ -27,3 +27,4 @@ yarn-error.log
 .agents/
 .github/skills/
 laravel_team_manager.sql
+/tests_old/
