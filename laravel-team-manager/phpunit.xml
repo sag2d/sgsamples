@@ -4,6 +4,7 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
+    <!-- Test Suites Definition -->
     <testsuites>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
@@ -15,11 +16,19 @@
             <directory>tests/Integration</directory>
         </testsuite>
     </testsuites>
+
+    <!-- Source Code Selection for Coverage -->
     <source>
         <include>
             <directory>app</directory>
         </include>
+        <exclude>
+            <directory>app/Livewire</directory>
+            <directory>app/Filament</directory>
+        </exclude>
     </source>
+
+    <!-- Server Environment Settings for Testing -->
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>

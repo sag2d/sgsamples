@@ -1,8 +1,8 @@
 <x-layouts::public :title="__('Welcome')">
     <div class="flex w-full flex-1 flex-col gap-6 justify-center items-center text-center">
         <div class="flex flex-col gap-2">
-            <h1 class="text-4xl font-bold text-neutral-900 dark:text-white">{{ config('app.name', 'Team Manager') }}</h1>
-            <p class="text-lg text-neutral-600 dark:text-neutral-400">Manage your leagues, teams, and players.</p>
+            <h1 class="text-lg text-neutral-600 dark:text-neutral-400">{{ config('app.name', 'Team Manager') }}</h1>
+            <p class="text-4xl font-bold text-neutral-900 dark:text-white">Manage your leagues, teams, and players.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 w-full max-w-3xl">
