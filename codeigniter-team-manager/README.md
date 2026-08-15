@@ -1,4 +1,4 @@
-# Team Manager
+# CodeIgniter Team Manager
 
 > **Author:** Scott Greenhagen
 
@@ -25,7 +25,7 @@ This README contains a description of the **Team Manager** application and instr
 
 ## Description
 
-The **Team Manager** is a web application intended to manage the organization of teams.
+The **Team Manager** is a web application built on the CodeIgniter framework, intended to manage the organization of teams and related records.
 
 Teams consist of:
 
@@ -48,6 +48,18 @@ Administrative screens are available to:
 - Manage individual groups
 
 > **Note:** Administrative management screens are openly available for demonstration purposes only. These capabilities would normally require a login.
+
+### Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **PHP** | Foundation |
+| **CodeIgniter** | Backend PHP framework |
+| **JavaScript ES6+** | Frontend events |
+| **HTML** | Frontend presentation |
+| **Docker** | Local development environment |
+| **Composer** | Dependency management |
+| **PHPUnit** | Automated testing |
 
 ---
 
