@@ -2,7 +2,7 @@
 
 > **Author:** Scott Greenhagen
 
-A web application intended to manage the organization of leagues, teams, and players.
+A web application built on the CodeIgniter framework intended to manage the organization of leagues, teams, and players.
 
 ---
 
