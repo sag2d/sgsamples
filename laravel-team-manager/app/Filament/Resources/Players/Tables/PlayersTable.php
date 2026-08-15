@@ -22,14 +22,16 @@ class PlayersTable
     {
         return $table
             ->columns([
+                TextColumn::make('first_name')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('last_name')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('team.name')
                     ->label('Team')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('first_name')
-                    ->searchable(),
-                TextColumn::make('last_name')
-                    ->searchable(),
                 TextColumn::make('address')
                     ->searchable(),
                 TextColumn::make('city')
@@ -57,6 +59,7 @@ class PlayersTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('first_name', direction: 'asc');
     }
 }

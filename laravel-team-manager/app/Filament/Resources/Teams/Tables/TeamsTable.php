@@ -22,12 +22,13 @@ class TeamsTable
     {
         return $table
             ->columns([
+                TextColumn::make('name')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('league.name')
                     ->label('League')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('name')
-                    ->searchable(),
                 TextColumn::make('mascot')
                     ->searchable(),
             ])
@@ -42,6 +43,7 @@ class TeamsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('name', direction: 'asc');
     }
 }

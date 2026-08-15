@@ -23,7 +23,8 @@ class LeaguesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //
@@ -36,6 +37,7 @@ class LeaguesTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('name', direction: 'asc');
     }
 }
