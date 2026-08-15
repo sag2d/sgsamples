@@ -2,7 +2,7 @@
 
 > **Author:** Scott Greenhagen
 
-A web application built on the CodeIgniter framework intended to manage the organization of leagues, teams, and players.
+A web application built on the CodeIgniter PHP framework intended to manage the organization of leagues, teams, and players.
 
 ---
 
@@ -56,7 +56,7 @@ Administrative screens are available to:
 | **PHP** | Foundation |
 | **CodeIgniter** | Backend PHP framework |
 | **JavaScript ES6+** | Frontend events |
-| **HTML** | Frontend presentation |
+| **HTML5** | Frontend presentation |
 | **Docker** | Local development environment |
 | **Composer** | Dependency management |
 | **PHPUnit** | Automated testing |
