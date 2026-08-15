@@ -34,10 +34,10 @@ Various types of vehicles are implemented as child classes that inherit properti
 
 The project demonstrates:
 
-- **Encapsulation**
-- **Inheritance**
-- **Abstraction**
-- **Polymorphism**
+- Encapsulation
+- Inheritance
+- Abstraction
+- Polymorphism
 
 It contains the following PHP class types and structures:
 
