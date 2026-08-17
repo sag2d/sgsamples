@@ -62,6 +62,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Configure Apache to serve Laravel's public directory
 RUN sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf
 
+# Optimize OpCache settings for faster asset loading
+RUN { \
+    echo 'opcache.enable=1'; \
+    echo 'opcache.memory_consumption=256'; \
+    echo 'opcache.max_accelerated_files=20000'; \
+    echo 'opcache.revalidate_freq=0'; \
+    echo 'opcache.validate_timestamps=1'; \
+} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+
 # Your PHP application may require additional PHP extensions to be installed
 # manually. For detailed instructions for installing extensions can be found, see
 # https://github.com/docker-library/docs/tree/master/php#how-to-install-more-php-extensions

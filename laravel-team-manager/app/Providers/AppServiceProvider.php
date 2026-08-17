@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+//use Illuminate\Support\Facades\Log;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,19 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function configureDefaults(): void
     {
+        /*
+        // log database queries in local dev environment to analyze and optimize performance
+        if ($this->app->environment('local')) {
+            DB::listen(function ($query) {
+                Log::info("Query Run:", [
+                    'sql' => $query->sql,
+                    'bindings' => $query->bindings,
+                    'time_ms' => $query->time // Time in milliseconds
+                ]);
+            });
+        }
+        */
+
         Date::use(CarbonImmutable::class);
 
         DB::prohibitDestructiveCommands(
