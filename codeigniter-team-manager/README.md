@@ -20,6 +20,7 @@ A web application built on the CodeIgniter PHP framework intended to manage the 
 ## Introduction
 
 This README contains a description of the **Team Manager** application and instructions for setup.
+This application requires an installation of PHP and the CodeIgniter framework to run.
 
 ---
 
@@ -27,7 +28,7 @@ This README contains a description of the **Team Manager** application and instr
 
 The **Team Manager** is a web application built on the CodeIgniter framework, intended to manage the organization of teams and related records.
 
-Teams consist of:
+Objects consist of:
 
 - Leagues
 - Teams
@@ -55,6 +56,7 @@ Administrative screens are available to:
 |---|---|
 | **PHP** | Foundation |
 | **CodeIgniter** | Backend PHP framework |
+| **MySQL** | Database |
 | **JavaScript ES6+** | Frontend events |
 | **HTML5** | Frontend presentation |
 | **Docker** | Local development environment |
