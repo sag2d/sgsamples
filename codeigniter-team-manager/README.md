@@ -10,7 +10,7 @@ A web application built on the CodeIgniter PHP framework intended to manage the 
 
 - **Introduction**
 - **Description**
-- **Installing CodeIgniter**
+- **CodeIgniter**
 - **Configuration and Setup**
 - **Using the Team Manager**
 - **Copyright Information**
@@ -20,7 +20,7 @@ A web application built on the CodeIgniter PHP framework intended to manage the 
 ## Introduction
 
 This README contains a description of the **Team Manager** application and instructions for setup.
-This application requires an installation of PHP and the CodeIgniter framework to run.
+This application runs the bundled CodeIgniter framework on PHP.
 
 ---
 
@@ -65,18 +65,19 @@ Administrative screens are available to:
 
 ---
 
-## Installing CodeIgniter
+## CodeIgniter
 
-The Team Manager assumes proper installation of:
+The Team Manager requires proper installation of the following:
 
 - **PHP 8.3**
-- **CodeIgniter MVC Framework 4.7**
+- **MySQL 8.0**
+- **CodeIgniter MVC Framework 4.7 (bundled)**
 
 CodeIgniter is available at no cost from the CodeIgniter website:
 
 [CodeIgniter](http://codeigniter.com/)
 
-For more information on installing and setting up CodeIgniter, see the CodeIgniter user guide:
+For more information on configuration settings for CodeIgniter, see the CodeIgniter user guide:
 
 [CodeIgniter User Guide](http://codeigniter.com/user_guide/)
 
