@@ -2,7 +2,7 @@
 
 > **Author:** Scott Greenhagen
 
-A web application built on the CodeIgniter PHP framework intended to manage the organization of leagues, teams, and players.
+The **Team Manager** is a web application built on the CodeIgniter PHP framework, intended to manage the organization of related leagues, teams, and players.
 
 ---
 
@@ -26,9 +26,7 @@ This application runs the bundled CodeIgniter framework on PHP.
 
 ## Description
 
-The **Team Manager** is a web application built on the CodeIgniter framework, intended to manage the organization of teams and related records.
-
-Objects consist of:
+**Team Manager** Objects consist of:
 
 - Leagues
 - Teams
