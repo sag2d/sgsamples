@@ -34,4 +34,5 @@
 
 <input type="button" name="add" value="Add New Player" data-url="/admin/player/edit">
 
-<script src="/resources/js/admin-index-actions.js"></script>
+<script type="module" src="/resources/js/dist/admin-index-actions.js"></script>
+<!--script src="/resources/js/admin-index-actions.js"></script-->

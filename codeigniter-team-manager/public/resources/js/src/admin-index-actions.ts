@@ -3,25 +3,29 @@
  * Handles delete confirmation prompts and add-button navigation.
  */
 
-const confirmDelete = (id, deleteUrl) => {
+const confirmDelete = (id: string | undefined, deleteUrl: string | undefined): void => {
     const confirmed = window.confirm('Are you sure you wish to permanently delete this record?');
 
-    if (confirmed) {
+    if (confirmed && deleteUrl && id) {
         window.location.href = `${deleteUrl}${id}`;
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.delete').forEach((link) => {
-        link.addEventListener('click', (event) => {
+    document.querySelectorAll('.delete').forEach((el) => {
+        const link = el as HTMLElement;
+        link.addEventListener('click', (event: Event) => {
             event.preventDefault();
             confirmDelete(link.dataset.id, link.dataset.deleteUrl);
         });
     });
 
-    document.querySelectorAll("[name='add']").forEach((button) => {
+    document.querySelectorAll("[name='add']").forEach((el) => {
+        const button = el as HTMLElement;
         button.addEventListener('click', () => {
-            window.location.href = button.dataset.url;
+            if (button.dataset.url) {
+                window.location.href = button.dataset.url;
+            }
         });
     });
 });

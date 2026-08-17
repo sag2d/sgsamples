@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["DOM", "ES6"],
+    
+    "rootDir": "./public/resources/js/src", // TypeScript source folder
+    "outDir": "./public/resources/js/dist", // TypeScript destination folder
+    "allowJs": false, // allows JavaScript files (.js and .jsx) to be imported and compiled alongside your TypeScript files
+    "checkJs": false, // Works with allowJs to report type errors inside your JavaScript files using JSDoc comments
+    
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["./public/resources/js/src/**/*"]
+}

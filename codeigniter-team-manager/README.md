@@ -57,7 +57,7 @@ Administrative screens are available to:
 | **PHP** | Foundation |
 | **CodeIgniter** | Backend PHP framework |
 | **MySQL** | Database |
-| **JavaScript ES6+** | Frontend events |
+| **TypeScript/JavaScript** | Frontend events |
 | **HTML5** | Frontend presentation |
 | **Docker** | Local development environment |
 | **Composer** | Dependency management |
