@@ -26,7 +26,7 @@ This application runs the bundled CodeIgniter framework on PHP.
 
 ## Description
 
-**Team Manager** Objects consist of:
+**Team Manager** objects consist of:
 
 - Leagues
 - Teams
