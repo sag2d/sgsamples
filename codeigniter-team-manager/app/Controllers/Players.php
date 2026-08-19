@@ -57,10 +57,14 @@ class Players extends BaseController
     {
         $player = $this->player->getOnePlayer($id);
 
+        if (!$player) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
         return $this->render('players/view', [
             'states' => get_state_abbrs(),
             'player' => $player,
-            'team' => $player ? $this->team->getOneTeam((int) $player->team_id) : false,
+            'team' => $this->team->getOneTeam((int) $player->team_id),
         ]);
     }
 }

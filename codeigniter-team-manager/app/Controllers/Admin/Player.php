@@ -85,8 +85,15 @@ class Player extends BaseController
         ];
 
         if (!$this->validate($rules)) {
+            $player = (object) $this->request->getPost();
+            $player->id = $player->id ?? null;
+            $player->phone = $player->phone ?? null;
+            $player->address = $player->address ?? null;
+            $player->city = $player->city ?? null;
+            $player->zip = $player->zip ?? null;
+            
             return $this->render('admin/player/edit', [
-                'player' => (object) $this->request->getPost(),
+                'player' => $player,
                 'states' => get_states(),
                 'teams' => $this->team->getTeamOptions(),
                 'errors' => $this->validator->getErrors(),

@@ -57,9 +57,13 @@ class Teams extends BaseController
     {
         $team = $this->team->getOneTeam($id);
 
+        if (!$team) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
         return $this->render('teams/view', [
             'team' => $team,
-            'league' => $team ? $this->league->getOneLeague((int) $team->league_id) : false,
+            'league' => $this->league->getOneLeague((int) $team->league_id),
         ]);
     }
 }

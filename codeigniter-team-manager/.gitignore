@@ -1,5 +1,8 @@
 .env
-vendor/
+/.phpunit.cache/
+/build/
+/vendor/
+/archive/
 
 #-------------------------
 # Temporary Files

@@ -81,8 +81,12 @@ class Team extends BaseController
         ];
 
         if (!$this->validate($rules)) {
+            $team = (object) $this->request->getPost();
+            $team->id = $team->id ?? null;
+            $team->mascot = $team->mascot ?? null;
+            
             return $this->render('admin/team/edit', [
-                'team' => (object) $this->request->getPost(),
+                'team' => $team,
                 'leagues' => $this->league->getLeagueOptions(),
                 'errors' => $this->validator->getErrors(),
             ]);

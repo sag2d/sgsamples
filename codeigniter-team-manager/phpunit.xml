@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/codeigniter4/framework/system/Test/bootstrap.php"
+    colors="true"
+    cacheDirectory=".phpunit.cache"
+    executionOrder="depends,defects"
+    requireCoverageMetadata="true"
+    beStrictAboutCoverageMetadata="true"
+    beStrictAboutOutputDuringTests="true"
+    failOnRisky="true"
+    failOnWarning="true">
+
+  <!-- Test Suites Definition -->
+  <testsuites>
+    <testsuite name="Unit">
+      <directory>tests/Unit</directory>
+    </testsuite>
+    <testsuite name="Feature">
+      <directory>tests/Feature</directory>
+    </testsuite>
+    <testsuite name="Integration">
+      <directory>tests/Integration</directory>
+    </testsuite>
+  </testsuites>
+
+  <!-- Source Code Selection for Coverage -->
+  <source ignoreIndirectDeprecations="true" restrictNotices="true" restrictWarnings="true">
+    <include>
+      <directory>app</directory>
+    </include>
+    <exclude>
+      <directory>tests</directory>
+      <directory>vendor</directory>
+      <directory>build</directory>
+      <directory>archive</directory>
+      <directory>public</directory>
+      <directory>writable</directory>
+      <directory>app/Config</directory>
+      <directory>app/Views</directory>
+    </exclude>
+  </source>
+
+  <!-- Code Coverage Reports Configuration -->
+  <coverage>
+    <report>
+      <html outputDirectory="build/coverage/html" lowUpperBound="50" highLowerBound="90"/>
+      <clover outputFile="build/coverage/clover.xml"/>
+      <text outputFile="build/coverage/coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+    </report>
+  </coverage>
+
+  <!-- Server Environment Settings for Testing -->
+  <php>
+    <ini name="error_reporting" value="-1"/>
+    <ini name="display_errors" value="1"/>
+    <ini name="display_startup_errors" value="1"/>
+
+    <env name="CI_ENVIRONMENT" value="testing"/>
+    <env name="ENVIRONMENT" value="testing"/>
+    <env name="database.tests.DBDriver" value="MySQLi"/>
+    <env name="database.tests.DBHost" value="db"/>
+    <env name="database.tests.DBName" value="team_mgr"/>
+    <env name="database.tests.DBPort" value="3306"/>
+
+    <env name="APP_ENVIRONMENT" value="testing"/>
+    <env name="app.baseURL" value="http://localhost:9001/"/>
+  </php>
+</phpunit>

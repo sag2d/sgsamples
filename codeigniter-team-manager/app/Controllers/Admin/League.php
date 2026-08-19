@@ -75,6 +75,9 @@ class League extends BaseController
         ];
 
         if (!$this->validate($rules)) {
+        $league = (object) $this->request->getPost();
+        $league->id = $league->id ?? null;
+
             return $this->render('admin/league/edit', [
                 'league' => (object) $this->request->getPost(),
                 'errors' => $this->validator->getErrors(),

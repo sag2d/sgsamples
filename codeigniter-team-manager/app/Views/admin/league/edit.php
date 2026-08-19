@@ -4,14 +4,14 @@
 
 <?php 
 	echo form_open('/admin/league/save'); 
-	echo form_hidden('id', !empty($league) ? $league->id : '');
+	echo form_hidden('id', $league->id ?? '');
 ?>
 
 <?= view('admin/errors', ['errors' => $errors ?? []]) ?>
 
 <dl>
 	<dt>Name<span class="note required"> *</span></dt>
-	<dd><?php echo form_input('name', !empty($league) ? $league->name : ''); ?></dd>
+	<dd><?php echo form_input('name', $league->name ?? ''); ?></dd>
 </dl>
 
 <?php 
@@ -19,5 +19,3 @@
 	echo form_button('cancel', 'Cancel', "onClick='window.location=\"/admin/league\"'"); 
 	echo form_close();
 ?>
-
-
