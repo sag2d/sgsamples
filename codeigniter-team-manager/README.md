@@ -13,6 +13,7 @@ The **Team Manager** is a web application built on the CodeIgniter PHP framework
 - **CodeIgniter**
 - **Configuration and Setup**
 - **Using the Team Manager**
+- **Running PHPUnit Test Suites**
 - **Copyright Information**
 
 ---
@@ -144,6 +145,28 @@ The administrative management pages provide the following options:
 3. **Delete Item**
 
 > **Note:** Administrative management screens are openly available for demonstration purposes only. These capabilities would normally require a login.
+
+---
+
+## Running PHPUnit Test Suites
+
+The included PHPUnit test suites are located in the `tests` directory.
+
+From the `codeigniter-team-manager` directory, run the following through Docker:
+
+```bash
+docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml tests
+```
+
+### Code Coverage
+
+The provided Docker configuration also includes the **PCOV** code coverage client.
+
+To run all tests and display the PCOV coverage report:
+
+```bash
+docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml --coverage-text tests
+```
 
 ---
 
