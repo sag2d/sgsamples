@@ -19,6 +19,7 @@
         "lightningcss-linux-x64-gnu": "^1.29.1"
     },
     "devDependencies": {
+        "fontaine": "^0.8.0",
         "typescript": "^7.0.2"
     }
 }

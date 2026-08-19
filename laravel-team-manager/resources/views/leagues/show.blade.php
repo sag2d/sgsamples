@@ -1,7 +1,7 @@
 <x-layouts::public :title="__($league->name)">
     <div class="flex w-full flex-1 flex-col gap-6">
         <div class="flex flex-col gap-1">
-            <a href="{{ route('leagues.index') }}" class="text-sm text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">
+            <a href="{{ route('leagues.index') }}" class="text-sm text-blue-600 transition-colors duration-150 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
                 ← Back to Leagues
             </a>
             <h1 class="text-2xl font-semibold text-neutral-900 dark:text-white">{{ $league->name }}</h1>
@@ -13,7 +13,7 @@
                 <li class="border border-neutral-200 dark:border-neutral-700 rounded-lg px-4 py-4 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors duration-150">
                     <a href="{{ route('teams.show', $team) }}" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-150">
                         <div class="flex flex-col gap-1">
-                            <div class="text-sm font-semibold text-neutral-900 dark:text-white">{{ $team->name }}</div>
+                            <div class="text-sm font-semibold">{{ $team->name }}</div>
                         </div>
                     </a>
                 </li>

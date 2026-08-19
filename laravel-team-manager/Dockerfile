@@ -50,14 +50,20 @@ RUN --mount=type=bind,source=composer.json,target=composer.json \
 # php@sha256:99cede493dfd88720b610eb8077c8688d3cca50003d76d1d539b0efc8cca72b4.
 FROM php:8.4-apache as final
 
-# Install required PHP extensions for Laravel
+# Install system prerequisites and basic extensions
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libzip-dev \
     libicu-dev \
-    && docker-php-ext-configure intl \
-    && docker-php-ext-install pdo pdo_mysql zip intl \
-    && a2enmod rewrite \
     && rm -rf /var/lib/apt/lists/*
+
+# Install required PHP extensions for Laravel
+RUN docker-php-ext-configure intl \
+    && docker-php-ext-install pdo pdo_mysql zip intl \
+    && a2enmod rewrite
+
+# Copy Node.js and NPM binaries from the official Node image
+#COPY --from=node:20-slim /usr/local/bin /usr/local/bin
+#COPY --from=node:20-slim /usr/local/lib/node_modules /usr/local/lib/node_modules
 
 # Configure Apache to serve Laravel's public directory
 RUN sed -ri 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf
