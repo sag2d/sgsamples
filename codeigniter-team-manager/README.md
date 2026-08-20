@@ -87,31 +87,46 @@ For more information on configuration settings for CodeIgniter, see the CodeIgni
 ### Development Environment
 
 Docker files are available in the root directory to assist with setting up a runtime environment.
+A `.env.example` file is provided for setting environment variables. Copy/rename it to `.env`:
+
+```bash
+cd codeigniter-team-manager
+cp .env.example .env
+```
+
+Then fill in the blanks in your new .env file.
 
 **Composer** is used as the dependency manager. Run composer install to retrieve dependencies.
 
 ```bash
+cd codeigniter-team-manager
 composer install
+```
+
+Replace `[SERVER_NAME]` with your Docker server/container name:
+
 ```bash
+cd codeigniter-team-manager
+docker compose up --build -d
+```
 
 ### Database
 
 The Team Manager utilizes a relational **MySQL** database to store records.
-
-A `.env.example` file is provided for setting environment variables. Rename it to `.env` and configure your database connection parameters:
-
-```text
-codeigniter-team-manager/.env
-```
+Configure your database connection parameters in the .env file you copied above.
 
 ### Database Setup
 
 A `team_mgr.sql` SQL file is provided for easy database setup.
 
-Run the SQL file to:
+Run the SQL file to create the necessary database tables and import sample data.
+Replace `[MYSQL_ROOT_PASSWORD]` with the MySQL password you set:
 
-1. Create the necessary database tables
-2. Import sample data
+```bash
+docker compose exec -T db mysql -u root -p"[MYSQL_ROOT_PASSWORD]" team_mgr < team_mgr.sql
+```
+
+App is then available at http://localhost:9001/.
 
 ---
 
