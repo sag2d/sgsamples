@@ -123,6 +123,6 @@ docker compose exec server ./vendor/phpunit --configuration phpunit.xml --covera
 
 ---
 
-## © Copyright Information
+## Copyright Information
 
 Copyright Scott Greenhagen
