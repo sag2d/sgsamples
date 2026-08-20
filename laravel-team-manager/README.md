@@ -10,6 +10,7 @@ The **Laravel Team Manager** is a web application built on the Laravel PHP frame
 
 - **Introduction**
 - **Description**
+- **Tech Stack**
 - **Laravel**
 - **Configuration and Setup**
 - **Using the Team Manager**
@@ -47,7 +48,9 @@ Administrative screens are available to:
 - View a list of leagues, teams, and players
 - Manage individual groups
 
-### Tech Stack
+---
+
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
