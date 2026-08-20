@@ -2,7 +2,7 @@
 
 > **Author:** Scott Greenhagen
 
-The **Team Manager** is a web application built on the CodeIgniter PHP framework, intended to manage the organization of related leagues, teams, and players.
+The **CodeIgniter Team Manager** is a web application built on the CodeIgniter PHP framework, intended to manage the organization of related leagues, teams, and players.
 
 ---
 
@@ -96,17 +96,16 @@ cp .env.example .env
 
 Then fill in the blanks in your new .env file.
 
-**Composer** is used as the dependency manager. Run composer install to retrieve dependencies:
+**Composer** is used as the dependency manager. From the `codeigniter-team-manager` directory, 
+run composer install to retrieve dependencies:
 
 ```bash
-cd codeigniter-team-manager
 composer install
 ```
 
-Run the Docker built step:
+From the `codeigniter-team-manager` directory, run the Docker build step:
 
 ```bash
-cd codeigniter-team-manager
 docker compose up --build -d
 ```
 
@@ -171,7 +170,6 @@ The included PHPUnit test suites are located in the `tests` directory.
 From the `codeigniter-team-manager` directory, run the following through Docker:
 
 ```bash
-cd codeigniter-team-manager
 docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml tests
 ```
 
@@ -179,10 +177,9 @@ docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml test
 
 The provided Docker configuration also includes the **PCOV** code coverage client.
 
-To run all tests and display the PCOV coverage report:
+From the `codeigniter-team-manager` directory, run all tests and display the PCOV coverage report:
 
 ```bash
-cd codeigniter-team-manager
 docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml --coverage-text tests
 ```
 
