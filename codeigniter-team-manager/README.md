@@ -10,6 +10,7 @@ The **CodeIgniter Team Manager** is a web application built on the CodeIgniter P
 
 - **Introduction**
 - **Description**
+- **Tech Stack**
 - **CodeIgniter**
 - **Configuration and Setup**
 - **Using the Team Manager**
@@ -49,7 +50,9 @@ Administrative screens are available to:
 
 > **Note:** Administrative management screens are openly available for demonstration purposes only. These capabilities would normally require a login.
 
-### Tech Stack
+---
+
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
