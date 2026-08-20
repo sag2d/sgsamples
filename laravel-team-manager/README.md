@@ -8,14 +8,14 @@ The **Laravel Team Manager** is a web application built on the Laravel PHP frame
 
 ## Table of Contents
 
-- **Introduction**
-- **Description**
-- **Tech Stack**
-- **Laravel**
-- **Configuration and Setup**
-- **Using the Team Manager**
-- **Running Pest Test Suites**
-- **Copyright Information**
+- [Introduction](#introduction)
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [Laravel](#laravel)
+- [Configuration and Setup](#configuration-and-setup)
+- [Using the Team Manager](#using-the-team-manager)
+- [Running Pest Test Suites](#running-pest-test-suites)
+- [Copyright Information](#copyright-information)
 
 ---
 
