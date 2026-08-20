@@ -28,25 +28,39 @@ This application runs the bundled Laravel framework on PHP.
 
 ## Description
 
-**Team Manager** objects consist of:
+**Team Manager** objects consist of the following:
 
 - Leagues
 - Teams
 - Players
 
+![Homepage](docs/images/laravel-team-manager-homepage.jpg)
+
 ### Public Screens
 
-Public screens are available to view:
+Public screens are available to view the following:
 
 - A list of leagues, teams, and players
 - The details of each individual group
 
+![League listing](docs/images/league-listing.jpg)
+![Teams listing](docs/images/teams-listing.jpg)
+![Player listing](docs/images/player-listing.jpg)
+
 ### Administrative Screens
 
-Administrative screens are available to:
+Log in to the administrative dashboard to manage database records.
+
+![Admin login](docs/images/admin/admin-login.jpg)
+
+Administrative screens are available for the following:
 
 - View a list of leagues, teams, and players
 - Manage individual groups
+
+![Admin leagues listing](docs/images/admin/admin-leagues-listing.jpg)
+![Admin teams listing](docs/images/admin/admin-teams-listing.jpg)
+![Admin players listing](docs/images/admin/admin-players-listing.jpg)
 
 ---
 
