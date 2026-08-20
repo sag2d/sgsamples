@@ -182,6 +182,10 @@ On the public viewing screens:
 - Leagues and teams detail pages also provide a sub-listing with links to related child records.
 - All detail pages provide breadcrumb navigation links back to the associated parent record and listing.
 
+![League details](docs/images/league-details.jpg)
+![Team details](docs/images/team-details.jpg)
+![Player details](docs/images/player-details.jpg)
+
 ### Administrative Management
 
 Sign in to the administrative dashboard with the following provided demo admin user account credentials...
@@ -199,6 +203,10 @@ The administrative management pages provide the following options:
 1. **Add New Item**
 2. **Edit Item**
 3. **Delete Item**
+
+![Admin league edit](docs/images/admin/admin-league-edit.jpg)
+![Admin team edit](docs/images/admin/admin-team-edit.jpg)
+![Admin player edit](docs/images/admin/admin-player-edit.jpg)
 
 ---
 
