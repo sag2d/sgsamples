@@ -65,6 +65,7 @@ The demo can be run using any modern version of PHP.
 From a command-line interface, navigate to the `vehicles-oop-demo` directory and run:
 
 ```bash
+cd vehicles-oop-demo
 php vehicles_run.php
 ```
 
