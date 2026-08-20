@@ -101,7 +101,7 @@ cd laravel-team-manager
 cp .env.example .env
 ```
 
-Then fill in the blanks in your new .env file.
+Then fill in the blanks in your new .env file. 
 
 **Composer** is used as the dependency manager. From the `laravel-team-manager` directory, 
 run composer install to retrieve dependencies:
@@ -114,6 +114,12 @@ From the `laravel-team-manager` directory, run the Docker build step:
 
 ```bash
 docker compose up --build -d
+```
+
+From the `laravel-team-manager` directory, run this command to generate a new APP_KEY for your .env file:
+
+```bash
+docker compose exec server php artisan key:generate
 ```
 
 ### Database
