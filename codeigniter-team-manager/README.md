@@ -103,7 +103,7 @@ cd codeigniter-team-manager
 composer install
 ```
 
-Replace `[SERVER_NAME]` with your Docker server/container name:
+Run the Docker built step:
 
 ```bash
 cd codeigniter-team-manager
