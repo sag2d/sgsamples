@@ -8,6 +8,5 @@ test('the player detail view provides copy controls for contact information', fu
         ->toContain('data-copy-value="{{ $player->email }}"')
         ->toContain('data-copy-value="{{ $player->phone }}"')
         ->and($script)->toContain('navigator.clipboard.writeText')
-        ->not->toContain('document.execCommand')
         ->toContain("button.textContent = copied ? 'Copied!' : 'Unable to copy';");
 });

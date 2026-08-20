@@ -26,28 +26,7 @@ services:
     networks:
       - laravel-network
 
-  # vite service
-#  vite:
-#    build:
-#      context: .
-#      target: final # must use the same stage as the web server above
-#    user: "root"
-#    volumes:
-#      - .:/var/www/html
-      # Keeps node_modules safe in Linux memory
-#      - /var/www/html/node_modules
-#    ports:
-#      - 5173:5173 # Maps Vite out to Windows
-#    environment:
-#      - npm_config_cache=/tmp/.npm-cache
-#      - VITE_DEV_SERVER_URL=http://host.docker.internal:5173
-#      - VITE_HMR_HOST=host.docker.internal
-#    networks:
-#      - laravel-network
-    # Automatically installs packages and boots Vite on startup using NPM
-#    command: sh -c "npm install && npm run dev"
-
-  # database service
+   # database service
   db:
     image: mysql:8.0
     restart: unless-stopped
@@ -69,6 +48,27 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+   # vite service
+#  vite:
+#    build:
+#      context: .
+#      target: final # must use the same stage as the web server above
+#    user: "root"
+#    volumes:
+#      - .:/var/www/html
+      # Keeps node_modules safe in Linux memory
+#      - /var/www/html/node_modules
+#    ports:
+#      - 5173:5173 # Maps Vite out to Windows
+#    environment:
+#      - npm_config_cache=/tmp/.npm-cache
+#      - VITE_DEV_SERVER_URL=http://host.docker.internal:5173 # only works from WSL command prompt, not Windows Powershell
+#      - VITE_HMR_HOST=host.docker.internal # only works from WSL command prompt, not Windows Powershell
+#    networks:
+#      - laravel-network
+    # Automatically installs packages and boots Vite on startup using NPM
+#    command: sh -c "npm install && npm run dev"
 
 volumes:
   db-data:
