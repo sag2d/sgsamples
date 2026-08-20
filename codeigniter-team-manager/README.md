@@ -8,14 +8,14 @@ The **CodeIgniter Team Manager** is a web application built on the CodeIgniter P
 
 ## Table of Contents
 
-- **Introduction**
-- **Description**
-- **Tech Stack**
-- **CodeIgniter**
-- **Configuration and Setup**
-- **Using the Team Manager**
-- **Running PHPUnit Test Suites**
-- **Copyright Information**
+- [Introduction](#introduction)
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [CodeIgniter](#codeigniter)
+- [Configuration and Setup](#configuration-and-setup)
+- [Using the Team Manager](#using-the-team-manager)
+- [Running PHPUnit Test Suites](#running-phpunit-test-suites)
+- [Copyright Information](#copyright-information)
 
 ---
 
