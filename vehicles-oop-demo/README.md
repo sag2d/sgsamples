@@ -75,6 +75,8 @@ Docker configuration files are provided for running the project within the speci
 Replace `[SERVER_NAME]` with your Docker server/container name:
 
 ```bash
+cd vehicles-oop-demo
+docker compose up --build -d
 docker exec -it [SERVER_NAME] php vehicles_run.php
 ```
 
@@ -82,6 +84,13 @@ docker exec -it [SERVER_NAME] php vehicles_run.php
 
 ## Running PHPUnit Test Suites
 
+First, install the PHPUnit executable to your local vendor directory:
+
+```bash
+wget -O ./vendor/phpunit https://phar.phpunit.de/phpunit-13.phar
+```
+
+The provided phpunit.xml and Dockerfile have everything else that is needed to run the tests.
 The included PHPUnit test suites are located in the `tests` directory.
 
 From the `vehicles-oop-demo` directory, run:
