@@ -51,10 +51,16 @@ Administrative screens are available to:
 
 | Technology | Purpose |
 |---|---|
-| **PHP** | Foundation |
+| **PHP** | Foundational server-side scripting language |
 | **Laravel** | Backend PHP framework |
 | **MySQL** | Database |
+| **Livewire** | Frontend framework for dynamic interfaces |
+| **Flux UI** | System of UI components for Laravel Blade frontend |
+| **Filament** | Server-Driven UI framework for admin panels |
 | **TypeScript/JavaScript** | Frontend events |
+| **Alpine.js** | Frontend JavaScript framework |
+| **Tailwind CSS** | Utility-first CSS framework for frontend |
+| **Vite** | Frontend build tool for JavaScript and CSS |
 | **HTML5** | Frontend presentation |
 | **Docker** | Local development environment |
 | **Composer** | Dependency management |
@@ -148,7 +154,7 @@ Global navigation is provided at the top of every page. Click the **Home** navig
 
 On the public viewing screens:
 
-- The group listing provides an overview of that group.
+- The group listing provides an overview of that group, and a search function to filter records by term.
 - Click the name of a group to view its details.
 - Leagues and teams detail pages also provide a sub-listing with links to related child records.
 - All detail pages provide breadcrumb navigation links back to the associated parent record and listing.
