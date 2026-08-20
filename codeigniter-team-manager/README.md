@@ -72,7 +72,7 @@ The Team Manager requires proper installation of the following:
 - **MySQL 8.0**
 - **CodeIgniter MVC Framework 4.7 (bundled)**
 
-CodeIgniter is available at no cost from the CodeIgniter website:
+Docker files are available for PHP and MySQL. CodeIgniter is available at no cost from the official website:
 
 [CodeIgniter](http://codeigniter.com/)
 
