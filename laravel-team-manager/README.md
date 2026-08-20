@@ -142,10 +142,7 @@ From the main index page, you can select from the following screens:
 
 ### Navigation
 
-Global navigation is provided at the top of every page.
-
-Click the **Home** navigation link at the top left to return to the home page.
-Click the **Admin Login** button at the top right to access the admin dashboard management area.
+Global navigation is provided at the top of every page. Click the **Home** navigation link at the top left to return to the home page. Click the **Admin Login** button at the top right to access the admin dashboard management area.
 
 ### Public Viewing Screens
 
@@ -153,14 +150,14 @@ On the public viewing screens:
 
 - The group listing provides an overview of that group.
 - Click the name of a group to view its details.
-- Leagues and teams detail pages also provide a sub-listing with links to related records.
-- All detail pages provide breadcrumb navigation links back to the associated parent record.
+- Leagues and teams detail pages also provide a sub-listing with links to related child records.
+- All detail pages provide breadcrumb navigation links back to the associated parent record and listing.
 
 ### Administrative Management
 
 Sign in to the administrative dashboard with the following provided demo admin user account credentials...
-Email: demo.admin@example.com
-Password: demoadmin
+- Email: demo.admin@example.com
+- Password: demoadmin
 
 On the admin screens:
 
