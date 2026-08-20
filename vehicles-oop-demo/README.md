@@ -10,6 +10,7 @@ A PHP command-line project designed to demonstrate core object-oriented programm
 
 - **Introduction**
 - **Description**
+- **Tech Stack**
 - **Running the Vehicles OOP Demo**
 - **Running PHPUnit Test Suites**
 - **Copyright Information**
@@ -48,7 +49,9 @@ It contains the following PHP class types and structures:
 - Enum
 - Static class
 
-### Tech Stack
+---
+
+## Tech Stack
 
 | Technology | Purpose |
 |---|---|
