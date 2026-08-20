@@ -2,7 +2,7 @@
 
 > **Author:** Scott Greenhagen
 
-The **Team Manager** is a web application built on the Laravel PHP framework, intended to manage the organization of related leagues, teams, and players.
+The **Laravel Team Manager** is a web application built on the Laravel PHP framework, intended to manage the organization of related leagues, teams, and players.
 
 ---
 
@@ -94,17 +94,16 @@ cp .env.example .env
 
 Then fill in the blanks in your new .env file.
 
-**Composer** is used as the dependency manager. Run composer install to retrieve dependencies:
+**Composer** is used as the dependency manager. From the `laravel-team-manager` directory, 
+run composer install to retrieve dependencies:
 
 ```bash
-cd laravel-team-manager
 composer install
 ```
 
-Run the Docker built step:
+From the `laravel-team-manager` directory, run the Docker build step:
 
 ```bash
-cd laravel-team-manager
 docker compose up --build -d
 ```
 
@@ -116,7 +115,8 @@ Configure your database connection parameters in the .env file you copied above.
 ### Database Setup
 
 Automated database migration scripts are provided for easy database setup. 
-Run Laravel database migrations to migrate starter table structures through Docker server:
+From the `laravel-team-manager` directory, run Laravel database migrations to 
+migrate starter table structures through Docker server:
 
 ```bash
 docker compose exec server php artisan migrate
@@ -139,15 +139,13 @@ From the main index page, you can select from the following screens:
 1. **View Leagues**
 2. **View Teams**
 3. **View Players**
-4. **Manage Leagues**
-5. **Manage Teams**
-6. **Manage Players**
 
 ### Navigation
 
 Global navigation is provided at the top of every page.
 
-Click the **Team Manager** title in the top-left corner to return to the home page.
+Click the **Home** navigation link at the top left to return to the home page.
+Click the **Admin Login** button at the top right to access the admin dashboard management area.
 
 ### Public Viewing Screens
 
@@ -155,9 +153,20 @@ On the public viewing screens:
 
 - The group listing provides an overview of that group.
 - Click the name of a group to view its details.
-- Leagues do not have additional column information, so there are no further details to view.
+- Leagues and teams detail pages also provide a sub-listing with links to related records.
+- All detail pages provide breadcrumb navigation links back to the associated parent record.
 
 ### Administrative Management
+
+Sign in to the administrative dashboard with the following provided demo admin user account credentials...
+Email: demo.admin@example.com
+Password: demoadmin
+
+On the admin screens:
+
+1. **Manage Leagues**
+2. **Manage Teams**
+3. **Manage Players**
 
 The administrative management pages provide the following options:
 
@@ -174,14 +183,12 @@ The included Pest test suites are located in the `tests` directory.
 From the `laravel-team-manager` directory, run all available tests via Laravel Artisan console command:
 
 ```bash
-cd laravel-team-manager
 docker compose exec server php artisan test
 ```
 
 Alternatively, run the following Pest tests directly through Docker:
 
 ```bash
-cd laravel-team-manager
 docker compose exec server ./vendor/bin/pest
 ```
 
@@ -192,14 +199,14 @@ The provided Docker configuration also includes the **PCOV** code coverage clien
 To run all tests and display the PCOV coverage report:
 
 ```bash
-cd laravel-team-manager
 docker compose exec server php artisan test --coverage
 ```
 
 ### Refreshing the Database after Testing
 
 At the conclusion of testing, you may wish to refresh the database and roll back to its original state. 
-This command will rerun all database seeds and factories to repopulate the migration database tables:
+From the `laravel-team-manager` directory, this command will rerun all database seeds and factories 
+to repopulate the migration database tables:
 
 ```bash
 docker compose exec server php artisan migrate:refresh --seed
