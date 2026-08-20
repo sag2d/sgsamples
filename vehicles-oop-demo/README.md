@@ -8,12 +8,12 @@ A PHP command-line project designed to demonstrate core object-oriented programm
 
 ## Table of Contents
 
-- **Introduction**
-- **Description**
-- **Tech Stack**
-- **Running the Vehicles OOP Demo**
-- **Running PHPUnit Test Suites**
-- **Copyright Information**
+- [Introduction](#introduction)
+- [Description](#description)
+- [Tech Stack](#tech-stack)
+- [Running the Vehicles OOP Demo](#running-the-vehicles-oop-demo)
+- [Running PHPUnit Test Suites](#running-phpunit-test-suites)
+- [Copyright Information](#copyright-information)
 
 ---
 
