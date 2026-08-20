@@ -1,8 +1,8 @@
-# SG Samples
+# S.G. Samples
 
 > **Author:** Scott Greenhagen
 
-Welcome! This repository is a collection of sample personal projects, built to demonstrate PHP development skills across a range of approaches — from vanilla, framework-free PHP to full-featured MVC frameworks with Docker-based environments.
+Welcome! This repository is a collection of sample personal projects, built to demonstrate software engineering and technical development skills across a range of approaches — from vanilla, framework-free PHP to full-featured MVC frameworks with Docker-based environments.
 
 Each project lives in its own directory with a dedicated `README.md` covering setup, configuration, and usage instructions.
 
