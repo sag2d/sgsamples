@@ -96,7 +96,7 @@ cp .env.example .env
 
 Then fill in the blanks in your new .env file.
 
-**Composer** is used as the dependency manager. Run composer install to retrieve dependencies.
+**Composer** is used as the dependency manager. Run composer install to retrieve dependencies:
 
 ```bash
 cd codeigniter-team-manager
@@ -117,16 +117,13 @@ Configure your database connection parameters in the .env file you copied above.
 
 ### Database Setup
 
-A `team_mgr.sql` SQL file is provided for easy database setup.
-
-Run the SQL file to create the necessary database tables and import sample data.
-Replace `[MYSQL_ROOT_PASSWORD]` with the MySQL password you set:
+A `team_mgr.sql` SQL file is provided for easy database setup. Run the SQL file to create the necessary database tables and import sample data. Replace `[MYSQL_ROOT_PASSWORD]` with the MySQL password you set:
 
 ```bash
 docker compose exec -T db mysql -u root -p"[MYSQL_ROOT_PASSWORD]" team_mgr < team_mgr.sql
 ```
 
-App is then available at http://localhost:9001/.
+The Team Manager app should then be available at http://localhost:9001/ in your web browser.
 
 ---
 
