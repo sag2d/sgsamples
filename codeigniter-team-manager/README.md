@@ -88,7 +88,11 @@ For more information on configuration settings for CodeIgniter, see the CodeIgni
 
 Docker files are available in the root directory to assist with setting up a runtime environment.
 
-**Composer** is used as the dependency manager.
+**Composer** is used as the dependency manager. Run composer install to retrieve dependencies.
+
+```bash
+composer install
+```bash
 
 ### Database
 
@@ -155,6 +159,7 @@ The included PHPUnit test suites are located in the `tests` directory.
 From the `codeigniter-team-manager` directory, run the following through Docker:
 
 ```bash
+cd codeigniter-team-manager
 docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml tests
 ```
 
@@ -165,6 +170,7 @@ The provided Docker configuration also includes the **PCOV** code coverage clien
 To run all tests and display the PCOV coverage report:
 
 ```bash
+cd codeigniter-team-manager
 docker compose exec server ./vendor/bin/phpunit --configuration phpunit.xml --coverage-text tests
 ```
 
