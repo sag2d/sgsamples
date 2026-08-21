@@ -24,7 +24,7 @@ Public visitors can browse and search leagues, teams, and players with breadcrum
 
 ![Laravel Team Manager homepage](./laravel-team-manager/docs/images/laravel-team-manager-homepage.jpg)
 
-**Tech Stack:** PHP · Laravel · MySQL · Livewire · Flux UI · Filament · Alpine.js · Tailwind CSS · Vite · Docker · Composer · Pest
+**Tech Stack:** PHP · MySQL · Laravel · Blade · Flux UI · Livewire · Filament · TypeScript/JavaScript · Alpine.js · Tailwind CSS · Vite · HTML5 · Docker · Composer · Pest
 
 📄 [View project README](./laravel-team-manager/README.md)
 
