@@ -10,21 +10,23 @@ Each project lives in its own directory with a dedicated `README.md` covering se
 
 ## Table of Contents
 
-- [Vehicles OOP Demo](#vehicles-oop-demo)
-- [CodeIgniter Team Manager](#codeigniter-team-manager)
 - [Laravel Team Manager](#laravel-team-manager)
+- [CodeIgniter Team Manager](#codeigniter-team-manager)
+- [Vehicles OOP Demo](#vehicles-oop-demo)
 
 ---
 
-## [Vehicles OOP Demo](./vehicles-oop-demo)
+## [Laravel Team Manager](./laravel-team-manager)
 
-A PHP command-line project designed to demonstrate core object-oriented programming concepts through a set of vehicle classes.
+A web application built on the Laravel PHP framework, also designed to manage the organization of related leagues, teams, and players — with a feature-rich frontend and admin experience.
 
-Built with vanilla PHP — no framework — the project walks through encapsulation, inheritance, abstraction, and polymorphism using standard classes, an abstract class, an interface, a trait, an enum, and a static class.
+Public visitors can browse and search leagues, teams, and players with breadcrumb navigation, while an authenticated admin dashboard (built with Filament) provides full add/edit/delete management of all records.
 
-**Tech Stack:** PHP · Docker · PHPUnit
+![Laravel Team Manager homepage](./laravel-team-manager/docs/images/laravel-team-manager-homepage.jpg)
 
-📄 [View project README](./vehicles-oop-demo/README.md)
+**Tech Stack:** PHP · Laravel · MySQL · Livewire · Flux UI · Filament · Alpine.js · Tailwind CSS · Vite · Docker · Composer · Pest
+
+📄 [View project README](./laravel-team-manager/README.md)
 
 ---
 
@@ -40,17 +42,15 @@ Includes public screens for browsing leagues, teams, and players, plus administr
 
 ---
 
-## [Laravel Team Manager](./laravel-team-manager)
+## [Vehicles OOP Demo](./vehicles-oop-demo)
 
-A web application built on the Laravel PHP framework, also designed to manage the organization of related leagues, teams, and players — with a more feature-rich frontend and admin experience.
+A PHP command-line project designed to demonstrate core object-oriented programming concepts through a set of vehicle classes.
 
-Public visitors can browse and search leagues, teams, and players with breadcrumb navigation, while an authenticated admin dashboard (built with Filament) provides full add/edit/delete management of all records.
+Built with vanilla PHP — no framework — the project walks through encapsulation, inheritance, abstraction, and polymorphism using standard classes, an abstract class, an interface, a trait, an enum, and a static class.
 
-![Laravel Team Manager homepage](./laravel-team-manager/docs/images/laravel-team-manager-homepage.jpg)
+**Tech Stack:** PHP · Docker · PHPUnit
 
-**Tech Stack:** PHP · Laravel · MySQL · Livewire · Flux UI · Filament · Alpine.js · Tailwind CSS · Vite · Docker · Composer · Pest
-
-📄 [View project README](./laravel-team-manager/README.md)
+📄 [View project README](./vehicles-oop-demo/README.md)
 
 ---
 
