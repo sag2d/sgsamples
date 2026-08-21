@@ -77,7 +77,7 @@ Administrative screens are available for the following:
 | **Blade** | Frontend templating engine |
 | **Flux UI** | System of UI components for Laravel Blade frontend |
 | **Livewire** | Frontend framework for dynamic interfaces |
-| **Filament** | Server-Driven UI framework for admin panels |
+| **Filament** | Server-driven UI framework for admin panels |
 | **TypeScript/JavaScript** | Frontend events |
 | **Alpine.js** | Frontend JavaScript framework |
 | **Tailwind CSS** | Utility-first CSS framework for frontend |
@@ -85,7 +85,7 @@ Administrative screens are available for the following:
 | **HTML5** | Frontend presentation |
 | **Docker** | Local development environment |
 | **Composer** | Dependency management |
-| **Pest** | Automated testing |
+| **Pest** | Automated testing suites |
 
 ---
 
