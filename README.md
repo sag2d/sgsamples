@@ -18,7 +18,7 @@ Each project lives in its own directory with a dedicated `README.md` covering se
 
 ## [Laravel Team Manager](./laravel-team-manager)
 
-A web application built on the Laravel PHP framework, also designed to manage the organization of related leagues, teams, and players — with a feature-rich frontend and admin experience.
+A web application built on the Laravel PHP framework, designed to manage the organization of related leagues, teams, and players with a feature-rich frontend and admin experience.
 
 Public visitors can browse and search leagues, teams, and players with breadcrumb navigation, while an authenticated admin dashboard (built with Filament) provides full add/edit/delete management of all records.
 
