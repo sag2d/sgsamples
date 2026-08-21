@@ -28,7 +28,7 @@ This application runs the bundled CodeIgniter framework on PHP.
 
 ## Description
 
-**Team Manager** objects consist of:
+**Team Manager** objects consist of the following:
 
 - Leagues
 - Teams
@@ -56,7 +56,7 @@ Administrative screens are available to:
 
 | Technology | Purpose |
 |---|---|
-| **PHP** | Foundation |
+| **PHP** | Foundational server-side scripting language |
 | **CodeIgniter** | Backend PHP framework |
 | **MySQL** | Database |
 | **TypeScript/JavaScript** | Frontend events |
