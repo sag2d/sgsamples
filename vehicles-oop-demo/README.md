@@ -21,7 +21,7 @@ A PHP command-line project designed to demonstrate core object-oriented programm
 
 This README contains a description of the **Vehicles OOP Demo** project and instructions for running it.
 
-The project was designed to help train junior developers in learning PHP.
+I designed this project to help train junior developers in learning PHP.
 
 ---
 
@@ -33,7 +33,7 @@ Various types of vehicles are implemented as child classes that inherit properti
 
 ### Object-Oriented Concepts
 
-The project demonstrates:
+The project demonstrates the following concepts:
 
 - Encapsulation
 - Inheritance
@@ -97,15 +97,9 @@ wget -O ./vendor/phpunit https://phar.phpunit.de/phpunit-13.phar
 The provided phpunit.xml and Dockerfile have everything else that is needed to run the tests.
 The included PHPUnit test suites are located in the `tests` directory.
 
-From the `vehicles-oop-demo` directory, run:
-
-```bash
-./vendor/phpunit --configuration phpunit.xml tests
-```
-
 ### Running PHPUnit with Docker
 
-Alternatively, run the PHPUnit test suite from within the Docker environment:
+Run the PHPUnit test suite from within the Docker environment:
 
 ```bash
 docker compose exec server ./vendor/phpunit --configuration phpunit.xml tests
