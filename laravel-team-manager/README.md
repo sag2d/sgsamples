@@ -2,7 +2,9 @@
 
 > **Author:** Scott Greenhagen
 
-The **Laravel Team Manager** is a web application built on the Laravel PHP framework, intended to manage the organization of related leagues, teams, and players.
+The **Laravel Team Manager** is a web application with a feature-rich frontend and admin experience 
+built on the Laravel PHP framework, intended to manage the organization of related 
+leagues, teams, and players.
 
 ---
 
@@ -42,6 +44,7 @@ Public screens are available to view the following:
 
 - A list of leagues, teams, and players
 - The details of each individual group
+- Links to associated records
 
 ![League listing](docs/images/league-listing.jpg)
 ![Teams listing](docs/images/teams-listing.jpg)
@@ -69,10 +72,11 @@ Administrative screens are available for the following:
 | Technology | Purpose |
 |---|---|
 | **PHP** | Foundational server-side scripting language |
-| **Laravel** | Backend PHP framework |
 | **MySQL** | Database |
-| **Livewire** | Frontend framework for dynamic interfaces |
+| **Laravel** | Backend PHP framework |
+| **Blade** | Frontend templating engine |
 | **Flux UI** | System of UI components for Laravel Blade frontend |
+| **Livewire** | Frontend framework for dynamic interfaces |
 | **Filament** | Server-Driven UI framework for admin panels |
 | **TypeScript/JavaScript** | Frontend events |
 | **Alpine.js** | Frontend JavaScript framework |
@@ -108,7 +112,7 @@ For more information on configuration settings for Laravel, see the Laravel user
 ### Development Environment
 
 Docker files are available in the root directory to assist with setting up a runtime environment.
-A `.env.example` file is provided for setting environment variables. Copy/rename it to `.env`:
+A `.env.example` file is provided for setting environment variables. Copy it as `.env`:
 
 ```bash
 cd laravel-team-manager
@@ -230,7 +234,7 @@ docker compose exec server ./vendor/bin/pest
 
 The provided Docker configuration also includes the **PCOV** code coverage client.
 
-To run all tests and display the PCOV coverage report:
+Run all tests and display the PCOV coverage report:
 
 ```bash
 docker compose exec server php artisan test --coverage
