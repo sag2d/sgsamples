@@ -44,7 +44,7 @@ Includes public screens for browsing leagues, teams, and players, plus administr
 
 ## [Vehicles OOP Demo](./vehicles-oop-demo)
 
-A PHP command-line project designed to demonstrate core object-oriented programming concepts through a set of vehicle classes.
+A PHP command-line project that demonstrates core object-oriented programming concepts through a set of vehicle classes. I designed this project to help train junior developers in learning PHP.
 
 Built with vanilla PHP — no framework — the project walks through encapsulation, inheritance, abstraction, and polymorphism using standard classes, an abstract class, an interface, a trait, an enum, and a static class.
 
