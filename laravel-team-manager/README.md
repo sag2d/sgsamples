@@ -33,7 +33,7 @@ This application runs the bundled Laravel framework on PHP.
 - League
 - Team
 - Player
-- State (part of a Player object)
+- State (saved in related Player object)
 - User (user login authentication system)
 
 ![Homepage](docs/images/laravel-team-manager-homepage.jpg)
