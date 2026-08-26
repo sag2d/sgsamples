@@ -18,9 +18,9 @@ Each project lives in its own directory with a dedicated `README.md` covering se
 
 ## [Laravel Team Manager](./laravel-team-manager)
 
-A web application with a feature-rich frontend and admin experience built on the Laravel PHP framework, designed to manage the organization of related leagues, teams, and players.
+A full-stack relational management system built on the Laravel PHP framework for leagues, teams, and players using the modern TALL stack (Tailwind CSS, Alpine.js, Laravel, and Livewire).
 
-Public visitors can browse and search leagues, teams, and players with breadcrumb navigation, while an authenticated admin dashboard (built with Filament) provides full add/edit/delete management of all records.
+Public visitors can browse a feature-rich frontend experience with Flux UI, Alpine.js, and Tailwind CSS in Blade templates for navigating leagues, teams, and players, including breadcrumb navigation through related records and layers. An authenticated admin dashboard built using Filament provides full CRUD management of all records.
 
 ![Laravel Team Manager homepage](./laravel-team-manager/docs/images/laravel-team-manager-homepage.jpg)
 
