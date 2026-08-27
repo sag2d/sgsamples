@@ -20,7 +20,7 @@ Each project lives in its own directory with a dedicated `README.md` covering se
 
 A full-stack relational management system built on the Laravel PHP framework for leagues, teams, and players using the modern TALL stack (Tailwind CSS, Alpine.js, Laravel, and Livewire).
 
-Public visitors can browse a feature-rich frontend experience with Flux UI, Alpine.js, and Tailwind CSS in Blade templates for navigating leagues, teams, and players, including breadcrumb navigation through related records and layers. An authenticated admin dashboard built using Filament provides full CRUD management of all records.
+Public visitors can browse a feature-rich frontend experience with Flux UI, Alpine.js, and Tailwind CSS in Blade templates for navigating leagues, teams, and players, including breadcrumb navigation through related records and layers. An authenticated admin dashboard built using Filament provides full CRUD management of database records.
 
 ![Laravel Team Manager homepage](./laravel-team-manager/docs/images/laravel-team-manager-homepage.jpg)
 
