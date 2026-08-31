@@ -2,7 +2,7 @@
 
 > **Author:** Scott Greenhagen
 
-A PHP command-line project designed to demonstrate core object-oriented programming concepts through a set of vehicle classes.
+A PHP command-line project I designed as a training exercise for junior developers to demonstrate core object-oriented programming concepts through a set of vehicle classes.
 
 ---
 
