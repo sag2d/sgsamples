@@ -8,6 +8,7 @@
 /storage/framework/cache/*
 /storage/framework/sessions/*
 /storage/framework/views/*
+/storage/framework/lsp-*.php
 /vendor
 .env
 .env.backup
