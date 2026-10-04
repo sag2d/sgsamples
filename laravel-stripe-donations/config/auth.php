@@ -42,6 +42,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        // isolated admin guard for Filament admin panel access
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins', // admins provider below
+        ],
     ],
 
     /*
@@ -66,11 +71,11 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        // separate data source mapping for administrators
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => User::class,
+        ],
     ],
 
     /*
