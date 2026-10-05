@@ -13,6 +13,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Laravel\Cashier\Billable;
 
 /**
  * @property int $id
@@ -32,7 +33,7 @@ use Filament\Panel;
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, Billable;
 
     /**
      * Get the attributes that should be cast.
