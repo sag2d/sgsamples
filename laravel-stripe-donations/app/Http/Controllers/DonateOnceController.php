@@ -19,9 +19,16 @@ class DonateOnceController extends Controller
      */
     public function index(Request $request): View
     {
-        $amount = 10 * 100; // Amount in cents (e.g., $10.00)
+        $amount = request('amount', 10);
+        $amountStripe = $amount * 100; // amount in cents
  
-        $payment = $request->user()->pay($amount);
+         $options = [
+            'currency' => 'usd',
+            'payment_method_types' => ['card'],
+            'description' => 'One-Time Donation',
+        ];
+        
+        $payment = $request->user()->pay($amountStripe, $options);
 
         /*
         // create pending donation record in the database
@@ -34,6 +41,7 @@ class DonateOnceController extends Controller
         */
 
         return view('account.donate-once', [
+            'amount' => $amount,
             'clientSecret' => $payment->client_secret,
         ]);
     }

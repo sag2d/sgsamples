@@ -1,6 +1,6 @@
 <x-layouts::app :title="__('Dashboard')">
     <div>
-        <h1>{{ __('One-Time Donation') }}</h1>
+        <h1>{{ __('Recurring Donation') }}</h1>
         <p>${{ number_format($amount, 2) }}</p>
     </div>
     <div id="payment-element"></div>
@@ -22,7 +22,7 @@
             const { error } = await stripe.confirmPayment({
                 elements,
                 confirmParams: {
-                    return_url: '{{ route("donate-once.complete") }}',
+                    return_url: '{{ route("donate-recurring.complete") }}',
                 },
             });
 
