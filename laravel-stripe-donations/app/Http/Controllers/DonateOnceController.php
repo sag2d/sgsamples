@@ -19,15 +19,18 @@ class DonateOnceController extends Controller
      */
     public function index(Request $request): View
     {
+        // accept the amount from the query string, or default to $10
         $amount = request('amount', 10);
         $amountStripe = $amount * 100; // amount in cents
  
-         $options = [
-            'currency' => 'usd',
+        // set the options for the Stripe payment intent
+        $options = [
+            'currency' => config('cashier.currency', 'usd'),
             'payment_method_types' => ['card'],
             'description' => 'One-Time Donation',
         ];
         
+        // create a Stripe payment intent for the one-time donation
         $payment = $request->user()->pay($amountStripe, $options);
 
         /*

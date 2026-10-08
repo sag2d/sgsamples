@@ -19,10 +19,10 @@
         paymentElement.mount('#payment-element');
 
         document.getElementById('submit').addEventListener('click', async () => {
-            const { error } = await stripe.confirmPayment({
+            const { error } = await stripe.confirmSetup({
                 elements,
                 confirmParams: {
-                    return_url: '{{ route("donate-recurring.complete") }}',
+                    return_url: '{{ route("donate-recurring.complete", ["amount" => $amount]) }}',
                 },
             });
 
