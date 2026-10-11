@@ -9,9 +9,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * State Factory for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
- * @extends Factory<State>
  */
 class StateFactory extends Factory
 {

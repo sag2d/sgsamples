@@ -14,8 +14,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Player Model for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
  */
 #[Fillable(['team_id', 'first_name', 'last_name', 'address', 'city', 'state_id', 'zip', 'email', 'phone', 'status'])]
 class Player extends Model

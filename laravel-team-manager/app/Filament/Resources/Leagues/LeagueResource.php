@@ -20,8 +20,6 @@ use Filament\Tables\Table;
  * LeagueResource Filament admin panel class for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
  */
 class LeagueResource extends Resource
 {

@@ -9,8 +9,6 @@ use Filament\Schemas\Schema;
  * TeamInfoList Filament admin panel configuration settings for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
  */
 class TeamInfolist
 {

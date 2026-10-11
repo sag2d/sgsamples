@@ -13,8 +13,6 @@ use App\Models\Player;
  * State Model for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
  */
 #[Fillable(['name', 'abbr'])]
 class State extends Model

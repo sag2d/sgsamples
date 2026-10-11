@@ -10,9 +10,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  * Team Factory for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
- * @extends Factory<Team>
  */
 class TeamFactory extends Factory
 {

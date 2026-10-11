@@ -14,8 +14,6 @@ use Illuminate\Database\Seeder;
  * Database Seeder for the Team Manager application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Team Manager
  */
 class DatabaseSeeder extends Seeder
 {
