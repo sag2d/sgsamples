@@ -29,7 +29,6 @@ Homestead.yaml
 /.nova
 /.vscode
 /.zed
-/.agents
 /.amp
 /.claude
 /.cursor
@@ -38,10 +37,11 @@ Homestead.yaml
 /.junie
 /.kiro
 /.pi
-/.mcp.json
-/AGENTS.md
-/CLAUDE.md
-/boost.json
 /opencode.json
 /opencode.jsonc
+/.mcp.json
+/CLAUDE.md
+/boost.json
 .github/skills/
+/.agents/skills/*
+!/.agents/skills/custom-rules.md

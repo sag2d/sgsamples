@@ -38,7 +38,7 @@ class User extends Authenticatable implements FilamentUser
     /**
      * Get the attributes that should be cast.
      *
-     * @return array<string, string>
+     * @return array<string, string, bool>
      */
     protected function casts(): array
     {
