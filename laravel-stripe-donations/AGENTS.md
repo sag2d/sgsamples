@@ -155,4 +155,8 @@ This project has domain-specific skills available in `**/skills/**`. You MUST ac
 
 </laravel-boost-guidelines>
 
+# Custom Rules
+
+=== custom rules ===
+
 - **Custom Rules:** See `.agents/skills/custom-rules.md` for specific app development conventions.
