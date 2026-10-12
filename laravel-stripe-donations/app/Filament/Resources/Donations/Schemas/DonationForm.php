@@ -7,6 +7,11 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
+/*
+ * DonationForm Filament admin panel configuration settings.
+ * 
+ * @author Scott Greenhagen
+ */
 class DonationForm
 {
     public static function configure(Schema $schema): Schema
@@ -28,6 +33,7 @@ class DonationForm
                     ->email()
                     ->rules(['email:strict,spoof']) // combines strict RFC checking with spoof detection
                     ->required(),
+                TextInput::make('description'),
                 TextInput::make('amount')
                     ->required()
                     ->numeric(),
@@ -39,7 +45,6 @@ class DonationForm
                     ->default('pending')
                     ->required(),
                 TextInput::make('interval'),
-                TextInput::make('description'),
                 TextInput::make('stripe_payment_intent_id')
                     ->label('Stripe Payment Intent ID'),
                 TextInput::make('stripe_payment_id')

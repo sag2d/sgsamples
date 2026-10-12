@@ -4,10 +4,16 @@ namespace App\Filament\Resources\Donations\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+//use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
+/*
+ * DonationsTable Filament admin panel configuration settings.
+ * 
+ * @author Scott Greenhagen
+ */
 class DonationsTable
 {
     public static function configure(Table $table): Table
@@ -20,6 +26,8 @@ class DonationsTable
                     ->searchable(),
                 TextColumn::make('donor_email')
                     ->searchable(),
+                TextColumn::make('description')
+                    ->searchable(),
                 TextColumn::make('amount')
                     ->numeric()
                     ->sortable(),
@@ -29,8 +37,6 @@ class DonationsTable
                     ->badge()
                     ->searchable(),
                 TextColumn::make('interval')
-                    ->searchable(),
-                TextColumn::make('description')
                     ->searchable(),
                 /*
                 TextColumn::make('subscription.stripe_id')
@@ -59,7 +65,8 @@ class DonationsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                ViewAction::make(),
+                //EditAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
