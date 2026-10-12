@@ -18,6 +18,9 @@
                     <flux:sidebar.item icon="" :href="route('donate')" :current="request()->routeIs('donate')" wire:navigate>
                         {{ __('Donate') }}
                     </flux:sidebar.item>
+                    <flux:sidebar.item icon="" :href="route('donation-history')" :current="request()->routeIs('donation-history')" wire:navigate>
+                        {{ __('Donation History') }}
+                    </flux:sidebar.item>
                 </flux:sidebar.group>
             </flux:sidebar.nav>
 

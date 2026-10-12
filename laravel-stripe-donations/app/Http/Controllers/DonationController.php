@@ -3,64 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\Donation;
-use App\Http\Requests\StoreDonationRequest;
-use App\Http\Requests\UpdateDonationRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 
 class DonationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): View
     {
-        //
+        $donations = $request->user()
+            ->donations()
+            ->with('subscription')
+            ->latest()
+            ->paginate(15);
+
+        return view('account.donation-history', ['donations' => $donations]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Schedule cancellation for one of the current user's active recurring donations.
      */
-    public function create()
+    public function cancel(Request $request, Donation $donation): RedirectResponse
     {
-        //
+        $donation = $request->user()
+            ->donations()
+            ->with('subscription')
+            ->findOrFail($donation->getKey());
+        $subscription = $donation->subscription;
+
+        abort_unless($subscription !== null && $donation->interval !== null, 404);
+
+        $subscription->syncStripeStatus();
+
+        abort_unless($subscription->active() && ! $subscription->canceled(), 409, 'This recurring donation is not active.');
+
+        $subscription->cancel();
+
+        return redirect()
+            ->route('donation-history')
+            ->with('status', __('Your recurring donation has been scheduled for cancellation.'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreDonationRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateDonationRequest $request, Donation $donation)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Donation $donation)
-    {
-        //
-    }
 }

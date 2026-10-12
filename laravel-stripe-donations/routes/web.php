@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DonateOnceController;
 use App\Http\Controllers\DonateRecurringController;
+use App\Http\Controllers\DonationController;
 
 Route::view('/', 'welcome')->name('home');
 
@@ -20,6 +21,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // recurring donation routes for users to set up scheduled donations
     Route::get('/account/donate-recurring', [DonateRecurringController::class, 'index'])->name('donate-recurring');
     Route::get('/account/donate-recurring/complete', [DonateRecurringController::class, 'complete'])->name('donate-recurring.complete');
+    
+    // route to allow users to view their donation history, transaction details, and cancel recurring donations
+    Route::get('/account/donation-history', [DonationController::class, 'index'])->name('donation-history');
+    Route::post('/account/donation-history/{donation}/cancel', [DonationController::class, 'cancel'])
+        ->name('donation-history.cancel');
 });
 
 require __DIR__.'/settings.php';
