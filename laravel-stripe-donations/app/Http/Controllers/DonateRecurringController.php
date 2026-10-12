@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Enums\DonationInterval;
-use Illuminate\Http\Request;
+use App\Enums\DonationStatus;
+use App\Models\Donation;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Laravel\Cashier\Cashier;
+use Laravel\Cashier\Exceptions\IncompletePayment;
+use Laravel\Cashier\Subscription;
 
 /**
  * Donate Recurring Controller for the Stripe Donations application.
- * 
+ *
  * @author Scott Greenhagen
  */
 class DonateRecurringController extends Controller
@@ -20,65 +26,161 @@ class DonateRecurringController extends Controller
      */
     public function index(Request $request): View
     {
-        // accept the amount from the query string, or default to $10
-        $amount = request('amount', 10);
-        $interval = request('interval', DonationInterval::Month->value);
-       
-        /*
-        // create pending donation record in the database
-        $order = Order::create([
-            'user_id' => $request->user()->id,
-            'amount' => $amount,
-            'status' => 'pending',
-            'stripe_payment_intent_id' => $payment->id,
+        $validated = $request->validate([
+            'amount' => ['sometimes', 'numeric', 'min:1', 'max:99999999'],
+            'interval' => ['sometimes', Rule::enum(DonationInterval::class)],
         ]);
-        */
+        $amount = number_format((float) ($validated['amount'] ?? 10), 2, '.', '');
+        $interval = DonationInterval::from($validated['interval'] ?? DonationInterval::Month->value);
+        $currency = strtolower(config('cashier.currency', 'usd'));
+        $user = $request->user();
 
-        // set the options for the Stripe setup intent
+        $donation = $user->donations()->create([
+            'donor_name' => $user->name,
+            'donor_email' => $user->email,
+            'amount' => $amount,
+            'currency' => strtoupper($currency),
+            'status' => DonationStatus::Pending,
+            'interval' => $interval->value,
+            'description' => 'Recurring Donation',
+            'stripe_customer_id' => $user->stripe_id,
+        ]);
+
         $options = [
             'payment_method_types' => ['card'],
             'description' => 'Recurring Donation',
+            'metadata' => [
+                'donation_id' => (string) $donation->getKey(),
+                'user_id' => (string) $user->getKey(),
+            ],
         ];
 
-        // create the Stripe setup intent for the recurring donation
-        $setupIntent = $request->user()->createSetupIntent($options);
+        $setupIntent = $user->createSetupIntent($options);
+        $setupCustomer = $setupIntent->customer;
+        $customerId = is_string($setupCustomer) ? $setupCustomer : $setupCustomer?->id;
+
+        if ($customerId !== null) {
+            $donation->update(['stripe_customer_id' => $customerId]);
+        }
 
         return view('account.donate-recurring', [
             'amount' => $amount,
-            'interval' => $interval,
+            'interval' => $interval->value,
             'clientSecret' => $setupIntent->client_secret,
+            'donationId' => $donation->getKey(),
         ]);
     }
 
     /**
      * Display the completion page for a recurring donation.
      */
-    public function complete(Request $request): View
+    public function complete(Request $request): View|RedirectResponse
     {
-        // accept the amount and interval from the query string, or default to $10 monthly
-        $amount = request('amount', 10);
-        $amountStripe = $amount * 100; // amount in cents
-        $request->validate([
-            'interval' => ['sometimes', Rule::enum(DonationInterval::class)],
+        $validated = $request->validate([
+            'donation_id' => ['required', 'integer', 'min:1'],
         ]);
-        $interval = DonationInterval::from($request->input('interval', DonationInterval::Month->value));
-        $recurringProductId = env('STRIPE_RECURRING_PRODUCT_ID'); // recurring product ID from the environment variable
 
-        // create a Stripe price dynamically for the recurring donation
+        /** @var User $user */
+        $user = $request->user();
+        $donation = $user->donations()->findOrFail($validated['donation_id']);
+        $completionRoute = route('donate-recurring.complete', ['donation_id' => $donation->getKey()]);
+
+        if ($donation->subscription_id !== null) {
+            $subscription = $user->subscriptions()->findOrFail($donation->subscription_id);
+            $subscription->syncStripeStatus();
+
+            if ($subscription->hasIncompletePayment()) {
+                $latestPayment = $subscription->latestPayment();
+                abort_if($latestPayment === null, 409, 'The recurring donation payment could not be confirmed.');
+
+                return redirect()->route('cashier.payment', [
+                    $latestPayment->id,
+                    'redirect' => $completionRoute,
+                ]);
+            }
+
+            abort_unless(in_array($subscription->stripe_status, ['active', 'trialing'], true), 409);
+            $donation->update(['status' => DonationStatus::Completed]);
+
+            return view('account.donate-recurring-complete', ['donation' => $donation]);
+        }
+
+        $validatedSetupIntent = $request->validate([
+            'setup_intent' => ['required', 'string', 'starts_with:seti_'],
+        ]);
+        $setupIntent = $user->findSetupIntent($validatedSetupIntent['setup_intent']);
+        $metadataDonationId = $setupIntent->metadata->donation_id ?? null;
+        $metadataUserId = $setupIntent->metadata->user_id ?? null;
+
+        abort_unless((string) $metadataDonationId === (string) $donation->getKey(), 403);
+        abort_unless((string) $metadataUserId === (string) $user->getKey(), 403);
+        abort_unless($setupIntent->status === 'succeeded', 409, 'The payment method setup has not succeeded.');
+
+        $setupCustomer = $setupIntent->customer;
+        $setupCustomerId = is_string($setupCustomer) ? $setupCustomer : $setupCustomer?->id;
+
+        if ($donation->stripe_customer_id !== null && $setupCustomerId !== null) {
+            abort_unless($setupCustomerId === $donation->stripe_customer_id, 403);
+        }
+
+        $paymentMethod = $setupIntent->payment_method;
+        $paymentMethodId = is_string($paymentMethod) ? $paymentMethod : $paymentMethod?->id;
+        abort_unless(is_string($paymentMethodId) && $paymentMethodId !== '', 409);
+
+        $amountStripe = (int) round((float) $donation->amount * 100);
+        $interval = DonationInterval::from($donation->interval);
+        $recurringProductId = env('STRIPE_RECURRING_PRODUCT_ID');
         $stripePrice = Cashier::stripe()->prices->create([
             'unit_amount' => $amountStripe,
-            'currency' => config('cashier.currency', 'usd'),
+            'currency' => strtolower($donation->currency),
             'recurring' => ['interval' => $interval->value],
             'product' => $recurringProductId,
         ]);
 
-        // get the setup intent and payment method from the request
-        $setupIntent = $request->user()->findSetupIntent($request->setup_intent);
-        $paymentMethod = $setupIntent->payment_method;
+        $subscriptionType = 'donation-'.$donation->getKey();
 
-        // create the recurring subscription for the user with the specified price and interval
-        $request->user()->newSubscription('default', $stripePrice->id)->create($paymentMethod);
+        try {
+            $subscription = $user->newSubscription($subscriptionType, $stripePrice->id)->create(
+                $paymentMethodId,
+                [],
+                ['metadata' => ['donation_id' => (string) $donation->getKey()]],
+            );
+        } catch (IncompletePayment $exception) {
+            $subscription = $user->subscription($subscriptionType);
 
-        return view('account.donate-recurring-complete');
+            if ($subscription !== null) {
+                $this->attachSubscription($donation, $subscription, $user, $paymentMethodId);
+            } else {
+                throw $exception;
+            }
+
+            return redirect()->route('cashier.payment', [
+                $exception->payment->id,
+                'redirect' => $completionRoute,
+            ]);
+        }
+
+        $this->attachSubscription($donation, $subscription, $user, $paymentMethodId);
+        abort_unless(in_array($subscription->stripe_status, ['active', 'trialing'], true), 409);
+        $donation->update(['status' => DonationStatus::Completed]);
+
+        return view('account.donate-recurring-complete', ['donation' => $donation]);
+    }
+
+    /**
+     * Store the Cashier subscription details on its donation record.
+     */
+    private function attachSubscription(
+        Donation $donation,
+        Subscription $subscription,
+        User $user,
+        string $paymentMethodId,
+    ): void {
+        $donation->update([
+            'subscription_id' => $subscription->getKey(),
+            'stripe_payment_method_id' => $paymentMethodId,
+            'stripe_customer_id' => $user->stripe_id,
+            'stripe_subscription_id' => $subscription->stripe_id,
+        ]);
     }
 }

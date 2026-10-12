@@ -51,7 +51,7 @@
                     const { error } = await stripe.confirmSetup({
                         elements,
                         confirmParams: {
-                            return_url: @js(route('donate-recurring.complete', ['amount' => $amount, 'interval' => $interval])),
+                            return_url: @js(route('donate-recurring.complete', ['donation_id' => $donationId])),
                         },
                     });
 

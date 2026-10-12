@@ -5,7 +5,14 @@
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
 
-        <form method="POST" action="{{ route('register.store') }}" class="flex flex-col gap-6">
+        <form
+            method="POST"
+            action="{{ route('register.store') }}"
+            class="flex flex-col gap-6"
+            x-data="{ processing: false }"
+            x-on:submit="processing = true"
+            x-on:pageshow.window="processing = false"
+        >
             @csrf
             <!-- Name -->
             <flux:input
@@ -55,8 +62,16 @@
             />
 
             <div class="flex items-center justify-end">
-                <flux:button type="submit" variant="primary" class="w-full" data-test="register-user-button">
-                    {{ __('Create account') }}
+                <flux:button
+                    type="submit"
+                    variant="primary"
+                    class="w-full"
+                    data-test="register-user-button"
+                    x-bind:disabled="processing"
+                    x-bind:aria-busy="processing"
+                >
+                    <span x-show="!processing">{{ __('Create account') }}</span>
+                    <span x-show="processing" style="display: none">{{ __('Processing...') }}</span>
                 </flux:button>
             </div>
         </form>

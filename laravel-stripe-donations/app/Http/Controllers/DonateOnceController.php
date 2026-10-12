@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Enums\DonationStatus;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 /**
  * Donate Once Controller for the Stripe Donations application.
- * 
+ *
  * @author Scott Greenhagen
  */
 class DonateOnceController extends Controller
@@ -17,63 +18,72 @@ class DonateOnceController extends Controller
      */
     public function index(Request $request): View
     {
-        // accept the amount from the query string, or default to $10
-        $amount = request('amount', 10);
-        $amountStripe = $amount * 100; // amount in cents
- 
-        // set the options for the Stripe payment intent
+        $validated = $request->validate([
+            'amount' => ['sometimes', 'numeric', 'min:1', 'max:99999999'],
+        ]);
+        $amount = number_format((float) ($validated['amount'] ?? 10), 2, '.', '');
+        $amountStripe = (int) round((float) $amount * 100);
+        $user = $request->user();
+        $currency = strtolower(config('cashier.currency', 'usd'));
+
         $options = [
-            'currency' => config('cashier.currency', 'usd'),
+            'currency' => $currency,
             'payment_method_types' => ['card'],
             'description' => 'One-Time Donation',
         ];
-        
-        // create a Stripe payment intent for the one-time donation
-        $payment = $request->user()->pay($amountStripe, $options);
 
-        /*
-        // create pending donation record in the database
-        $order = Order::create([
-            'user_id' => $request->user()->id,
+        $payment = $request->user()->pay($amountStripe, $options);
+        $donation = $user->donations()->create([
+            'donor_name' => $user->name,
+            'donor_email' => $user->email,
             'amount' => $amount,
-            'status' => 'pending',
+            'currency' => strtoupper($currency),
+            'status' => DonationStatus::Pending,
+            'description' => $options['description'],
+            'stripe_customer_id' => $user->stripe_id,
             'stripe_payment_intent_id' => $payment->id,
         ]);
-        */
 
         return view('account.donate-once', [
             'amount' => $amount,
             'clientSecret' => $payment->client_secret,
+            'donationId' => $donation->getKey(),
         ]);
     }
 
     /**
      * Display the completion page for a one-time donation.
      */
-    public function complete(): View
+    public function complete(Request $request): View
     {
-        /*
-        // look up the donation record in the database and verify the payment status
-        $order = Order::where('user_id', $request->user()->id)
-        ->where('stripe_payment_intent_id', $request->payment_intent)
-        ->firstOrFail();
+        $validated = $request->validate([
+            'payment_intent' => ['required', 'string', 'starts_with:pi_'],
+        ]);
 
-        // retrieve the payment intent from Stripe to confirm the status
-        $paymentIntent = $request->user()
-        ->stripe()
-        ->paymentIntents
-        ->retrieve($request->payment_intent);
+        /** @var User $user */
+        $user = $request->user();
+        $donation = $user->donations()
+            ->where('stripe_payment_intent_id', $validated['payment_intent'])
+            ->firstOrFail();
+        $paymentIntent = $user->stripe()->paymentIntents->retrieve($validated['payment_intent']);
+        $customerId = is_string($paymentIntent->customer)
+            ? $paymentIntent->customer
+            : $paymentIntent->customer?->id;
 
-        if ($paymentIntent->customer === $request->user()->stripe_id) {
-            if($paymentIntent->status === 'succeeded') {
-                $order->update(['status' => 'paid']);
-            } 
-            else {
-                $order->update(['status' => 'failed']); 
-            }
-        }
-        */
+        abort_unless($paymentIntent->status === 'succeeded', 409, 'The donation payment has not succeeded.');
+        abort_unless($customerId === $donation->stripe_customer_id, 403);
+        abort_unless((int) $paymentIntent->amount_received === (int) round((float) $donation->amount * 100), 409);
+        abort_unless(strtoupper($paymentIntent->currency) === strtoupper($donation->currency), 409);
 
-        return view('account.donate-once-complete');
+        $charge = $paymentIntent->latest_charge;
+        $paymentMethod = $paymentIntent->payment_method;
+
+        $donation->update([
+            'status' => DonationStatus::Completed,
+            'stripe_payment_id' => is_string($charge) ? $charge : $charge?->id,
+            'stripe_payment_method_id' => is_string($paymentMethod) ? $paymentMethod : $paymentMethod?->id,
+        ]);
+
+        return view('account.donate-once-complete', ['donation' => $donation]);
     }
 }

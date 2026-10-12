@@ -6,7 +6,14 @@
         <x-auth-session-status class="text-center" :status="session('status')" />
 
 
-        <form method="POST" action="{{ route('login.store') }}" class="flex flex-col gap-6">
+        <form
+            method="POST"
+            action="{{ route('login.store') }}"
+            class="flex flex-col gap-6"
+            x-data="{ processing: false }"
+            x-on:submit="processing = true"
+            x-on:pageshow.window="processing = false"
+        >
             @csrf
 
             <!-- Email Address -->
@@ -44,8 +51,16 @@
             <flux:checkbox name="remember" :label="__('Remember me')" :checked="old('remember')" />
 
             <div class="flex items-center justify-end">
-                <flux:button variant="primary" type="submit" class="w-full" data-test="login-button">
-                    {{ __('Log in') }}
+                <flux:button
+                    variant="primary"
+                    type="submit"
+                    class="w-full"
+                    data-test="login-button"
+                    x-bind:disabled="processing"
+                    x-bind:aria-busy="processing"
+                >
+                    <span x-show="!processing">{{ __('Log in') }}</span>
+                    <span x-show="processing" style="display: none">{{ __('Processing...') }}</span>
                 </flux:button>
             </div>
         </form>
