@@ -9,8 +9,6 @@ use Illuminate\Contracts\View\View;
  * Donate Once Controller for the Stripe Donations application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Stripe Donations
  */
 class DonateOnceController extends Controller
 {

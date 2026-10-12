@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DonationInterval;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Validation\Rule;
 use Laravel\Cashier\Cashier;
 
 /**
  * Donate Recurring Controller for the Stripe Donations application.
  * 
  * @author Scott Greenhagen
- * @version 1.0
- * @package Stripe Donations
  */
 class DonateRecurringController extends Controller
 {
@@ -22,6 +22,7 @@ class DonateRecurringController extends Controller
     {
         // accept the amount from the query string, or default to $10
         $amount = request('amount', 10);
+        $interval = request('interval', DonationInterval::Month->value);
        
         /*
         // create pending donation record in the database
@@ -44,6 +45,7 @@ class DonateRecurringController extends Controller
 
         return view('account.donate-recurring', [
             'amount' => $amount,
+            'interval' => $interval,
             'clientSecret' => $setupIntent->client_secret,
         ]);
     }
@@ -56,14 +58,17 @@ class DonateRecurringController extends Controller
         // accept the amount and interval from the query string, or default to $10 monthly
         $amount = request('amount', 10);
         $amountStripe = $amount * 100; // amount in cents
-        $interval = request('interval', 'month'); // default to monthly recurring donation
+        $request->validate([
+            'interval' => ['sometimes', Rule::enum(DonationInterval::class)],
+        ]);
+        $interval = DonationInterval::from($request->input('interval', DonationInterval::Month->value));
         $recurringProductId = env('STRIPE_RECURRING_PRODUCT_ID'); // recurring product ID from the environment variable
 
         // create a Stripe price dynamically for the recurring donation
         $stripePrice = Cashier::stripe()->prices->create([
             'unit_amount' => $amountStripe,
             'currency' => config('cashier.currency', 'usd'),
-            'recurring' => ['interval' => $interval],
+            'recurring' => ['interval' => $interval->value],
             'product' => $recurringProductId,
         ]);
 
