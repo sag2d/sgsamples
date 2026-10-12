@@ -5,6 +5,13 @@
         <!-- Session Status -->
         <x-auth-session-status class="text-center" :status="session('status')" />
 
+        <div class="note">
+            <div class="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+                <div class="font-semibold">{{ __('Demo User Account') }}:</div>
+                <div class="text-sm font-medium">{{ __('Email') }}: <span class="font-semibold">demo.user@example.com</span></div>
+                <div class="text-sm font-medium">{{ __('Password') }}: <span class="font-semibold">demouser</span></div>
+            </div>
+        </div>
 
         <form
             method="POST"

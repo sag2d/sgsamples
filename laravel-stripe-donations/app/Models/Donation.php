@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Cashier\Subscription;
 
 #[Fillable(['user_id', 'subscription_id', 'donor_name', 'donor_email', 'amount', 'currency', 'status', 'interval', 'description', 'stripe_payment_id', 'stripe_payment_method_id', 'stripe_customer_id', 'stripe_payment_intent_id', 'stripe_subscription_id'])]
-#[Hidden(['user_id', 'subscription_id', 'status', 'stripe_payment_id', 'stripe_payment_method_id', 'stripe_customer_id', 'stripe_payment_intent_id', 'stripe_subscription_id'])]
+#[Hidden([])]
 class Donation extends Model
 {
     /** @use HasFactory<DonationFactory> */

@@ -43,7 +43,7 @@
                                         <form
                                             method="POST"
                                             action="{{ route('donation-history.cancel', $donation) }}"
-                                            data-confirmation="{{ __('Click OK to permanently stop this recurring donation.') }}"
+                                            data-confirmation="{{ __('Click OK to confirm you wish to permanently stop this recurring donation.') }}"
                                             x-data="{ processing: false }"
                                             x-on:submit="if (! window.confirm($el.dataset.confirmation)) { $event.preventDefault(); return; } processing = true"
                                             x-on:pageshow.window="processing = false"
