@@ -15,7 +15,7 @@
         <header class="border-b border-[#d6e4d5] bg-[#f8fbf7]">
             <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-4 px-5 py-4 md:px-8" aria-label="{{ __('Main navigation') }}">
                 <a href="{{ route('home') }}" class="flex items-center gap-3 font-semibold text-[#183529]">
-                    <span class="grid size-10 place-items-center rounded-md bg-[#22583d] text-sm font-bold text-[#e6f4d7]" aria-hidden="true">SD</span>
+                    <x-app-logo-icon />
                     <span>{{ config('app.name', 'Stripe Donations') }}</span>
                 </a>
 
