@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite';
+import tailwindcss from '@tailwindcss/vite';
 import laravel from 'laravel-vite-plugin';
 import { bunny } from 'laravel-vite-plugin/fonts';
-import tailwindcss from "@tailwindcss/vite";
+import { defineConfig, lazyPlugins } from 'vite-plus';
 
 export default defineConfig({
     cacheDir: '/tmp/.vite-cache',
 
-    plugins: [
+    plugins: lazyPlugins(() => [
         laravel({
             input: [
                 'resources/css/app.css',
@@ -17,11 +17,12 @@ export default defineConfig({
             fonts: [
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
+                    optimizedFallbacks: false,
                 }),
             ],
         }),
         tailwindcss(),
-    ],
+    ]),
     server: {
         host: 'localhost', // Allows connections from outside the container
         port: 5173,      // Ensures Vite binds to the expected internal port
@@ -39,7 +40,14 @@ export default defineConfig({
         watch: {
             usePolling: true, // Forces Vite to check files on Windows by polling
             interval: 100, // Checks for updates every 100ms
-            ignored: ['**/storage/framework/views/**'],
+            ignored: [
+                '**/.agents/**',
+                '**/.claude/**',
+                '**/.cursor/**',
+                '**/.junie/**',
+                '**/storage/framework/views/**',
+                '**/vendor/**',
+            ],
         },
     },
 });

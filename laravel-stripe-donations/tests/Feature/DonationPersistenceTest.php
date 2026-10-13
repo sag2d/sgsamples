@@ -37,15 +37,21 @@ test('invalid recurring intervals do not create donation records', function () {
 
 test('donation history only lists the authenticated users donations', function () {
     $user = User::factory()->create();
-    $usersDonation = Donation::factory()->for($user)->create();
-    Donation::factory()->create();
+    $usersDonation = Donation::factory()->for($user)->create([
+        'status' => DonationStatus::Completed,
+    ]);
+    Donation::factory()->for($user)->create([
+        'status' => DonationStatus::Pending,
+    ]);
+    Donation::factory()->create([
+        'status' => DonationStatus::Completed,
+    ]);
 
     actingAs($user)
         ->get(route('donation-history'))
         ->assertOk()
         ->assertViewIs('account.donation-history')
-        ->assertViewHas('donations', fn ($donations): bool =>
-            $donations->count() === 1 && $donations->first()->is($usersDonation)
+        ->assertViewHas('donations', fn ($donations): bool => $donations->count() === 1 && $donations->first()->is($usersDonation)
         );
 });
 

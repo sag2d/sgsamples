@@ -8,38 +8,24 @@
         'donate-recurring.complete',
         'donation-history',
     );
+    $lightThemePaths = [
+        route('dashboard', [], false),
+        route('donate', [], false),
+        route('donate-once', [], false),
+        route('donate-recurring', [], false),
+        route('donate-once.complete', [], false),
+        route('donate-recurring.complete', [], false),
+        route('donation-history', [], false),
+    ];
 @endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ! $isDonationTheme])>
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    data-light-theme-paths="{{ json_encode($lightThemePaths) }}"
+    @class(['dark' => ! $isDonationTheme])
+>
     <head>
         @include('partials.head')
-        <script>
-            (() => {
-                const donationRoutes = @js([
-                    parse_url(route('dashboard'), PHP_URL_PATH),
-                    parse_url(route('donate'), PHP_URL_PATH),
-                    parse_url(route('donate-once'), PHP_URL_PATH),
-                    parse_url(route('donate-recurring'), PHP_URL_PATH),
-                    parse_url(route('donate-once.complete'), PHP_URL_PATH),
-                    parse_url(route('donate-recurring.complete'), PHP_URL_PATH),
-                    parse_url(route('donation-history'), PHP_URL_PATH),
-                ]);
-                const syncDonationTheme = () => {
-                    const isDonationRoute = donationRoutes.includes(window.location.pathname.replace(/\/$/, ''));
-
-                    if (isDonationRoute) {
-                        document.documentElement.classList.remove('dark');
-
-                        return;
-                    }
-
-                    window.Flux.applyAppearance(window.localStorage.getItem('flux.appearance') || 'system');
-                };
-
-                syncDonationTheme();
-                document.addEventListener('livewire:navigated', syncDonationTheme);
-            })();
-        </script>
     </head>
     <body @class([
         'min-h-screen',

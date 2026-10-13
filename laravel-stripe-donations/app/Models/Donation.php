@@ -6,6 +6,8 @@ use App\Enums\DonationStatus;
 use Database\Factories\DonationFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Attributes\Scope;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,6 +34,15 @@ class Donation extends Model
     public function subscription(): BelongsTo
     {
         return $this->belongsTo(Subscription::class);
+    }
+
+    /**
+     * Exclude donations that are still pending.
+     */
+    #[Scope]
+    protected function notPending(Builder $query): void
+    {
+        $query->where('status', '!=', DonationStatus::Pending->value);
     }
 
     /**

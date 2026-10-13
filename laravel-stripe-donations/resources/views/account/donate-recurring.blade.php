@@ -1,8 +1,10 @@
 <x-layouts::app :title="__('Donate')">
     <div
         class="mx-auto max-w-2xl space-y-8"
-        x-data="donationPayment()"
-        x-on:pageshow.window="processing = false"
+        data-donation-payment
+        data-stripe-key="{{ config('cashier.key') }}"
+        data-client-secret="{{ $clientSecret }}"
+        data-return-url="{{ route('donate-recurring.complete', ['donation_id' => $donationId]) }}"
     >
         <div class="space-y-3">
             <p class="text-xs font-semibold uppercase text-[#75864f]">{{ __('Recurring gift') }}</p>
@@ -12,59 +14,31 @@
         </div>
 
         <section class="space-y-6 rounded-lg border border-[#d6e4d5] bg-[#f8fbf7] p-6">
-            <div id="payment-element"></div>
+            <div data-payment-element></div>
             <button
-                id="submit"
+                data-donation-submit
                 type="button"
-                x-on:click="confirmDonation()"
-                x-bind:disabled="processing"
-                x-bind:aria-busy="processing"
+                disabled
+                aria-busy="true"
                 class="rounded-md bg-[#22583d] px-4 py-2 text-sm font-semibold text-white hover:bg-[#19452f] focus:outline-none focus:ring-2 focus:ring-[#58825f] focus:ring-offset-2 disabled:cursor-wait disabled:opacity-60"
             >
-                <span x-show="!processing">{{ __('Donate Now') }}</span>
-                <span x-show="processing" style="display: none">{{ __('Processing...') }}</span>
+                <span data-submit-label>{{ __('Donate Now') }}</span>
+                <span data-processing-label hidden>{{ __('Processing...') }}</span>
             </button>
+            <p data-donation-error role="alert" class="text-sm text-red-700" hidden></p>
         </section>
     </div>
 
-    <script src="https://js.stripe.com/v3/"></script>
     <script>
-        const stripe = Stripe(@js(config('cashier.key')));
+        (() => {
+            const paymentForm = document.querySelector('[data-donation-payment]');
 
-        const elements = stripe.elements({
-            clientSecret: @js($clientSecret)
-        });
-
-        const paymentElement = elements.create('payment');
-
-        paymentElement.mount('#payment-element');
-
-        window.donationPayment = () => ({
-            processing: false,
-            async confirmDonation() {
-                if (this.processing) {
-                    return;
-                }
-
-                this.processing = true;
-
-                try {
-                    const { error } = await stripe.confirmSetup({
-                        elements,
-                        confirmParams: {
-                            return_url: @js(route('donate-recurring.complete', ['donation_id' => $donationId])),
-                        },
-                    });
-
-                    if (error) {
-                        alert('Payment error: ' + error.message);
-                        this.processing = false;
-                    }
-                } catch (error) {
-                    alert('Payment error: ' + error.message);
-                    this.processing = false;
-                }
-            },
-        });
+            if (paymentForm) {
+                paymentForm.donationConfirmation = (stripe, elements, returnUrl) => stripe.confirmSetup({
+                    elements,
+                    confirmParams: { return_url: returnUrl },
+                });
+            }
+        })();
     </script>
 </x-layouts::app>

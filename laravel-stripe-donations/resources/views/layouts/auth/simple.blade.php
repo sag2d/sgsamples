@@ -1,32 +1,18 @@
 @php
     $isLightAuthRoute = request()->routeIs('login', 'register');
+    $lightThemePaths = [
+        route('login', [], false),
+        route('register', [], false),
+    ];
 @endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ! $isLightAuthRoute])>
+<html
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+    data-light-theme-paths="{{ json_encode($lightThemePaths) }}"
+    @class(['dark' => ! $isLightAuthRoute])
+>
     <head>
         @include('partials.head')
-        <script>
-            (() => {
-                const lightAuthRoutes = @js([
-                    parse_url(route('login'), PHP_URL_PATH),
-                    parse_url(route('register'), PHP_URL_PATH),
-                ]);
-                const syncAuthAppearance = () => {
-                    const isLightAuthRoute = lightAuthRoutes.includes(window.location.pathname.replace(/\/$/, ''));
-
-                    if (isLightAuthRoute) {
-                        document.documentElement.classList.remove('dark');
-
-                        return;
-                    }
-
-                    window.Flux.applyAppearance(window.localStorage.getItem('flux.appearance') || 'system');
-                };
-
-                syncAuthAppearance();
-                document.addEventListener('livewire:navigated', syncAuthAppearance);
-            })();
-        </script>
     </head>
     <body @class([
         'min-h-screen antialiased',

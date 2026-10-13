@@ -9,7 +9,7 @@
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
         @fonts
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.ts'])
     </head>
     <body class="min-h-screen bg-[#f2f8f1] font-sans text-[#183529] antialiased">
         <header class="border-b border-[#d6e4d5] bg-[#f8fbf7]">

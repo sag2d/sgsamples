@@ -10,12 +10,13 @@ use Illuminate\Http\Request;
 class DonationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the current user's donations that are not pending.
      */
     public function index(Request $request): View
     {
         $donations = $request->user()
             ->donations()
+            ->notPending()
             ->with('subscription')
             ->latest()
             ->paginate(15);
@@ -46,5 +47,4 @@ class DonationController extends Controller
             ->route('donation-history')
             ->with('status', __('Your recurring donation has been scheduled for cancellation.'));
     }
-
 }
