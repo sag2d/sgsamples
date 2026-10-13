@@ -1,3 +1,4 @@
+// import Stripe donation features from stripe-donation.ts
 import {
 	initializeDonationPayments,
 	resetDonationPaymentForms,

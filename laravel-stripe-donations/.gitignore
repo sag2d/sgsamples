@@ -2,7 +2,6 @@
 .DS_Store
 /.phpunit.cache
 /node_modules
-/public/build
 /public/css/filament
 /public/fonts-manifest.dev.json
 /public/fonts/filament
