@@ -5,12 +5,13 @@
         x-on:pageshow.window="processing = false"
     >
         <div class="space-y-3">
-            <h1 class="text-2xl font-semibold text-neutral-900 dark:text-neutral-100">{{ __('Recurring Donation') }}</h1>
-            <p class="text-neutral-600 dark:text-neutral-400">{{ __('Your recurring donation amount and interval.') }}</p>
-            <p class="text-3xl font-semibold text-neutral-900 dark:text-neutral-100">${{ number_format($amount, 2) }} <span class="text-base font-normal text-neutral-600 dark:text-neutral-400">{{ __('per') }} {{ ucfirst($interval) }}</span></p>
+            <p class="text-xs font-semibold uppercase text-[#75864f]">{{ __('Recurring gift') }}</p>
+            <h1 class="text-3xl font-semibold text-[#173f2b]">{{ __('Recurring Donation') }}</h1>
+            <p class="text-[#536b59]">{{ __('Your recurring donation amount and interval.') }}</p>
+            <p class="text-3xl font-semibold text-[#173f2b]">${{ number_format($amount, 2) }} <span class="text-base font-normal text-[#536b59]">{{ __('per') }} {{ ucfirst($interval) }}</span></p>
         </div>
 
-        <section class="space-y-6 rounded-lg border border-neutral-200 bg-white p-6 dark:border-neutral-700 dark:bg-neutral-900">
+        <section class="space-y-6 rounded-lg border border-[#d6e4d5] bg-[#f8fbf7] p-6">
             <div id="payment-element"></div>
             <button
                 id="submit"
@@ -18,7 +19,7 @@
                 x-on:click="confirmDonation()"
                 x-bind:disabled="processing"
                 x-bind:aria-busy="processing"
-                class="rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:cursor-wait disabled:opacity-60"
+                class="rounded-md bg-[#22583d] px-4 py-2 text-sm font-semibold text-white hover:bg-[#19452f] focus:outline-none focus:ring-2 focus:ring-[#58825f] focus:ring-offset-2 disabled:cursor-wait disabled:opacity-60"
             >
                 <span x-show="!processing">{{ __('Donate Now') }}</span>
                 <span x-show="processing" style="display: none">{{ __('Processing...') }}</span>

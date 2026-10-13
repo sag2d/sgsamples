@@ -6,7 +6,7 @@ use App\Http\Controllers\DonateRecurringController;
 use App\Http\Controllers\DonationController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome')->name('home');
+Route::view('/', 'home')->name('home');
 
 // Frontend login-protected route for authenticated users to access dashboard features
 Route::middleware(['auth', 'verified'])->group(function () {

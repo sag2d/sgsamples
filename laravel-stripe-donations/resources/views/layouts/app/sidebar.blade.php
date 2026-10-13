@@ -1,10 +1,56 @@
+@php
+    $isDonationTheme = request()->routeIs(
+        'dashboard',
+        'donate',
+        'donate-once',
+        'donate-recurring',
+        'donate-once.complete',
+        'donate-recurring.complete',
+        'donation-history',
+    );
+@endphp
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @class(['dark' => ! $isDonationTheme])>
     <head>
         @include('partials.head')
+        <script>
+            (() => {
+                const donationRoutes = @js([
+                    parse_url(route('dashboard'), PHP_URL_PATH),
+                    parse_url(route('donate'), PHP_URL_PATH),
+                    parse_url(route('donate-once'), PHP_URL_PATH),
+                    parse_url(route('donate-recurring'), PHP_URL_PATH),
+                    parse_url(route('donate-once.complete'), PHP_URL_PATH),
+                    parse_url(route('donate-recurring.complete'), PHP_URL_PATH),
+                    parse_url(route('donation-history'), PHP_URL_PATH),
+                ]);
+                const syncDonationTheme = () => {
+                    const isDonationRoute = donationRoutes.includes(window.location.pathname.replace(/\/$/, ''));
+
+                    if (isDonationRoute) {
+                        document.documentElement.classList.remove('dark');
+
+                        return;
+                    }
+
+                    window.Flux.applyAppearance(window.localStorage.getItem('flux.appearance') || 'system');
+                };
+
+                syncDonationTheme();
+                document.addEventListener('livewire:navigated', syncDonationTheme);
+            })();
+        </script>
     </head>
-    <body class="min-h-screen bg-white dark:bg-zinc-800">
-        <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+    <body @class([
+        'min-h-screen',
+        'bg-[#f2f8f1]' => $isDonationTheme,
+        'bg-white dark:bg-zinc-800' => ! $isDonationTheme,
+    ])>
+        <flux:sidebar
+            sticky
+            collapsible="mobile"
+            class="{{ $isDonationTheme ? 'border-e border-[#d6e4d5] bg-[#f8fbf7]' : 'border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900' }}"
+        >
             <flux:sidebar.header>
                 <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
                 <flux:sidebar.collapse class="lg:hidden" />
