@@ -32,7 +32,8 @@ class DonationsTable
                 TextColumn::make('donor_name')
                     ->searchable(),
                 TextColumn::make('donor_email')
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('description')
                     ->searchable(),
                 TextColumn::make('amount')
@@ -60,17 +61,18 @@ class DonationsTable
                     ->searchable(),
                 */
                 TextColumn::make('created_at')
-                    ->dateTime()
+                    ->date()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('updated_at')
-                    ->dateTime()
+                    ->date()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
             ])
+            ->defaultSort('created_at', 'desc')
             ->recordActions([
                 ViewAction::make(),
                 // EditAction::make(),

@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Laravel\Cashier\Subscription;
+use Laravel\Cashier\SubscriptionItem;
 
 class DatabaseSeeder extends Seeder
 {
@@ -51,6 +52,17 @@ class DatabaseSeeder extends Seeder
             ->create()
             ->each(function (Subscription $subscription) use ($demoUser): void {
                 $interval = fake()->randomElement(DonationInterval::cases());
+
+                $subscription->update([
+                    'stripe_price' => 'price_demo_'.$subscription->id,
+                ]);
+
+                SubscriptionItem::factory()->create([
+                    'subscription_id' => $subscription->id,
+                    'stripe_product' => 'prod_demo_'.$subscription->id,
+                    'stripe_price' => $subscription->stripe_price,
+                    'quantity' => 1,
+                ]);
 
                 Donation::factory()->create([
                     'user_id' => $demoUser->id,
