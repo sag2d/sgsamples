@@ -61,7 +61,7 @@ After signing in, authenticated account screens are available for the following 
 
 ![Donation dashboard](docs/images/account/account-donation-dashboard.jpg)
 
-![Account donation history](docs/account/images/account-donation-history.jpg)
+![Account donation history](docs/images/account/account-donation-history.jpg)
 
 ![Account settings](docs/images/account/account-settings.jpg)
 
