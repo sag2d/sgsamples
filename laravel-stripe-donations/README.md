@@ -28,7 +28,7 @@ This application runs the bundled Laravel framework on PHP.
 
 ## Description
 
-**Donation** objects consist of 4 core models defined with Laravel's Eloquent ORM:
+**Donations** consist of 4 core models defined with Laravel's Eloquent ORM:
 
 - User (user login authentication system)
 - Donation (one-time or recurring)
@@ -37,9 +37,12 @@ This application runs the bundled Laravel framework on PHP.
 
 ### Public Screens
 
-A public homepage with links in Blade templates that change dynamically based on whether the user is currently signed in as a website visitor. 
+A public homepage with links in Blade templates that change dynamically based on whether the website visitor is a guest...
 
 ![Homepage: signed out](docs/images/laravel-stripe-donations-homepage-a-signed-out.jpg)
+
+...or is currently signed in to a user account.
+
 ![Homepage: signed in](docs/images/laravel-stripe-donations-homepage-b-signed-in.jpg)
 
 ### Account Screens
@@ -56,11 +59,11 @@ After signing in, authenticated account screens are available for the following 
 - A donation history listing to view past donations and manage/cancel recurring donations
 - An account settings area to manage/update user account settings
 
-![Donation dashboard](docs/images/account-donation-dashboard.jpg)
+![Donation dashboard](docs/images/account/account-donation-dashboard.jpg)
 
-![Account donation history](docs/images/account-donation-history.jpg)
+![Account donation history](docs/account/images/account-donation-history.jpg)
 
-![Account settings](docs/images/account-settings.jpg)
+![Account settings](docs/images/account/account-settings.jpg)
 
 ### Administrative Screens
 
@@ -207,13 +210,13 @@ After creating or signing in to your user account as described above, you can ma
 - Access your account settings area to manage/update your profile information or account password.
 - A sidebar navigation is present all on account pages for easy access to other pages.
 
-![One-time donation](docs/images/account-one-time-donation.jpg)
-![One-time donation Stripe form](docs/images/account-one-time-donation-stripe-form.jpg)
-![One-time donation receipt](docs/images/account-one-time-donation-receipt.jpg)
+![One-time donation](docs/images/account/account-one-time-donation.jpg)
+![One-time donation Stripe form](docs/images/account/account-one-time-donation-stripe-form.jpg)
+![One-time donation receipt](docs/images/account/account-one-time-donation-receipt.jpg)
 
-![Recurring donation](docs/images/account-recurring-donation.jpg)
-![Recurring donation Stripe form](docs/images/account-recurring-donation-stripe-form.jpg)
-![Recurring donation receipt](docs/images/account-recurring-donation-receipt.jpg)
+![Recurring donation](docs/images/account/account-recurring-donation.jpg)
+![Recurring donation Stripe form](docs/images/account/account-recurring-donation-stripe-form.jpg)
+![Recurring donation receipt](docs/images/account/account-recurring-donation-receipt.jpg)
 
 ### Administrative Management
 
