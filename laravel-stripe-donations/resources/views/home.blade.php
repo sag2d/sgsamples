@@ -37,15 +37,15 @@
 
         <main>
             <section class="border-b border-[#d6e4d5] bg-[#e7f1e5]">
-                <div class="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                <div class="mx-auto grid max-w-7xl gap-8 px-5 py-8 md:px-8 md:py-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                     <div class="max-w-2xl">
-                        <p class="mb-5 text-xs font-semibold uppercase text-[#557a5e]">{{ __('A thoughtful way to give') }}</p>
+                        <p class="mb-3 text-xs font-semibold uppercase text-[#557a5e]">{{ __('A thoughtful way to give') }}</p>
                         <h1 class="text-5xl font-semibold leading-[1.05] text-[#173f2b] md:text-6xl">{{ config('app.name', 'Stripe Donations') }}</h1>
-                        <p class="mt-6 max-w-xl text-lg leading-8 text-[#45614e]">
+                        <p class="mt-4 max-w-xl text-lg leading-8 text-[#45614e]">
                             {{ __('Make a one-time contribution or set up a recurring donation in a secure, straightforward portal. Keep your giving and receipts together in one place.') }}
                         </p>
 
-                        <div class="mt-8 flex flex-wrap items-center gap-4">
+                        <div class="mt-6 flex flex-wrap items-center gap-4">
                             @auth
                                 <a href="{{ route('donate') }}" class="inline-flex items-center justify-center rounded-md bg-[#22583d] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#19452f] focus:outline-none focus:ring-2 focus:ring-[#22583d] focus:ring-offset-2 focus:ring-offset-[#e7f1e5]">
                                     {{ __('Start a donation') }}
@@ -68,16 +68,16 @@
 
                     <aside class="border-l-2 border-[#afc99d] pl-6 md:pl-9" aria-labelledby="giving-options-heading">
                         <p class="text-xs font-semibold uppercase text-[#75864f]">{{ __('Flexible giving') }}</p>
-                        <h2 id="giving-options-heading" class="mt-3 text-2xl font-semibold text-[#173f2b]">{{ __('Choose what works for you') }}</h2>
-                        <div class="mt-7 divide-y divide-[#cadbc5]">
-                            <div class="grid grid-cols-[3rem_1fr] gap-4 py-5">
+                        <h2 id="giving-options-heading" class="mt-2 text-2xl font-semibold text-[#173f2b]">{{ __('Choose what works for you') }}</h2>
+                        <div class="mt-4 divide-y divide-[#cadbc5]">
+                            <div class="grid grid-cols-[3rem_1fr] gap-4 py-3">
                                 <span class="font-mono text-sm text-[#8a8d4b]">01</span>
                                 <div>
                                     <h3 class="font-semibold text-[#214b34]">{{ __('One-time donation') }}</h3>
                                     <p class="mt-1 text-sm leading-6 text-[#536b59]">{{ __('Choose an amount and make a single contribution.') }}</p>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-[3rem_1fr] gap-4 py-5">
+                            <div class="grid grid-cols-[3rem_1fr] gap-4 py-3">
                                 <span class="font-mono text-sm text-[#8a8d4b]">02</span>
                                 <div>
                                     <h3 class="font-semibold text-[#214b34]">{{ __('Recurring donation') }}</h3>
@@ -89,28 +89,28 @@
                 </div>
             </section>
 
-            <section class="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20" aria-labelledby="portal-heading">
+            <section class="mx-auto max-w-7xl px-5 pt-8 pb-6 md:px-8 md:pt-10 md:pb-8" aria-labelledby="portal-heading">
                 <div class="max-w-2xl">
                     <p class="text-xs font-semibold uppercase text-[#75864f]">{{ __('Your giving, organized') }}</p>
-                    <h2 id="portal-heading" class="mt-3 text-3xl font-semibold text-[#173f2b]">{{ __('One account. A clear record.') }}</h2>
-                    <p class="mt-4 leading-7 text-[#536b59]">{{ __('Secure Stripe payment forms support your contributions. Your dashboard summarizes completed giving, and donation history keeps receipts and recurring schedules easy to revisit.') }}</p>
+                    <h2 id="portal-heading" class="mt-2 text-3xl font-semibold text-[#173f2b]">{{ __('One account. A clear record.') }}</h2>
+                    <p class="mt-2 leading-7 text-[#536b59]">{{ __('Secure Stripe payment forms support your contributions. Your dashboard summarizes completed giving, and donation history keeps receipts and recurring schedules easy to revisit.') }}</p>
                 </div>
 
-                <div class="mt-10 grid gap-8 border-t border-[#d6e4d5] pt-8 md:grid-cols-3 md:gap-10">
-                    <a href="{{ auth()->check() ? route('donate') : route('login') }}" class="group block border-b border-[#d6e4d5] pb-6 md:border-b-0 md:pb-0">
+                <div class="mt-5 grid gap-6 border-t border-[#d6e4d5] pt-5 md:grid-cols-3 md:gap-8">
+                    <a href="{{ auth()->check() ? route('donate') : route('login') }}" class="group block border-b border-[#d6e4d5] pb-4 md:border-b-0 md:pb-0">
                         <span class="text-xs font-semibold uppercase text-[#8a8d4b]">{{ __('01 / Give') }}</span>
-                        <h3 class="mt-3 text-xl font-semibold text-[#214b34] group-hover:text-[#173f2b]">{{ __('Make a donation') }}</h3>
-                        <p class="mt-2 text-sm leading-6 text-[#536b59]">{{ __('Start a one-time gift or choose a recurring schedule.') }}</p>
+                        <h3 class="mt-2 text-xl font-semibold text-[#214b34] group-hover:text-[#173f2b]">{{ __('Make a donation') }}</h3>
+                        <p class="mt-1 text-sm leading-6 text-[#536b59]">{{ __('Start a one-time gift or choose a recurring schedule.') }}</p>
                     </a>
-                    <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="group block border-b border-[#d6e4d5] pb-6 md:border-b-0 md:pb-0">
+                    <a href="{{ auth()->check() ? route('dashboard') : route('login') }}" class="group block border-b border-[#d6e4d5] pb-4 md:border-b-0 md:pb-0">
                         <span class="text-xs font-semibold uppercase text-[#8a8d4b]">{{ __('02 / Overview') }}</span>
-                        <h3 class="mt-3 text-xl font-semibold text-[#214b34] group-hover:text-[#173f2b]">{{ __('Your dashboard') }}</h3>
-                        <p class="mt-2 text-sm leading-6 text-[#536b59]">{{ __('See your total completed donations and yearly giving.') }}</p>
+                        <h3 class="mt-2 text-xl font-semibold text-[#214b34] group-hover:text-[#173f2b]">{{ __('Your dashboard') }}</h3>
+                        <p class="mt-1 text-sm leading-6 text-[#536b59]">{{ __('See your total completed donations and yearly giving.') }}</p>
                     </a>
                     <a href="{{ auth()->check() ? route('donation-history') : route('login') }}" class="group block">
                         <span class="text-xs font-semibold uppercase text-[#8a8d4b]">{{ __('03 / Records') }}</span>
-                        <h3 class="mt-3 text-xl font-semibold text-[#214b34] group-hover:text-[#173f2b]">{{ __('Donation history') }}</h3>
-                        <p class="mt-2 text-sm leading-6 text-[#536b59]">{{ __('Review past contributions and manage active recurring donations.') }}</p>
+                        <h3 class="mt-2 text-xl font-semibold text-[#214b34] group-hover:text-[#173f2b]">{{ __('Donation history') }}</h3>
+                        <p class="mt-1 text-sm leading-6 text-[#536b59]">{{ __('Review past contributions and manage active recurring donations.') }}</p>
                     </a>
                 </div>
             </section>

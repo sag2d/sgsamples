@@ -6,6 +6,12 @@
             <p class="mt-2 text-[#536b59]">{{ __('Review your donations and recurring schedules.') }}</p>
         </header>
 
+        @if(session('error'))
+            <div role="alert" class="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200">
+                {{ session('error') }}
+            </div>
+        @endif
+
         @if (session('status'))
             <div role="status" class="rounded-md border border-[#b8d1b2] bg-[#e7f1e5] px-4 py-3 text-sm text-[#22583d]">
                 {{ session('status') }}
@@ -31,7 +37,7 @@
                                     {{ $donation->created_at->format('M j, Y') }}
                                 </td>
                                 <td class="whitespace-nowrap px-4 py-3 font-medium text-[#214b34]">
-                                    {{ strtoupper($donation->currency) }} {{ number_format((float) $donation->amount, 2) }}
+                                    ${{ number_format((float) $donation->amount, 2) }} ({{ strtoupper($donation->currency) }})
                                 </td>
                                 <td class="whitespace-nowrap px-4 py-3 text-[#536b59]">
                                     {{ $donation->interval ? ucfirst($donation->interval) : __('One-time') }}

@@ -37,7 +37,7 @@ class DonationFactory extends Factory
             ]),
             'description' => fake()->sentence(),
             'stripe_payment_id' => null,
-            'stripe_payment_method' => null,
+            'stripe_payment_method_id' => null,
             'stripe_customer_id' => null,
             'stripe_payment_intent_id' => null,
             'stripe_subscription_id' => null,

@@ -149,7 +149,7 @@ class DonationsTable
             Notification::make()
                 ->danger()
                 ->title(__('Cancellation failed'))
-                ->body(__('Stripe could not cancel this subscription. Please try again.'))
+                ->body(__('Stripe could not cancel this subscription. It may have already been canceled.'))
                 ->send();
         }
     }

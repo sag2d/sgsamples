@@ -4,6 +4,7 @@
          bootstrap="vendor/autoload.php"
          colors="true"
 >
+    <!-- Test Suites Definition -->
     <testsuites>
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
@@ -11,24 +12,38 @@
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
+        <testsuite name="Integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
     </testsuites>
+
+    <!-- Source Code Selection for Coverage -->
     <source>
         <include>
             <directory>app</directory>
         </include>
+        <exclude>
+            <directory>app/Livewire</directory>
+            <directory>app/Filament</directory>
+        </exclude>
     </source>
+
+    <!-- Server Environment Settings for Testing -->
     <php>
-        <env name="APP_ENV" value="testing"/>
+        <server name="APP_ENV" value="testing"/>
+        <server name="APP_RUNNING_IN_CONSOLE" value="true"/>
+        <env name="APP_ENV" value="testing" force="true"/>
+        <env name="APP_RUNNING_IN_CONSOLE" value="true" force="true"/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
-        <env name="CACHE_STORE" value="array"/>
-        <env name="DB_CONNECTION" value="sqlite"/>
-        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="CACHE_STORE" value="array" force="true"/>
+        <env name="SESSION_DRIVER" value="array" force="true"/>
+        <env name="DB_CONNECTION" value="mysql"/>
+        <env name="DB_DATABASE" value="laravel_stripe_donations"/>
         <env name="DB_URL" value=""/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
         <env name="PULSE_ENABLED" value="false"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
         <env name="NIGHTWATCH_ENABLED" value="false"/>

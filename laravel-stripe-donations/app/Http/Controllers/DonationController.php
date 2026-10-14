@@ -6,7 +6,13 @@ use App\Models\Donation;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Stripe\Exception\ApiErrorException;
 
+/**
+ * Donation Controller to view donation history and manage recurring donations.
+ *
+ * @author Scott Greenhagen
+ */
 class DonationController extends Controller
 {
     /**
@@ -19,7 +25,7 @@ class DonationController extends Controller
             ->notPending()
             ->with('subscription')
             ->latest()
-            ->paginate(15);
+            ->paginate(10);
 
         return view('account.donation-history', ['donations' => $donations]);
     }
@@ -37,11 +43,28 @@ class DonationController extends Controller
 
         abort_unless($subscription !== null && $donation->interval !== null, 404);
 
-        $subscription->syncStripeStatus();
+        try {
+            $subscription->syncStripeStatus();
 
-        abort_unless($subscription->active() && ! $subscription->canceled(), 409, 'This recurring donation is not active.');
+            abort_unless($subscription->active() && ! $subscription->canceled(), 409, 'This recurring donation is not active.');
 
-        $subscription->cancel();
+            if (! in_array($subscription->stripe_status, ['active', 'trialing'], true)
+                || ! $subscription->active()
+                || $subscription->canceled()) {
+                
+                return redirect()
+                    ->route('donation-history')
+                    ->with('status', __('This recurring donation is no longer active.'));
+            }
+
+            $subscription->cancel();
+        } catch (ApiErrorException $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('donation-history')
+                ->with('error', __('Stripe could not cancel this subscription. It may have already been canceled.'));
+        }
 
         return redirect()
             ->route('donation-history')
