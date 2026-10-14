@@ -24,7 +24,7 @@ Each project lives in its own directory with a dedicated `README.md` covering se
 
 A full-stack donations system, utilizing the Stripe API and payment gateway, built on the Laravel PHP framework with Cashier package using the modern TALL stack (Tailwind CSS, Alpine.js, Laravel, and Livewire).
 
-Register for a new account, sign in to your existing account, and sign out of your account with the registration and login screens. After creating or signing in to a user account, you can make one-time or recurring donations using secure Stripe forms. Authenticated admin dashboard built with Filament for CRUD management of database records.
+Register for a new account, sign in to your existing account, and sign out of your account with the registration and login screens. After creating or signing in to a user account, you can make one-time or recurring donations using secure Stripe forms, and return to view your donations history. Authenticated admin dashboard built with Filament for CRUD management of database records.
 
 ![Homepage: signed out](./laravel-stripe-donations/docs/images/laravel-stripe-donations-homepage-a-signed-out.jpg)
 
