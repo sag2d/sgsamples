@@ -199,7 +199,7 @@ The following demo user account is provided for easy sign in, or you may registe
 - Email: demo.user@example.com
 - Password: demouser
 
-After creating or signing in to your user account as described above, you can make one-time or recurring donations using embedded Stripe forms:
+After creating or signing in to your user account as described above, you can make one-time or recurring donations using secure Stripe forms:
 
 - On the donate form, select your desired donation amount and donation type (one-time or recurring).
 - If recurring, select your desired schedule (daily, weekly, monthly, yearly).

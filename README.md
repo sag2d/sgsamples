@@ -10,9 +10,27 @@ Each project lives in its own directory with a dedicated `README.md` covering se
 
 ## Table of Contents
 
+- [Laravel Stripe Donations](#laravel-stripe-donations)
 - [Laravel Team Manager](#laravel-team-manager)
-- [CodeIgniter Team Manager](#codeigniter-team-manager)
 - [Vehicles OOP Demo](#vehicles-oop-demo)
+
+<!--
+- [CodeIgniter Team Manager](#codeigniter-team-manager)
+-->
+
+---
+
+## [Laravel Stripe Donations](./laravel-stripe-donations)
+
+A full-stack donations system, utilizing the Stripe API and payment gateway, built on the Laravel PHP framework with Cashier package using the modern TALL stack (Tailwind CSS, Alpine.js, Laravel, and Livewire).
+
+Register for a new account, sign in to your existing account, and sign out of your account with the registration and login screens. After creating or signing in to a user account, you can make one-time or recurring donations using secure Stripe forms. Authenticated admin dashboard built with Filament for CRUD management of database records.
+
+![Homepage: signed out](docs/images/laravel-stripe-donations-homepage-a-signed-out.jpg)
+
+**Tech Stack:** PHP · MySQL · Laravel · Cashier · Stripe · Blade · Flux UI · Livewire · Filament · TypeScript/JavaScript · Alpine.js · Tailwind CSS · Vite · HTML5 · Docker · Composer · Pest
+
+📄 [View project README](./laravel-stripe-donations/README.md)
 
 ---
 
@@ -30,18 +48,6 @@ Public visitors can browse a feature-rich frontend experience with Flux UI, Alpi
 
 ---
 
-## [CodeIgniter Team Manager](./codeigniter-team-manager)
-
-A web application built on the CodeIgniter PHP framework, designed to manage the organization of related leagues, teams, and players.
-
-Includes public screens for browsing leagues, teams, and players, plus administrative screens for managing records — all backed by a relational MySQL database.
-
-**Tech Stack:** PHP · CodeIgniter · MySQL · TypeScript/JavaScript · HTML5 · Docker · Composer · PHPUnit
-
-📄 [View project README](./codeigniter-team-manager/README.md)
-
----
-
 ## [Vehicles OOP Demo](./vehicles-oop-demo)
 
 A PHP command-line project that demonstrates core object-oriented programming concepts through a set of vehicle classes. I designed this project to help train junior developers in learning PHP.
@@ -51,6 +57,20 @@ Built with vanilla PHP — no framework — the project walks through encapsulat
 **Tech Stack:** PHP · Docker · PHPUnit
 
 📄 [View project README](./vehicles-oop-demo/README.md)
+
+<!--
+---
+
+## [CodeIgniter Team Manager](./codeigniter-team-manager)
+
+A web application built on the CodeIgniter PHP framework, designed to manage the organization of related leagues, teams, and players.
+
+Includes public screens for browsing leagues, teams, and players, plus administrative screens for managing records — all backed by a relational MySQL database.
+
+**Tech Stack:** PHP · CodeIgniter · MySQL · TypeScript/JavaScript · HTML5 · Docker · Composer · PHPUnit
+
+📄 [View project README](./codeigniter-team-manager/README.md)
+-->
 
 ---
 
