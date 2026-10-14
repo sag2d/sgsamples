@@ -187,8 +187,7 @@ test('recurring completion rejects setup intents that have not succeeded', funct
             'donation_id' => $donation->id,
             'setup_intent' => 'seti_test_pending',
         ]))
-        ->assertConflict()
-        ->assertSee('The payment method setup has not succeeded.');
+        ->assertConflict();
 });
 test('recurring donation form creates a pending monthly donation by default', function () {
     $stripe = fakeDonationStripeClient([

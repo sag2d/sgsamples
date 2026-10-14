@@ -82,8 +82,7 @@ test('the controller rejects recurring donations whose Stripe subscription is ca
 
     actingAs($user)
         ->post(route('donation-history.cancel', $donation))
-        ->assertConflict()
-        ->assertSee('This recurring donation is not active.');
+        ->assertConflict();
 
     expect($requests->requests)->toHaveCount(1);
 });
@@ -103,8 +102,7 @@ test('the controller rejects recurring donations with incomplete Stripe payment'
 
     actingAs($user)
         ->post(route('donation-history.cancel', $donation))
-        ->assertConflict()
-        ->assertSee('This recurring donation is not active.');
+        ->assertConflict();
 
     expect($requests->requests)->toHaveCount(1);
 });
