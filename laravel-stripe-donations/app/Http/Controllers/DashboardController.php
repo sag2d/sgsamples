@@ -16,15 +16,19 @@ class DashboardController extends Controller
      */
     public function index(Request $request): View
     {
+        // define time periods
         $now = now();
         $startOfThisYear = $now->copy()->startOfYear();
         $startOfNextYear = $startOfThisYear->copy()->addYear();
         $startOfLastYear = $startOfThisYear->copy()->subYear();
+
+        // find all donations for the current user that have a status of completed
         $completedUsdDonations = $request->user()
             ->donations()
             ->where('status', DonationStatus::Completed->value)
             ->where('currency', 'USD');
 
+        // calculate donation totals for the current user for the last year and this year
         return view('account.dashboard', [
             'totalDonations' => (clone $completedUsdDonations)->count(),
             'lastYearAmount' => (clone $completedUsdDonations)

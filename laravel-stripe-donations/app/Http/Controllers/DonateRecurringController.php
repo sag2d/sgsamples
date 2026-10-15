@@ -35,6 +35,7 @@ class DonateRecurringController extends Controller
         $currency = strtolower(config('cashier.currency', 'usd'));
         $user = $request->user();
 
+        // insert a new donation record with a status of pending, to be updated when the subscription is created
         $donation = $user->donations()->create([
             'donor_name' => $user->name,
             'donor_email' => $user->email,
@@ -55,6 +56,7 @@ class DonateRecurringController extends Controller
             ],
         ];
 
+        // create a new Stripe SetupIntent for the user to set up a payment method for a recurring donation
         $setupIntent = $user->createSetupIntent($options);
         $setupCustomer = $setupIntent->customer;
         $customerId = is_string($setupCustomer) ? $setupCustomer : $setupCustomer?->id;
@@ -80,12 +82,14 @@ class DonateRecurringController extends Controller
             'donation_id' => ['required', 'integer', 'min:1'],
         ]);
 
-        /** @var User $user */
         $user = $request->user();
+
+        // find the donation record for the current user that matches the donation ID
         $donation = $user->donations()->findOrFail($validated['donation_id']);
         $completionRoute = route('donate-recurring.complete', ['donation_id' => $donation->getKey()]);
 
         if ($donation->subscription_id !== null) {
+            // find the subscription for the current user that matches the donation's subscription ID
             $subscription = $user->subscriptions()->findOrFail($donation->subscription_id);
             $subscription->syncStripeStatus();
 
@@ -100,6 +104,8 @@ class DonateRecurringController extends Controller
             }
 
             abort_unless(in_array($subscription->stripe_status, ['active', 'trialing'], true), 409);
+
+            // update the donation record to mark it as completed
             $donation->update(['status' => DonationStatus::Completed]);
 
             return view('account.donate-recurring-complete', ['donation' => $donation]);
@@ -130,6 +136,8 @@ class DonateRecurringController extends Controller
         $amountStripe = (int) round((float) $donation->amount * 100);
         $interval = DonationInterval::from($donation->interval);
         $recurringProductId = env('STRIPE_RECURRING_PRODUCT_ID');
+        
+        // dynamically create a Stripe price for the recurring donation based on the amount and interval
         $stripePrice = Cashier::stripe()->prices->create([
             'unit_amount' => $amountStripe,
             'currency' => strtolower($donation->currency),
@@ -139,6 +147,7 @@ class DonateRecurringController extends Controller
 
         $subscriptionType = 'donation-'.$donation->getKey();
 
+        // try to create a new subscription for the user with the specified payment method and price
         try {
             $subscription = $user->newSubscription($subscriptionType, $stripePrice->id)->create(
                 $paymentMethodId,
@@ -160,6 +169,7 @@ class DonateRecurringController extends Controller
             ]);
         }
 
+        // store the subscription details on the donation record and mark it as completed
         $this->attachSubscription($donation, $subscription, $user, $paymentMethodId);
         abort_unless(in_array($subscription->stripe_status, ['active', 'trialing'], true), 409);
         $donation->update(['status' => DonationStatus::Completed]);
@@ -170,12 +180,9 @@ class DonateRecurringController extends Controller
     /**
      * Store the Cashier subscription details on its donation record.
      */
-    private function attachSubscription(
-        Donation $donation,
-        Subscription $subscription,
-        User $user,
-        string $paymentMethodId,
-    ): void {
+    private function attachSubscription(Donation $donation, Subscription $subscription, User $user, string $paymentMethodId): void 
+    {
+        // update the donation record to store the subscription details
         $donation->update([
             'subscription_id' => $subscription->getKey(),
             'stripe_payment_method_id' => $paymentMethodId,

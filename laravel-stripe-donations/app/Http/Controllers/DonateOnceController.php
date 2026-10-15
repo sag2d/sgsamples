@@ -33,6 +33,8 @@ class DonateOnceController extends Controller
         ];
 
         $payment = $request->user()->pay($amountStripe, $options);
+
+        // insert a new donation record with a status of pending, to be updated when the payment is completed
         $donation = $user->donations()->create([
             'donor_name' => $user->name,
             'donor_email' => $user->email,
@@ -60,8 +62,9 @@ class DonateOnceController extends Controller
             'payment_intent' => ['required', 'string', 'starts_with:pi_'],
         ]);
 
-        /** @var User $user */
         $user = $request->user();
+
+        // find the donation record for the current user that matches the payment intent ID
         $donation = $user->donations()
             ->where('stripe_payment_intent_id', $validated['payment_intent'])
             ->firstOrFail();
@@ -78,6 +81,7 @@ class DonateOnceController extends Controller
         $charge = $paymentIntent->latest_charge;
         $paymentMethod = $paymentIntent->payment_method;
 
+        // update the donation record to mark it as completed and store the Stripe payment ID and payment method ID
         $donation->update([
             'status' => DonationStatus::Completed,
             'stripe_payment_id' => is_string($charge) ? $charge : $charge?->id,

@@ -20,6 +20,7 @@ class DonationController extends Controller
      */
     public function index(Request $request): View
     {
+        // find donations for the current user that are not pending, eager load the subscription relationship, order by latest, and paginate the results
         $donations = $request->user()
             ->donations()
             ->notPending()
@@ -35,6 +36,7 @@ class DonationController extends Controller
      */
     public function cancel(Request $request, Donation $donation): RedirectResponse
     {
+        // find the donation record for the current user that matches the donation ID and eager load the subscription relationship  
         $donation = $request->user()
             ->donations()
             ->with('subscription')
@@ -43,6 +45,7 @@ class DonationController extends Controller
 
         abort_unless($subscription !== null && $donation->interval !== null, 404);
 
+        // try to cancel the subscription for the current user's recurring donation, and handle any Stripe API errors that may occur
         try {
             $subscription->syncStripeStatus();
 
